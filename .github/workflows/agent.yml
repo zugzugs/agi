@@ -1,4 +1,4 @@
-name: Ollama Python 3.12+ Wiki Collector
+name: Agent Ollama
 
 on:
   schedule:
@@ -11,6 +11,8 @@ permissions:
 jobs:
   collect:
     runs-on: ubuntu-latest
+    env:
+      OLLAMA_MODEL: mistral  # default model if repo variable not set
 
     steps:
       - name: Checkout
@@ -26,12 +28,12 @@ jobs:
       - name: Install Ollama
         run: |
           curl -fsSL https://ollama.com/install.sh | sh
-          echo "Pulling model: ${OLLAMA_MODEL:-mistral}"
-          ollama pull "${OLLAMA_MODEL:-mistral}"
+          echo "Pulling model: ${OLLAMA_MODEL}"
+          ollama pull "${OLLAMA_MODEL}"
 
       - name: Run collector
         env:
-          OLLAMA_MODEL: ${{ vars.OLLAMA_MODEL }}
+          OLLAMA_MODEL: ${{ env.OLLAMA_MODEL }}
           OLLAMA_TEMPERATURE: "0.2"
           OUTPUT_DIR: outputs
           STATE_DIR: state
