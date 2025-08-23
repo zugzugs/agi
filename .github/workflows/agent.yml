@@ -1,0 +1,51 @@
+name: Ollama Python 3.12+ Wiki Collector
+
+on:
+  schedule:
+    - cron: "*/10 * * * *"   # every 10 minutes
+  workflow_dispatch: {}
+
+permissions:
+  contents: write  # allow the workflow to push commits back
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Ollama
+        run: |
+          curl -fsSL https://ollama.com/install.sh | sh
+          echo "Pulling model: ${OLLAMA_MODEL:-mistral}"
+          ollama pull "${OLLAMA_MODEL:-mistral}"
+
+      - name: Run collector
+        env:
+          OLLAMA_MODEL: ${{ vars.OLLAMA_MODEL }}
+          OLLAMA_TEMPERATURE: "0.2"
+          OUTPUT_DIR: outputs
+          STATE_DIR: state
+        run: |
+          python scripts/run_query.py
+
+      - name: Commit & push results
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add outputs state/last_index.txt
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "Add entry via cron"
+            git push
+          fi
