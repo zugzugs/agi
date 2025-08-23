@@ -2,7 +2,8 @@ async function loadArticles() {
   const container = document.getElementById('articles');
 
   try {
-    const res = await fetch('../agi/outputs'); // outputs dir published with site
+    const res = await fetch('outputs/');
+    if (!res.ok) throw new Error(`Could not load outputs directory (${res.status})`);
     const text = await res.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
@@ -11,7 +12,7 @@ async function loadArticles() {
       .filter(href => href.endsWith('.json'));
 
     for (let href of links.reverse()) {
-      const jsonRes = await fetch('../agi/outputs/' + href);
+      const jsonRes = await fetch('outputs/' + href);
       const data = await jsonRes.json();
       renderArticle(data, container);
     }
