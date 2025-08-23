@@ -11,7 +11,7 @@ async function loadArticles() {
       .filter(href => href.endsWith('.json'));
 
     for (let href of links.reverse()) {
-      const jsonRes = await fetch('../outputs/' + href);
+      const jsonRes = await fetch('../agi/outputs/' + href);
       const data = await jsonRes.json();
       renderArticle(data, container);
     }
