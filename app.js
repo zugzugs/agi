@@ -2,7 +2,7 @@ async function loadArticles() {
   const container = document.getElementById('articles');
 
   try {
-    const res = await fetch('../outputs'); // outputs dir published with site
+    const res = await fetch('../agi/outputs'); // outputs dir published with site
     const text = await res.text();
     const parser = new DOMParser();
     const doc = parser.parseFromString(text, 'text/html');
