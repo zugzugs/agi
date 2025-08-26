@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-08-26T19:27:10Z",
+  "model": "mistral",
+  "topic_index": 42,
+  "topic": "How to profile REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling REST APIs using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer will guide you through profiling REST APIs using the FastAPI framework in Python 3.12+, demonstrating key steps and providing code examples.\",\n  \"key_points\": [\n    \"Installation of FastAPI and necessary dependencies\",\n    \"Creating a basic FastAPI application\",\n    \"Profiling API endpoints with built-in ProfilerMiddleware\",\n    \"Understanding profiler output and identifying bottlenecks\",\n    \"Using third-party libraries like cProfile or Line_profiler for more granular profiling\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef main():\\n    return {'message': 'Hello World'}\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile\\nimport pstats\\nprofile = cProfile.Profile()\\nwith profile:\\n    main()\\npstats.Stats(profile).sort_stats('cumulative').print_stats(30)\"\n    }\n  ],\n  \"version_notes\": [\n    \"FastAPI v0.75.0 and above support Python 3.12\",\n    \"CProfile is a built-in python library, no specific version required\"\n  ],\n  \"caveats\": [\n    \"Profiling can have an impact on your API performance; use it sparingly during development\",\n    \"FastAPI's ProfilerMiddleware may not provide detailed profiling data for third-party libraries\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling REST APIs using FastAPI with Python 3.12+",
+    "summary": "This explainer will guide you through profiling REST APIs using the FastAPI framework in Python 3.12+, demonstrating key steps and providing code examples.",
+    "key_points": [
+      "Installation of FastAPI and necessary dependencies",
+      "Creating a basic FastAPI application",
+      "Profiling API endpoints with built-in ProfilerMiddleware",
+      "Understanding profiler output and identifying bottlenecks",
+      "Using third-party libraries like cProfile or Line_profiler for more granular profiling"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef main():\n    return {'message': 'Hello World'}"
+      },
+      {
+        "language": "python",
+        "code": "import cProfile\nimport pstats\nprofile = cProfile.Profile()\nwith profile:\n    main()\npstats.Stats(profile).sort_stats('cumulative').print_stats(30)"
+      }
+    ],
+    "version_notes": [
+      "FastAPI v0.75.0 and above support Python 3.12",
+      "CProfile is a built-in python library, no specific version required"
+    ],
+    "caveats": [
+      "Profiling can have an impact on your API performance; use it sparingly during development",
+      "FastAPI's ProfilerMiddleware may not provide detailed profiling data for third-party libraries"
+    ]
+  }
+}
