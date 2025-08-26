@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-08-26T16:49:02Z",
+  "model": "mistral",
+  "topic_index": 40,
+  "topic": "How to benchmark REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to benchmark REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Benchmarking REST APIs using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide provides a comprehensive overview on how to utilize FastAPI, a modern, high-performance web framework for building APIs in Python 3.12+, to benchmark the performance of your REST APIs.\",\n  \"key_points\": [\n    \"Install FastAPI and other required packages\",\n    \"Create a new FastAPI application with a simple endpoint\",\n    \"Implement the `FastAPIRequest` class for request customization\",\n    \"Use FastAPI's built-in benchmarking tools to measure endpoint performance\",\n    \"Visualize the results using libraries like Matplotlib or Seaborn\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\n# Install FastAPI and other required packages\\n\\npip install fastapi uvicorn\\n\\n# Import necessary libraries\\nimport asyncio\\nimport time\\nimport fastapi\\nfrom fastapi.testclient import TestClient\\n\\n# Create a new FastAPI application\\napp = fastapi.FastAPI()\\n\\n# Define a simple endpoint\\n@app.get('/')\\ndef main():\\n    return {'Hello': 'World'} \\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\n# Implement the FastAPIRequest class\\nclass FastAPIRequest:\\n    async def __aenter__(self):\\n        self.client = TestClient(app)\\n        return self\\n    \\n    async def __aexit__(self, exc_type, exc, tb):\\n        pass\\n    \\n    async def request(self, method, url, **data):\\n        response = await self.client.request(method, url, json=data)\\n        return response\\n\\n# Use FastAPI's built-in benchmarking tools\\nasync def measure_endpoint():\\n    fastapi_request = FastAPIRequest()\\n    responses = []\\n    for _ in range(100):\\n        start_time = time.monotonic()\\n        response = await fastapi_request.request('GET', '/')\\n        end_time = time.monotonic()\\n        responses.append((end_time - start_time, response))\\n    return responses\\n\\n# Visualize the results using Matplotlib\\nimport matplotlib.pyplot as plt\\n\\nmeasurements = measure_endpoint()\\ntimes = [measurement[0] for measurement in measurements]\\nn responses = [measurement[1].content for measurement in measurements]\\nplt.boxplot(times)\\nplt.title('API Response Times')\\nplt.xlabel('Responses')\\nplt.show()\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for this guide.\",\n    \"FastAPI version 0.65.2 and uvicorn version 0.13.3 were used during development.\"\n  ],\n  \"caveats\": [\n    \"This example assumes you have already set up a FastAPI project and created an endpoint to test.\",\n    \"Ensure to run the FastAPI application before executing the benchmarking code.\",\n    \"Adjust the number of requests in the `measure_endpoint()` function as needed for more accurate results.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Benchmarking REST APIs using FastAPI with Python 3.12+",
+    "summary": "This guide provides a comprehensive overview on how to utilize FastAPI, a modern, high-performance web framework for building APIs in Python 3.12+, to benchmark the performance of your REST APIs.",
+    "key_points": [
+      "Install FastAPI and other required packages",
+      "Create a new FastAPI application with a simple endpoint",
+      "Implement the `FastAPIRequest` class for request customization",
+      "Use FastAPI's built-in benchmarking tools to measure endpoint performance",
+      "Visualize the results using libraries like Matplotlib or Seaborn"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\n\n# Install FastAPI and other required packages\n\npip install fastapi uvicorn\n\n# Import necessary libraries\nimport asyncio\nimport time\nimport fastapi\nfrom fastapi.testclient import TestClient\n\n# Create a new FastAPI application\napp = fastapi.FastAPI()\n\n# Define a simple endpoint\n@app.get('/')\ndef main():\n    return {'Hello': 'World'} \n```"
+      },
+      {
+        "language": "python",
+        "code": "```\n\n# Implement the FastAPIRequest class\nclass FastAPIRequest:\n    async def __aenter__(self):\n        self.client = TestClient(app)\n        return self\n    \n    async def __aexit__(self, exc_type, exc, tb):\n        pass\n    \n    async def request(self, method, url, **data):\n        response = await self.client.request(method, url, json=data)\n        return response\n\n# Use FastAPI's built-in benchmarking tools\nasync def measure_endpoint():\n    fastapi_request = FastAPIRequest()\n    responses = []\n    for _ in range(100):\n        start_time = time.monotonic()\n        response = await fastapi_request.request('GET', '/')\n        end_time = time.monotonic()\n        responses.append((end_time - start_time, response))\n    return responses\n\n# Visualize the results using Matplotlib\nimport matplotlib.pyplot as plt\n\nmeasurements = measure_endpoint()\ntimes = [measurement[0] for measurement in measurements]\nn responses = [measurement[1].content for measurement in measurements]\nplt.boxplot(times)\nplt.title('API Response Times')\nplt.xlabel('Responses')\nplt.show()\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this guide.",
+      "FastAPI version 0.65.2 and uvicorn version 0.13.3 were used during development."
+    ],
+    "caveats": [
+      "This example assumes you have already set up a FastAPI project and created an endpoint to test.",
+      "Ensure to run the FastAPI application before executing the benchmarking code.",
+      "Adjust the number of requests in the `measure_endpoint()` function as needed for more accurate results."
+    ]
+  }
+}
