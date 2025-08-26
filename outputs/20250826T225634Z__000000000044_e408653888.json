@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2025-08-26T22:56:34Z",
+  "model": "mistral",
+  "topic_index": 44,
+  "topic": "How to unit test REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing FastAPI REST APIs in Python 3.12+\",\n  \"summary\": \"Learn how to write effective unit tests for FastAPI-based REST APIs using Python 3.12+ and built-in testing utilities.\",\n\n  \"key_points\": [\n    \"Import the necessary FastAPI modules and unittest.mock for mocking dependencies\",\n    \"Create test cases that instantiate a TestClient to simulate HTTP requests\",\n    \"Use the assertXXX functions provided by unittest to verify the responses\",\n    \"Mock external services or databases using unittest.mock when needed\",\n    \"Utilize FastAPI's built-in testing functions like fastapi.testclient.TestClient and fastapi.responses for cleaner test cases\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nimport unittest\\nfrom fastapi import FastAPI, Response\\napp = FastAPI()\\nclass TestMyAPI(unittest.TestCase):\\n\\t def setUp(self):\\n\\t\\t self.client = app.test_client\\n\\n\\t def test_get_items(self):\\n\\t\\t response = self.client.get('/items')\\n\\t\\t assert response.status_code == 200\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nimport unittest.mock\\nfrom fastapi import Depends\\n@unittest.mock.patch('my_dependency_module.function')\\ndef test_my_endpoint(mock_function):\\n\\t app = FastAPI()\\n\\t def my_dependency():\\n\\t\\t return mock_function\\n\\t @app.get('/my-endpoint', dependency=my_dependency)\\ndef my_endpoint(response: Response):\\n\\t response.content = b'Hello, World!'\\n\\t return response\\n\\ttest = TestMyAPI()\\ntest.test_my_endpoint(mock_function=unittest.mock.MagicMock())\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for running tests\",\n    \"FastAPI version >=0.74.0 is recommended\",\n    \"Tested with unittest==2022.6.0\"\n  ],\n\n  \"caveats\": [\n    \"Be careful when mocking dependencies that involve side effects or external resources\",\n    \"Make sure to reset the mocks before each test for consistent behavior\",\n    \"Consider using pytest-fastapi for more powerful testing capabilities with pytest\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing FastAPI REST APIs in Python 3.12+",
+    "summary": "Learn how to write effective unit tests for FastAPI-based REST APIs using Python 3.12+ and built-in testing utilities.",
+    "key_points": [
+      "Import the necessary FastAPI modules and unittest.mock for mocking dependencies",
+      "Create test cases that instantiate a TestClient to simulate HTTP requests",
+      "Use the assertXXX functions provided by unittest to verify the responses",
+      "Mock external services or databases using unittest.mock when needed",
+      "Utilize FastAPI's built-in testing functions like fastapi.testclient.TestClient and fastapi.responses for cleaner test cases"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nimport unittest\nfrom fastapi import FastAPI, Response\napp = FastAPI()\nclass TestMyAPI(unittest.TestCase):\n\t def setUp(self):\n\t\t self.client = app.test_client\n\n\t def test_get_items(self):\n\t\t response = self.client.get('/items')\n\t\t assert response.status_code == 200\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\nimport unittest.mock\nfrom fastapi import Depends\n@unittest.mock.patch('my_dependency_module.function')\ndef test_my_endpoint(mock_function):\n\t app = FastAPI()\n\t def my_dependency():\n\t\t return mock_function\n\t @app.get('/my-endpoint', dependency=my_dependency)\ndef my_endpoint(response: Response):\n\t response.content = b'Hello, World!'\n\t return response\n\ttest = TestMyAPI()\ntest.test_my_endpoint(mock_function=unittest.mock.MagicMock())\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for running tests",
+      "FastAPI version >=0.74.0 is recommended",
+      "Tested with unittest==2022.6.0"
+    ],
+    "caveats": [
+      "Be careful when mocking dependencies that involve side effects or external resources",
+      "Make sure to reset the mocks before each test for consistent behavior",
+      "Consider using pytest-fastapi for more powerful testing capabilities with pytest"
+    ]
+  }
+}
