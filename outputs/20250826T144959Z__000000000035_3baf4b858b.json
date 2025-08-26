@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2025-08-26T14:49:59Z",
+  "model": "mistral",
+  "topic_index": 35,
+  "topic": "Deep dive: _compat_pickle standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: _compat_pickle standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"_compat_pickle standard library module in Python 3.12+\",\n  \"summary\": \"An overview of the new _compat_pickle module in Python 3.12+, which provides a method to support pickling (serializing and de-serializing) legacy Python objects that are not compatible with the default pickle protocol in newer versions.\",\n  \"key_points\": [\n    \"_compat_pickle is a part of the standard library\",\n    \"_compat_pickle allows pickling of unpicklable objects introduced in Python 3.0+\",\n    \"_compat_pickle does not support pickling of certain classes like file or socket objects\",\n    \"It's recommended to use _compat_pickle judiciously, as it can introduce security risks when deserializing untrusted data\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"import pickle\\nimport _compat\\npickle.extensions.update_registry(_compat.pickle_registry)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"# Example of pickling a non-picklable object using _compat_pickle\\nimport pickle\\nclass NonPicklable:\\n    def __init__(self, data):\\n        self.data = data\\npickled_obj = pickle.dumps(NonPicklable(\\\"Test Data\\\"), protocol=pickle.Protocol(3))\\nprint(pickled_obj)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"# Example of unpickling a _compat_pickled object\\nimport pickle\\npickled_obj = b'...your_pickled_object_bytes_here...' \\ndeserialized_obj = pickle.loads(pickled_obj)\"\n    }\n  ],\n  \"version_notes\": [\n    \"_compat_pickle was introduced in Python 3.12\",\n    \"_compat_pickle is not compatible with pickling of certain classes like file or socket objects\"\n  ],\n  \"caveats\": [\n    \"_compat_pickle can introduce security risks when deserializing untrusted data\",\n    \"Always validate and sanitize the input data before using _compat_pickle for pickling and deserialization\"\n  ]\n}",
+  "response_parsed": {
+    "title": "_compat_pickle standard library module in Python 3.12+",
+    "summary": "An overview of the new _compat_pickle module in Python 3.12+, which provides a method to support pickling (serializing and de-serializing) legacy Python objects that are not compatible with the default pickle protocol in newer versions.",
+    "key_points": [
+      "_compat_pickle is a part of the standard library",
+      "_compat_pickle allows pickling of unpicklable objects introduced in Python 3.0+",
+      "_compat_pickle does not support pickling of certain classes like file or socket objects",
+      "It's recommended to use _compat_pickle judiciously, as it can introduce security risks when deserializing untrusted data"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "import pickle\nimport _compat\npickle.extensions.update_registry(_compat.pickle_registry)"
+      },
+      {
+        "language": "Python",
+        "code": "# Example of pickling a non-picklable object using _compat_pickle\nimport pickle\nclass NonPicklable:\n    def __init__(self, data):\n        self.data = data\npickled_obj = pickle.dumps(NonPicklable(\"Test Data\"), protocol=pickle.Protocol(3))\nprint(pickled_obj)"
+      },
+      {
+        "language": "Python",
+        "code": "# Example of unpickling a _compat_pickled object\nimport pickle\npickled_obj = b'...your_pickled_object_bytes_here...' \ndeserialized_obj = pickle.loads(pickled_obj)"
+      }
+    ],
+    "version_notes": [
+      "_compat_pickle was introduced in Python 3.12",
+      "_compat_pickle is not compatible with pickling of certain classes like file or socket objects"
+    ],
+    "caveats": [
+      "_compat_pickle can introduce security risks when deserializing untrusted data",
+      "Always validate and sanitize the input data before using _compat_pickle for pickling and deserialization"
+    ]
+  }
+}
