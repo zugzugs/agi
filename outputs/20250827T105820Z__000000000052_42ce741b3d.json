@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-08-27T10:58:20Z",
+  "model": "mistral",
+  "topic_index": 52,
+  "topic": "How to package REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to package REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Packaging REST APIs Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide on how to create and package REST APIs using the FastAPI framework in Python 3.12+. FastAPI offers high productivity, type-checking, and automatic generation of OpenAPI documentation.\",\n\n  \"key_points\": [\n    \"FastAPI is a modern, fast (performance-wise), web framework for building APIs with Python 3.7+.\",\n    \"It provides type hints and type inference, automatic API documentation based on type annotations, and fast performance.\",\n    \"FastAPI supports asynchronous operations using async/await syntax.\",\n    \"It is built on top of Starlette, a Python ASGI web server and WSGI middleware, and Pydantic for data validation.\",\n    \"For this guide, we will focus on Python 3.12+.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\n@app.get('/')\\ndef root():\\n    return {'Hello': 'World'}\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from pydantic import BaseModel\\nclass Item(BaseModel):\\n    name: str\\n    description: str\\n@app.post('/items/')\\ndef create_item(item: Item):\\n    return item\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"FastAPI version 0.67.0 and later support Python 3.12.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure you have the required dependencies installed: FastAPI, Uvicorn or Asyncio for running the application.\",\n    \"Take note of how routes, endpoints, and response handling work in FastAPI, as they differ from Flask.\",\n    \"FastAPI documentation can be generated using tools like ReDoc, Swagger UI, or OpenAPI Redoc.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Packaging REST APIs Using FastAPI with Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide on how to create and package REST APIs using the FastAPI framework in Python 3.12+. FastAPI offers high productivity, type-checking, and automatic generation of OpenAPI documentation.",
+    "key_points": [
+      "FastAPI is a modern, fast (performance-wise), web framework for building APIs with Python 3.7+.",
+      "It provides type hints and type inference, automatic API documentation based on type annotations, and fast performance.",
+      "FastAPI supports asynchronous operations using async/await syntax.",
+      "It is built on top of Starlette, a Python ASGI web server and WSGI middleware, and Pydantic for data validation.",
+      "For this guide, we will focus on Python 3.12+."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\n@app.get('/')\ndef root():\n    return {'Hello': 'World'}"
+      },
+      {
+        "language": "python",
+        "code": "from pydantic import BaseModel\nclass Item(BaseModel):\n    name: str\n    description: str\n@app.post('/items/')\ndef create_item(item: Item):\n    return item"
+      }
+    ],
+    "version_notes": [
+      "FastAPI version 0.67.0 and later support Python 3.12."
+    ],
+    "caveats": [
+      "Ensure you have the required dependencies installed: FastAPI, Uvicorn or Asyncio for running the application.",
+      "Take note of how routes, endpoints, and response handling work in FastAPI, as they differ from Flask.",
+      "FastAPI documentation can be generated using tools like ReDoc, Swagger UI, or OpenAPI Redoc."
+    ]
+  }
+}
