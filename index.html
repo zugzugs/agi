@@ -2,14 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ollama Python 3.12+ Wiki</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <script defer src="app.js"></script>
 </head>
-<body class="bg-gray-100 text-gray-900">
-  <div class="max-w-4xl mx-auto p-6">
-    <h1 class="text-3xl font-bold mb-6">Ollama Python 3.12+ Wiki</h1>
+<body class="bg-gray-50 text-gray-900 min-h-screen">
+  <div class="max-w-7xl mx-auto p-6">
+    <!-- Header -->
+    <header class="mb-8">
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h1 class="text-4xl font-bold mb-2 text-gray-800">Ollama Python 3.12+ Wiki</h1>
+          <p class="text-gray-600">AI-generated articles about Python 3.12+ features and best practices</p>
+        </div>
+        <div class="text-right">
+          <div class="text-sm text-gray-500">
+            <div id="article-count">Loading...</div>
+            <div id="last-updated">Last updated: <span id="last-updated-time">-</span></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Search and Controls -->
+      <div class="bg-white rounded-lg shadow-sm border border-gray-200 p-4 mb-6">
+        <div class="flex flex-col md:flex-row gap-4">
+          <div class="flex-1">
+            <div class="relative">
+              <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+              <input 
+                type="text" 
+                id="search-input" 
+                placeholder="Search articles by title, content, or topic..." 
+                class="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+              >
+            </div>
+          </div>
+          <div class="flex gap-2">
+            <button id="sort-newest" class="px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+              <i class="fas fa-clock mr-2"></i>Newest First
+            </button>
+            <button id="sort-oldest" class="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-colors">
+              <i class="fas fa-history mr-2"></i>Oldest First
+            </button>
+            <button id="generate-new" class="px-4 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700 transition-colors">
+              <i class="fas fa-plus mr-2"></i>Generate New
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    
+    <!-- Loading State -->
+    <div id="loading" class="text-center py-12">
+      <div class="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-blue-600"></div>
+      <p class="mt-4 text-gray-600">Loading articles...</p>
+    </div>
+    
+    <!-- Articles Container -->
     <div id="articles" class="space-y-6"></div>
+    
+    <!-- No Results Message -->
+    <div id="no-results" class="hidden text-center py-12">
+      <i class="fas fa-search text-4xl text-gray-400 mb-4"></i>
+      <p class="text-gray-600">No articles found matching your search.</p>
+    </div>
   </div>
 </body>
 </html>
+
