@@ -1,0 +1,42 @@
+{
+  "timestamp_utc": "2025-08-29T03:49:41Z",
+  "model": "mistral",
+  "topic_index": 90,
+  "topic": "How to secure web backends using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to secure web backends using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Securing Web Backends Using FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to implement security measures in a FastAPI-based web backend using Python 3.12+. We will cover authentication, authorization, and secure data handling techniques.\",\n\n  \"key_points\": [\n    \"Setting up FastAPI with basic HTTPS for secure connections\",\n    \"Implementing OAuth2 authentication using Passport-Oauth2 and JWT\",\n    \"Adding role-based access control (RBAC) for authorization\",\n    \"Securing data transfer using Content Security Policy (CSP)\",\n    \"Handling sensitive data with environment variables and encryption\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, HTTPException\\napp = FastAPI()\\n\\nimport ssl\\nsocket = ssl.create_default_context().wrap_socket(app.server,\\n       server_side=True, ssl_version=ssl.PROTOCOL_TLSv1_2)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from passport-oauth2 import OAuth2Client\\nclient = OAuth2Client(client_id='your_client_id', client_secret='your_client_secret', access_token_url='https://your_oauth2_provider/oauth2/token')\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import Depends, Security\\nfrom jose import JWTError, jwt\\ndef get_current_user(db: Session = Depends(get_db), auth: OAuth2PasswordRequestFactory = Depends(oauth2)):\\n    credentials_exception = exceptions.AuthenticationException()\\n    access_token = auth.credentials().token\\n    credentials = auth.credentials()\\n    if not jwt.is_valid(credentials):\\n        raise credentials_exception\\n    return authenticate_user(db, credentials)\\n\\n@app.post('/login')\\ndef login(form_data: OAuth2PasswordRequestForm = Depends()):\\n    user = authenticate_user(db, form_data.username, form_data.password)\\n    if not user:\\n        return {'detail': 'Incorrect username or password'}\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for using the new features in FastAPI, like type hints and Union types.\",\n    \"This explainer uses FastAPI v0.75.0 for its comprehensive security features.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure to configure your OAuth2 provider correctly and use valid client credentials.\",\n    \"Never hard-code sensitive information like API keys or secrets directly into your code.\",\n    \"Always validate user input to prevent injection attacks.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Securing Web Backends Using FastAPI in Python 3.12+",
+    "summary": "This explainer demonstrates how to implement security measures in a FastAPI-based web backend using Python 3.12+. We will cover authentication, authorization, and secure data handling techniques.",
+    "key_points": [
+      "Setting up FastAPI with basic HTTPS for secure connections",
+      "Implementing OAuth2 authentication using Passport-Oauth2 and JWT",
+      "Adding role-based access control (RBAC) for authorization",
+      "Securing data transfer using Content Security Policy (CSP)",
+      "Handling sensitive data with environment variables and encryption"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI, HTTPException\napp = FastAPI()\n\nimport ssl\nsocket = ssl.create_default_context().wrap_socket(app.server,\n       server_side=True, ssl_version=ssl.PROTOCOL_TLSv1_2)"
+      },
+      {
+        "language": "Python",
+        "code": "from passport-oauth2 import OAuth2Client\nclient = OAuth2Client(client_id='your_client_id', client_secret='your_client_secret', access_token_url='https://your_oauth2_provider/oauth2/token')"
+      },
+      {
+        "language": "Python",
+        "code": "from fastapi import Depends, Security\nfrom jose import JWTError, jwt\ndef get_current_user(db: Session = Depends(get_db), auth: OAuth2PasswordRequestFactory = Depends(oauth2)):\n    credentials_exception = exceptions.AuthenticationException()\n    access_token = auth.credentials().token\n    credentials = auth.credentials()\n    if not jwt.is_valid(credentials):\n        raise credentials_exception\n    return authenticate_user(db, credentials)\n\n@app.post('/login')\ndef login(form_data: OAuth2PasswordRequestForm = Depends()):\n    user = authenticate_user(db, form_data.username, form_data.password)\n    if not user:\n        return {'detail': 'Incorrect username or password'}"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for using the new features in FastAPI, like type hints and Union types.",
+      "This explainer uses FastAPI v0.75.0 for its comprehensive security features."
+    ],
+    "caveats": [
+      "Ensure to configure your OAuth2 provider correctly and use valid client credentials.",
+      "Never hard-code sensitive information like API keys or secrets directly into your code.",
+      "Always validate user input to prevent injection attacks."
+    ]
+  }
+}
