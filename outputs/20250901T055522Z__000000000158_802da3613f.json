@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-09-01T05:55:22Z",
+  "model": "mistral",
+  "topic_index": 158,
+  "topic": "How to observe ETL jobs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to observe ETL jobs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Observing ETL Jobs using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to monitor ETL (Extract, Transform, Load) job status and progress using FastAPI, a modern web framework for building APIs in Python 3.12+.\",\n\n  \"key_points\": [\n    \"FastAPI is chosen for its performance, ease of use, and ability to handle multiple HTTP requests simultaneously.\",\n    \"ETL jobs are broken down into smaller tasks that can be tracked individually.\",\n    \"A custom API endpoint is created to retrieve the status and progress of each ETL task.\",\n    \"The API endpoint provides real-time updates as ETL tasks complete or encounter errors.\",\n    \"Monitoring helps in identifying bottlenecks, troubleshooting issues, and maintaining a high level of data quality.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\n# Define the status and progress of an ETL task\\nclass EtlTask:\\n    status: str\\n    progress: float\\n    ...\\n\\n# Create an API endpoint for getting ETL task statuses\\n@app.get('/etl_statuses')\\ndef etl_statuses():\\n    tasks = [ETLTask(status='in_progress', progress=0.3), ETLTask(status='completed', progress=1.0)]\\n    return tasks\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, Depends\\nfrom sqlalchemy import create_engine\\n# Assuming we have a database table to store ETL task statuses\\ndef get_db():\\n    db = create_engine('sqlite:///etl_tasks.db')\\n    return db\\n\\n@app.get('/etl_statuses')\\nasync def etl_statuses(db=Depends(get_db)):\\n    tasks = await db.execute('SELECT * FROM etl_tasks').fetchall()\\n    # Transform the database records into ETLTask objects\\n    formatted_tasks = [ETLTask(*task) for task in tasks] \\n    return formatted_tasks\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required to use the latest features and optimizations of FastAPI.\",\n    \"The example code uses the SQLAlchemy ORM for connecting to a database.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure that you have installed the necessary dependencies (FastAPI, Uvicorn, SQLAlchemy) before running the code.\",\n    \"This example assumes that you have already set up an ETL pipeline and created the appropriate database table to store task statuses.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Observing ETL Jobs using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to monitor ETL (Extract, Transform, Load) job status and progress using FastAPI, a modern web framework for building APIs in Python 3.12+.",
+    "key_points": [
+      "FastAPI is chosen for its performance, ease of use, and ability to handle multiple HTTP requests simultaneously.",
+      "ETL jobs are broken down into smaller tasks that can be tracked individually.",
+      "A custom API endpoint is created to retrieve the status and progress of each ETL task.",
+      "The API endpoint provides real-time updates as ETL tasks complete or encounter errors.",
+      "Monitoring helps in identifying bottlenecks, troubleshooting issues, and maintaining a high level of data quality."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\n# Define the status and progress of an ETL task\nclass EtlTask:\n    status: str\n    progress: float\n    ...\n\n# Create an API endpoint for getting ETL task statuses\n@app.get('/etl_statuses')\ndef etl_statuses():\n    tasks = [ETLTask(status='in_progress', progress=0.3), ETLTask(status='completed', progress=1.0)]\n    return tasks"
+      },
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI, Depends\nfrom sqlalchemy import create_engine\n# Assuming we have a database table to store ETL task statuses\ndef get_db():\n    db = create_engine('sqlite:///etl_tasks.db')\n    return db\n\n@app.get('/etl_statuses')\nasync def etl_statuses(db=Depends(get_db)):\n    tasks = await db.execute('SELECT * FROM etl_tasks').fetchall()\n    # Transform the database records into ETLTask objects\n    formatted_tasks = [ETLTask(*task) for task in tasks] \n    return formatted_tasks"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to use the latest features and optimizations of FastAPI.",
+      "The example code uses the SQLAlchemy ORM for connecting to a database."
+    ],
+    "caveats": [
+      "Ensure that you have installed the necessary dependencies (FastAPI, Uvicorn, SQLAlchemy) before running the code.",
+      "This example assumes that you have already set up an ETL pipeline and created the appropriate database table to store task statuses."
+    ]
+  }
+}
