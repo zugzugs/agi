@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2025-09-01T20:17:18Z",
+  "model": "mistral",
+  "topic_index": 170,
+  "topic": "How to profile stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Stream Processing in FastAPI with Python 3.12+\",\n  \"summary\": \"This guide showcases how to profile and optimize the performance of stream processing in FastAPI applications using the latest Python 3.12+ features.\",\n  \"key_points\": [\n    \"Utilize the built-in cProfile and line_profiler libraries for profiling\",\n    \"Take advantage of new Python 3.12+ features like async context managers\",\n    \"Implement stream processing using FastAPI's WebSocket support\",\n    \"Optimize code by analyzing the generated profile reports\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\nimport asyncio\\nfrom fastapi import FastAPI, WebSocket\\n\\napp = FastAPI()\\n\\nasync def profiled_stream(websocket: WebSocket):\\n    profiler = cProfile.Profile()\\n    async with profiler:\\n        while True:\\n            data = await websocket.receive()\\n            # Process the received data here\\n\\n    profiler.print_stats()\\n\\napp.websocket_route('/stream', profiled_stream)\\n``\"\n    }\n  ],\n  \"version_notes\": [\n    \"Requires Python 3.12+ for proper implementation and support of new features\",\n    \"FastAPI v0.74.0 or higher recommended for WebSocket functionality\"\n  ],\n  \"caveats\": [\n    \"Profiling can introduce overhead, be aware that profiled code may not reflect real-world performance\",\n    \"Optimization techniques should always consider tradeoffs between readability and efficiency\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Stream Processing in FastAPI with Python 3.12+",
+    "summary": "This guide showcases how to profile and optimize the performance of stream processing in FastAPI applications using the latest Python 3.12+ features.",
+    "key_points": [
+      "Utilize the built-in cProfile and line_profiler libraries for profiling",
+      "Take advantage of new Python 3.12+ features like async context managers",
+      "Implement stream processing using FastAPI's WebSocket support",
+      "Optimize code by analyzing the generated profile reports"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "```python\nimport asyncio\nfrom fastapi import FastAPI, WebSocket\n\napp = FastAPI()\n\nasync def profiled_stream(websocket: WebSocket):\n    profiler = cProfile.Profile()\n    async with profiler:\n        while True:\n            data = await websocket.receive()\n            # Process the received data here\n\n    profiler.print_stats()\n\napp.websocket_route('/stream', profiled_stream)\n``"
+      }
+    ],
+    "version_notes": [
+      "Requires Python 3.12+ for proper implementation and support of new features",
+      "FastAPI v0.74.0 or higher recommended for WebSocket functionality"
+    ],
+    "caveats": [
+      "Profiling can introduce overhead, be aware that profiled code may not reflect real-world performance",
+      "Optimization techniques should always consider tradeoffs between readability and efficiency"
+    ]
+  }
+}
