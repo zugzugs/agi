@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2025-09-01T21:40:31Z",
+  "model": "mistral",
+  "topic_index": 172,
+  "topic": "How to unit test stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing Stream Processing in FastAPI with Python 3.12+\",\n  \"summary\": \"This document provides a comprehensive guide on how to unit test stream processing using FastAPI and Python 3.12+. It covers the key points, code examples, version notes, and caveats involved.\",\n  \"key_points\": [\n    \"Understanding the basics of FastAPI for building APIs\",\n    \"Implementing stream processing in FastAPI\",\n    \"Setting up a testing environment for streaming tests\",\n    \"Writing unit tests for stream processing endpoints\",\n    \"Handling asynchronous context in unit tests\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, Depends\\napp = FastAPI()\\nstream_app = app.get('/stream', response_class=StreamResponse)\\n\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"def generate():\\n  while True:\\n     yield {'data': 'test data'}\\n\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"@app.get('/stream')\\nasync def stream_endpoint():\\n   return StreamingResponse(generate())\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for using the async/await syntax and stream responses.\",\n    \"FastAPI version 0.70.0 or higher is recommended for testing streaming endpoints.\"\n  ],\n  \"caveats\": [\n    \"Streaming responses cannot be tested directly as they return a raw response stream, so mocked responses should be used in tests.\",\n    \"Since unit tests are synchronous by nature, care must be taken to handle the asynchronous context of streaming endpoints.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing Stream Processing in FastAPI with Python 3.12+",
+    "summary": "This document provides a comprehensive guide on how to unit test stream processing using FastAPI and Python 3.12+. It covers the key points, code examples, version notes, and caveats involved.",
+    "key_points": [
+      "Understanding the basics of FastAPI for building APIs",
+      "Implementing stream processing in FastAPI",
+      "Setting up a testing environment for streaming tests",
+      "Writing unit tests for stream processing endpoints",
+      "Handling asynchronous context in unit tests"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI, Depends\napp = FastAPI()\nstream_app = app.get('/stream', response_class=StreamResponse)\n"
+      },
+      {
+        "language": "Python",
+        "code": "def generate():\n  while True:\n     yield {'data': 'test data'}\n"
+      },
+      {
+        "language": "Python",
+        "code": "@app.get('/stream')\nasync def stream_endpoint():\n   return StreamingResponse(generate())"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for using the async/await syntax and stream responses.",
+      "FastAPI version 0.70.0 or higher is recommended for testing streaming endpoints."
+    ],
+    "caveats": [
+      "Streaming responses cannot be tested directly as they return a raw response stream, so mocked responses should be used in tests.",
+      "Since unit tests are synchronous by nature, care must be taken to handle the asynchronous context of streaming endpoints."
+    ]
+  }
+}
