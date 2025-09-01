@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-09-01T16:41:40Z",
+  "model": "mistral",
+  "topic_index": 166,
+  "topic": "How to optimize stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to optimize stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Optimizing Stream Processing with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to optimize stream processing using the FastAPI framework in Python 3.12+. It covers key points, code examples, version notes, and caveats.\",\n  \"key_points\": [\n    \"Utilizing FastAPI's middleware system for handling streams\",\n    \"Using asynchronous functions for stream processing\",\n    \"Managing memory efficiently with chunked streaming\",\n    \"Implementing appropriate data types for streams\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, Middleware\\nclass StreamMiddleware:\\n    async def __call__(self, request: Request,\\n                       call_next):\\n        if request.media_type == 'application/octet-stream':\\n            request.body = await request.body.read()\\n            chunks = [chunk for chunk in\\n                chunked(request.body) if chunk]\\n            request.body = None\\n            request.body = chunks\\n        return await call_next(request)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"async def process_stream(file: AsyncIterator[bytes]):\\n    while True:\\n        chunk = await file.send(None)\\n        if not chunk:\\n            break\\n        # Process the chunk here\"\n    }\n  ],\n  \"version_notes\": [\n    \"FastAPI 0.71.0 introduced stream processing middleware\",\n    \"Python 3.12+ is required for improved asynchronous performance\"\n  ],\n  \"caveats\": [\n    \"Stream processing can be resource-intensive, ensuring proper memory management is crucial\",\n    \"Incorrect data types may lead to stream processing errors, always use appropriate types like bytes or streams.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Optimizing Stream Processing with FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to optimize stream processing using the FastAPI framework in Python 3.12+. It covers key points, code examples, version notes, and caveats.",
+    "key_points": [
+      "Utilizing FastAPI's middleware system for handling streams",
+      "Using asynchronous functions for stream processing",
+      "Managing memory efficiently with chunked streaming",
+      "Implementing appropriate data types for streams"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI, Middleware\nclass StreamMiddleware:\n    async def __call__(self, request: Request,\n                       call_next):\n        if request.media_type == 'application/octet-stream':\n            request.body = await request.body.read()\n            chunks = [chunk for chunk in\n                chunked(request.body) if chunk]\n            request.body = None\n            request.body = chunks\n        return await call_next(request)"
+      },
+      {
+        "language": "Python",
+        "code": "async def process_stream(file: AsyncIterator[bytes]):\n    while True:\n        chunk = await file.send(None)\n        if not chunk:\n            break\n        # Process the chunk here"
+      }
+    ],
+    "version_notes": [
+      "FastAPI 0.71.0 introduced stream processing middleware",
+      "Python 3.12+ is required for improved asynchronous performance"
+    ],
+    "caveats": [
+      "Stream processing can be resource-intensive, ensuring proper memory management is crucial",
+      "Incorrect data types may lead to stream processing errors, always use appropriate types like bytes or streams."
+    ]
+  }
+}
