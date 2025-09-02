@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-09-02T07:39:17Z",
+  "model": "mistral",
+  "topic_index": 180,
+  "topic": "How to package stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to package stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Stream Processing Using FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to use FastAPI for building efficient and scalable stream processing applications in Python 3.12+.\",\n  \"key_points\": [\n    \"FastAPI as an API framework supports real-time data streams out of the box.\",\n    \"Python 3.12+ includes features like async streaming, which work seamlessly with FastAPI.\",\n    \"Stream processing can be achieved using WebSockets or HTTP/2 Server Push.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\n@app.websocket/\\nasync def websocket_connect(websocket: WebSocket):\\n    await websocket.accept()\\n    while True:\\n        data = await websocket.receive_text()\\n        # process the received data here\\n\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, Header\\napp = FastAPI()\\n\\n@app.get('/stream', response_class=StreamResponse)\\nasync def stream():\\n    # generate a data stream here\\n    yield b'data1\\n'\\nyield b'data2\\n'\\n    yield b'data3'\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for async streaming support.\",\n    \"FastAPI v0.76.0 or later is recommended for utilizing the StreamResponse response class.\"\n  ],\n  \"caveats\": [\n    \"Keep in mind that WebSockets and HTTP/2 Server Push might not be supported by all clients.\",\n    \"Ensure proper handling of client disconnections to manage resources efficiently.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Stream Processing Using FastAPI in Python 3.12+",
+    "summary": "This explainer demonstrates how to use FastAPI for building efficient and scalable stream processing applications in Python 3.12+.",
+    "key_points": [
+      "FastAPI as an API framework supports real-time data streams out of the box.",
+      "Python 3.12+ includes features like async streaming, which work seamlessly with FastAPI.",
+      "Stream processing can be achieved using WebSockets or HTTP/2 Server Push."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\n@app.websocket/\nasync def websocket_connect(websocket: WebSocket):\n    await websocket.accept()\n    while True:\n        data = await websocket.receive_text()\n        # process the received data here\n"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, Header\napp = FastAPI()\n\n@app.get('/stream', response_class=StreamResponse)\nasync def stream():\n    # generate a data stream here\n    yield b'data1\n'\nyield b'data2\n'\n    yield b'data3'"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for async streaming support.",
+      "FastAPI v0.76.0 or later is recommended for utilizing the StreamResponse response class."
+    ],
+    "caveats": [
+      "Keep in mind that WebSockets and HTTP/2 Server Push might not be supported by all clients.",
+      "Ensure proper handling of client disconnections to manage resources efficiently."
+    ]
+  }
+}
