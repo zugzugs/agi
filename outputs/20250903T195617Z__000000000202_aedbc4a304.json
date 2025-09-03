@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-09-03T19:56:17Z",
+  "model": "mistral",
+  "topic_index": 202,
+  "topic": "How to profile microservices using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile microservices using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Microservices using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer provides a step-by-step guide on how to profile the performance of microservices built using FastAPI and Python 3.12+, emphasizing the benefits, tools, and best practices.\",\n  \"key_points\": [\n    \"Understanding the importance of profiling for optimizing microservices\",\n    \"Setting up FastAPI project and its dependencies\",\n    \"Using built-in FastAPI utilities for basic performance analysis\",\n    \"Exploring third-party profiling libraries like cProfile, line_profiler, and pympler\",\n    \"Configuring and using APM tools like Datadog, New Relic, or Jaeger with FastAPI projects\",\n    \"Optimizing code based on the obtained insights\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```python\\nimport cProfile\\nimport pstats\\nfrom io import StringIO\\n\\nprofiler = cProfile.Profile()\\n\\ndef my_function(): ... \\n\\nprofiler.run('my_function()')\\n\\ns = StringIO()\\np = pstats.Stats(profiler, stream=s).sort_stats('cumulative')\\np.print_stats(40)\\nprint(s.getvalue())``\"\n    }\n  ],\n  \"version_notes\": [\n    \"FastAPI v0.71+ supports Python 3.12\",\n    \"Ensure that your project has the latest FastAPI and dependencies (Black, Isort) installed via pip.\",\n    \"Some APM tools have specific requirements for their integrations with FastAPI.\"\n  ],\n  \"caveats\": [\n    \"Profiling can be resource-intensive; consider enabling it only in development environments\",\n    \"The results may vary depending on the complexity of your microservices and hardware\",\n    \"While this guide uses cProfile for basic profiling, more advanced tools like line_profiler and pympler provide additional insights.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Microservices using FastAPI with Python 3.12+",
+    "summary": "This explainer provides a step-by-step guide on how to profile the performance of microservices built using FastAPI and Python 3.12+, emphasizing the benefits, tools, and best practices.",
+    "key_points": [
+      "Understanding the importance of profiling for optimizing microservices",
+      "Setting up FastAPI project and its dependencies",
+      "Using built-in FastAPI utilities for basic performance analysis",
+      "Exploring third-party profiling libraries like cProfile, line_profiler, and pympler",
+      "Configuring and using APM tools like Datadog, New Relic, or Jaeger with FastAPI projects",
+      "Optimizing code based on the obtained insights"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```python\nimport cProfile\nimport pstats\nfrom io import StringIO\n\nprofiler = cProfile.Profile()\n\ndef my_function(): ... \n\nprofiler.run('my_function()')\n\ns = StringIO()\np = pstats.Stats(profiler, stream=s).sort_stats('cumulative')\np.print_stats(40)\nprint(s.getvalue())``"
+      }
+    ],
+    "version_notes": [
+      "FastAPI v0.71+ supports Python 3.12",
+      "Ensure that your project has the latest FastAPI and dependencies (Black, Isort) installed via pip.",
+      "Some APM tools have specific requirements for their integrations with FastAPI."
+    ],
+    "caveats": [
+      "Profiling can be resource-intensive; consider enabling it only in development environments",
+      "The results may vary depending on the complexity of your microservices and hardware",
+      "While this guide uses cProfile for basic profiling, more advanced tools like line_profiler and pympler provide additional insights."
+    ]
+  }
+}
