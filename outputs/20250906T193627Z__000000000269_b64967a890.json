@@ -1,0 +1,31 @@
+{
+  "timestamp_utc": "2025-09-06T19:36:27Z",
+  "model": "mistral",
+  "topic_index": 269,
+  "topic": "Deep dive: email standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: email standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deep Dive: Email Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer provides an in-depth look at the email standard library module in Python 3.12+, discussing its key features, usage, and enhancements.\",\n  \"key_points\": [\n    \"The email standard library module allows for creating and manipulating RFC 822 and RFC 2822 compliant emails within Python.\",\n    \"Python 3.12+ brings several improvements to the email module, such as support for Unicode, better handling of non-ASCII characters, and enhancements to message parsing and building.\",\n    \"The library includes functions for parsing and creating various parts of an email, including headers, body, and attachments.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\nfrom email.message import EmailMessage\\n\\nemail = EmailMessage()\\nemail['From'] = 'sender@example.com'\\nemail['To'] = 'recipient@example.com'\\nemail['Subject'] = 'Test Email'\\nemail.set_content('Hello, World!')\\n\\nwith open('/path/to/attachment.txt', 'rb') as f:\\n    email.add_attachment(f.read(), maintype='text', subtype='plain', filename='attachment.txt')\\n\\nprint(email.as_string())\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ introduces several improvements to the email standard library module, such as better handling of non-ASCII characters and enhancements to message parsing and building.\",\n    \"For more information on specific changes in each version, refer to the official Python documentation.\"\n  ],\n  \"caveats\": [\n    \"Be aware that some email clients may have limitations or quirks when it comes to handling emails created with the Python email module. Always test your code with multiple clients and tools.\",\n    \"The email standard library does not provide full support for every feature of RFC 822 and RFC 2822. Some complex email features may require using third-party libraries or manually constructing MIME messages.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deep Dive: Email Standard Library Module in Python 3.12+",
+    "summary": "This explainer provides an in-depth look at the email standard library module in Python 3.12+, discussing its key features, usage, and enhancements.",
+    "key_points": [
+      "The email standard library module allows for creating and manipulating RFC 822 and RFC 2822 compliant emails within Python.",
+      "Python 3.12+ brings several improvements to the email module, such as support for Unicode, better handling of non-ASCII characters, and enhancements to message parsing and building.",
+      "The library includes functions for parsing and creating various parts of an email, including headers, body, and attachments."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "```python\nfrom email.message import EmailMessage\n\nemail = EmailMessage()\nemail['From'] = 'sender@example.com'\nemail['To'] = 'recipient@example.com'\nemail['Subject'] = 'Test Email'\nemail.set_content('Hello, World!')\n\nwith open('/path/to/attachment.txt', 'rb') as f:\n    email.add_attachment(f.read(), maintype='text', subtype='plain', filename='attachment.txt')\n\nprint(email.as_string())\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduces several improvements to the email standard library module, such as better handling of non-ASCII characters and enhancements to message parsing and building.",
+      "For more information on specific changes in each version, refer to the official Python documentation."
+    ],
+    "caveats": [
+      "Be aware that some email clients may have limitations or quirks when it comes to handling emails created with the Python email module. Always test your code with multiple clients and tools.",
+      "The email standard library does not provide full support for every feature of RFC 822 and RFC 2822. Some complex email features may require using third-party libraries or manually constructing MIME messages."
+    ]
+  }
+}
