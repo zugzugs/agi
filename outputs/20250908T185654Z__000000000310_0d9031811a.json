@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2025-09-08T18:56:54Z",
+  "model": "mistral",
+  "topic_index": 310,
+  "topic": "How to containerize notebooks to production using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize notebooks to production using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing Notebooks to Production Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to containerize Jupyter Notebooks for deployment as a production-ready API using FastAPI and Python 3.12+. It covers key steps, code examples, version notes, and caveats.\",\n\n  \"key_points\": [\n    \"Create a project structure\",\n    \"Convert notebook to a script\",\n    \"Install FastAPI and necessary dependencies\",\n    \"Write a main FastAPI application\",\n    \"Dockerize the FastAPI app\",\n    \"Configure CI/CD pipeline\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\ndef main():\\n    app.run(\\\"localhost\\\", port=8000)\\nif __name__ == \\\"__main__\\\":\\n    main()\"\n    },\n    {\n      \"language\": \"Dockerfile\",\n      \"code\": \"FROM tiangolo/uvicorn-fastapi:python3.12\\nWORKDIR /app\\nCOPY . /app\\nRUN pip install --no-cache-dir -r requirements.txt\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12 is required for this tutorial\",\n    \"FastAPI version 0.76.0 is used in the examples\",\n    \"Uvicorn 0.18.0 is used as the ASGI server\"\n  ],\n\n  \"caveats\": [\n    \"Make sure to properly secure your API and container for production environments\",\n    \"Consider using environment variables or secrets management tools for sensitive data\",\n    \"Ensure your code is tested thoroughly before deploying it to production\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing Notebooks to Production Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to containerize Jupyter Notebooks for deployment as a production-ready API using FastAPI and Python 3.12+. It covers key steps, code examples, version notes, and caveats.",
+    "key_points": [
+      "Create a project structure",
+      "Convert notebook to a script",
+      "Install FastAPI and necessary dependencies",
+      "Write a main FastAPI application",
+      "Dockerize the FastAPI app",
+      "Configure CI/CD pipeline"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\ndef main():\n    app.run(\"localhost\", port=8000)\nif __name__ == \"__main__\":\n    main()"
+      },
+      {
+        "language": "Dockerfile",
+        "code": "FROM tiangolo/uvicorn-fastapi:python3.12\nWORKDIR /app\nCOPY . /app\nRUN pip install --no-cache-dir -r requirements.txt"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12 is required for this tutorial",
+      "FastAPI version 0.76.0 is used in the examples",
+      "Uvicorn 0.18.0 is used as the ASGI server"
+    ],
+    "caveats": [
+      "Make sure to properly secure your API and container for production environments",
+      "Consider using environment variables or secrets management tools for sensitive data",
+      "Ensure your code is tested thoroughly before deploying it to production"
+    ]
+  }
+}
