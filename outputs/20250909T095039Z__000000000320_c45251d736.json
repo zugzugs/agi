@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-09-09T09:50:39Z",
+  "model": "mistral",
+  "topic_index": 320,
+  "topic": "How to design event-driven systems using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to design event-driven systems using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Designing Event-Driven Systems Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide on designing event-driven systems using FastAPI, a modern web framework for building APIs with Python 3.12+. It covers key points, code examples, version notes, and caveats.\",\n\n  \"key_points\": [\n    \"Understanding the concept of Event-Driven Architecture\",\n    \"Leveraging FastAPI for building high-performance web APIs\",\n    \"Exploring Pub/Sub messaging patterns for event handling\",\n    \"Integrating FastAPI with popular message brokers like RabbitMQ and Kafka\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, WebSocket\\napp = FastAPI()\\n\\nsocket = app.websocket('/ws')\\ndef get(socket: WebSocket):\\n    async for msg in socket:\\n        print(msg)\\n        await socket.send('Message received!')\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import uvicorn\\n# Run the FastAPI application with Uvicorn\\nif __name__ == \\\"__main__\\\":\\n    uvicorn.run(\\\"app:app\\\", host=\\\"0.0.0.0\\\", port=8000, log_level='info')\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"FastAPI 0.71.0 supports Python 3.12\",\n    \"Uvicorn 0.19.0 and later versions support FastAPI with Python 3.12\"\n  ],\n\n  \"caveats\": [\n    \"Ensure you have the necessary dependencies installed (FastAPI, Uvicorn, aiesec/fastapi-rabbitmq or confluent-kafka for broker integration)\",\n    \"Pay attention to event serialization and deserialization when working with message brokers\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Designing Event-Driven Systems Using FastAPI with Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide on designing event-driven systems using FastAPI, a modern web framework for building APIs with Python 3.12+. It covers key points, code examples, version notes, and caveats.",
+    "key_points": [
+      "Understanding the concept of Event-Driven Architecture",
+      "Leveraging FastAPI for building high-performance web APIs",
+      "Exploring Pub/Sub messaging patterns for event handling",
+      "Integrating FastAPI with popular message brokers like RabbitMQ and Kafka"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, WebSocket\napp = FastAPI()\n\nsocket = app.websocket('/ws')\ndef get(socket: WebSocket):\n    async for msg in socket:\n        print(msg)\n        await socket.send('Message received!')"
+      },
+      {
+        "language": "python",
+        "code": "import uvicorn\n# Run the FastAPI application with Uvicorn\nif __name__ == \"__main__\":\n    uvicorn.run(\"app:app\", host=\"0.0.0.0\", port=8000, log_level='info')"
+      }
+    ],
+    "version_notes": [
+      "FastAPI 0.71.0 supports Python 3.12",
+      "Uvicorn 0.19.0 and later versions support FastAPI with Python 3.12"
+    ],
+    "caveats": [
+      "Ensure you have the necessary dependencies installed (FastAPI, Uvicorn, aiesec/fastapi-rabbitmq or confluent-kafka for broker integration)",
+      "Pay attention to event serialization and deserialization when working with message brokers"
+    ]
+  }
+}
