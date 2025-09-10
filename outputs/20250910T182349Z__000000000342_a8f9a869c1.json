@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-09-10T18:23:49Z",
+  "model": "mistral",
+  "topic_index": 342,
+  "topic": "How to containerize event-driven systems using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize event-driven systems using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing Event-Driven Systems Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to containerize event-driven systems using the FastAPI framework and Python 3.12+, specifically focusing on Docker for containerization.\",\n  \"key_points\": [\n    \"Understanding event-driven architecture\",\n    \"Introduction to FastAPI in Python 3.12+\",\n    \"Setting up a FastAPI project with Python 3.12+\",\n    \"Integrating event listeners in the FastAPI application\",\n    \"Containerizing the FastAPI application using Docker\",\n    \"Running and testing the containerized FastAPI application\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\ndef event_listener(event):\\n    # handle event logic here\\n\\napp.on_event(\\\"example_event\\\", event_listener)\"\n    },\n    {\n      \"language\": \"dockerfile\",\n      \"code\": \"FROM python:3.12\\nWORKDIR /app\\nCOPY . /app\\nRUN pip install fastapi uvicorn aioredis\\nCMD [\\\"uvicorn\\\", \\\"main:app\\\", \\\"--host\\\", \\\"0.0.0.0\\\", \\\"--port\\\", \\\"80\\\"]\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12 is required for the examples provided in this explainer.\",\n    \"FastAPI version 0.65 or higher is recommended.\"\n  ],\n  \"caveats\": [\n    \"Ensure your system has Docker installed before following the steps.\",\n    \"Modify the event listener function according to your specific event source and requirements.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing Event-Driven Systems Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to containerize event-driven systems using the FastAPI framework and Python 3.12+, specifically focusing on Docker for containerization.",
+    "key_points": [
+      "Understanding event-driven architecture",
+      "Introduction to FastAPI in Python 3.12+",
+      "Setting up a FastAPI project with Python 3.12+",
+      "Integrating event listeners in the FastAPI application",
+      "Containerizing the FastAPI application using Docker",
+      "Running and testing the containerized FastAPI application"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\ndef event_listener(event):\n    # handle event logic here\n\napp.on_event(\"example_event\", event_listener)"
+      },
+      {
+        "language": "dockerfile",
+        "code": "FROM python:3.12\nWORKDIR /app\nCOPY . /app\nRUN pip install fastapi uvicorn aioredis\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12 is required for the examples provided in this explainer.",
+      "FastAPI version 0.65 or higher is recommended."
+    ],
+    "caveats": [
+      "Ensure your system has Docker installed before following the steps.",
+      "Modify the event listener function according to your specific event source and requirements."
+    ]
+  }
+}
