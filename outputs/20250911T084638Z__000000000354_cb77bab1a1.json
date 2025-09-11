@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2025-09-11T08:46:38Z",
+  "model": "mistral",
+  "topic_index": 354,
+  "topic": "How to implement cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to implement cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Implementing Cron-Driven Tasks with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to set up and run scheduled tasks (cron jobs) using FastAPI in Python 3.12+, a modern web framework. It involves the use of a third-party package called `fastapi-background`.\",\n  \"key_points\": [\n    \"Install the necessary packages\",\n    \"Create a FastAPI application and define a background task route\",\n    \"Configure cron to run the FastAPI application and execute scheduled tasks\",\n    \"Test the scheduled task execution\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"pip install fastapi uvicorn aiosignal fastapi-background\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, BackgroundTasks\\napp = FastAPI()\\n\\ndef background_task():\\n    print('Background task is running!')\\n@app.post('/schedule_task/', response_model=None)\\nasync def schedule_task(background_tasks: BackgroundTasks):\\n    background_tasks.add_task(background_task)\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"echo '0 * * * * cd /path/to/project && uvicorn main:app --host 0.0.0.0 --port 8000 --reload' | crontab -\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python version: 3.12+\"\n  ],\n  \"caveats\": [\n    \"Make sure to adjust the cron command to match your project directory and desired port.\",\n    \"This example uses a simple background task for demonstration purposes, but you can replace it with any long-running operation such as data processing or API calls.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Implementing Cron-Driven Tasks with FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to set up and run scheduled tasks (cron jobs) using FastAPI in Python 3.12+, a modern web framework. It involves the use of a third-party package called `fastapi-background`.",
+    "key_points": [
+      "Install the necessary packages",
+      "Create a FastAPI application and define a background task route",
+      "Configure cron to run the FastAPI application and execute scheduled tasks",
+      "Test the scheduled task execution"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "pip install fastapi uvicorn aiosignal fastapi-background"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, BackgroundTasks\napp = FastAPI()\n\ndef background_task():\n    print('Background task is running!')\n@app.post('/schedule_task/', response_model=None)\nasync def schedule_task(background_tasks: BackgroundTasks):\n    background_tasks.add_task(background_task)"
+      },
+      {
+        "language": "bash",
+        "code": "echo '0 * * * * cd /path/to/project && uvicorn main:app --host 0.0.0.0 --port 8000 --reload' | crontab -"
+      }
+    ],
+    "version_notes": [
+      "Python version: 3.12+"
+    ],
+    "caveats": [
+      "Make sure to adjust the cron command to match your project directory and desired port.",
+      "This example uses a simple background task for demonstration purposes, but you can replace it with any long-running operation such as data processing or API calls."
+    ]
+  }
+}
