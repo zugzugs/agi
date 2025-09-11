@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2025-09-11T23:15:39Z",
+  "model": "mistral",
+  "topic_index": 374,
+  "topic": "How to containerize cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing Cron-Driven Tasks using FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to create a containerized application that schedules cron jobs using FastAPI and Python 3.12+, leveraging Docker for the containerization process.\",\n\n  \"key_points\": [\n    \"Utilize FastAPI as a web framework to manage API routes and handle incoming requests\",\n    \"Containerize the application using Docker for easy deployment and management\",\n    \"Schedule tasks periodically using cron expressions with Docker's `entrypoint` script\",\n    \"Expose the containerized FastAPI app on a specific port for external access\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"cat Dockerfile\\nFROM python:3.12-slim\\nWORKDIR /app\\nCOPY . .\\nRUN pip install fastapi,uvicorn,cron\\nEXPOSE 8000\\nENTRYPOINT [\\\"cron\\\", \\\"-f\\\", \\\"./entrypoint.sh\\\"]\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"cat entrypoint.sh\\n#!/bin/sh\\nnohup crond -f -l 8 & exec uvicorn main:app --host 0.0.0.0 --port 8000 --reload &\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, BackgroundTasks\\napp = FastAPI()\\nschedules = {\\n    '* * * * *': my_task,\\n}\\ndef my_task(background_tasks: BackgroundTasks):\\n    background_tasks.add_task(my_function)\\ndef my_function():\\n    # your cron job code here\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12 is mandatory for this example\",\n    \"Docker version 20.10.0+ is required to build and run the containerized app\"\n  ],\n\n  \"caveats\": [\n    \"Ensure that cron jobs do not interfere with the FastAPI application's main thread\",\n    \"In production, consider using a dedicated service for running cron jobs such as Celery or Airflow\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing Cron-Driven Tasks using FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to create a containerized application that schedules cron jobs using FastAPI and Python 3.12+, leveraging Docker for the containerization process.",
+    "key_points": [
+      "Utilize FastAPI as a web framework to manage API routes and handle incoming requests",
+      "Containerize the application using Docker for easy deployment and management",
+      "Schedule tasks periodically using cron expressions with Docker's `entrypoint` script",
+      "Expose the containerized FastAPI app on a specific port for external access"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "cat Dockerfile\nFROM python:3.12-slim\nWORKDIR /app\nCOPY . .\nRUN pip install fastapi,uvicorn,cron\nEXPOSE 8000\nENTRYPOINT [\"cron\", \"-f\", \"./entrypoint.sh\"]"
+      },
+      {
+        "language": "bash",
+        "code": "cat entrypoint.sh\n#!/bin/sh\nnohup crond -f -l 8 & exec uvicorn main:app --host 0.0.0.0 --port 8000 --reload &"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, BackgroundTasks\napp = FastAPI()\nschedules = {\n    '* * * * *': my_task,\n}\ndef my_task(background_tasks: BackgroundTasks):\n    background_tasks.add_task(my_function)\ndef my_function():\n    # your cron job code here"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12 is mandatory for this example",
+      "Docker version 20.10.0+ is required to build and run the containerized app"
+    ],
+    "caveats": [
+      "Ensure that cron jobs do not interfere with the FastAPI application's main thread",
+      "In production, consider using a dedicated service for running cron jobs such as Celery or Airflow"
+    ]
+  }
+}
