@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2025-09-12T17:55:14Z",
+  "model": "mistral",
+  "topic_index": 394,
+  "topic": "How to profile serverless handlers using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile serverless handlers using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Serverless Handlers Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer covers the steps to profile the performance of serverless handlers using FastAPI in Python 3.12+. We will use built-in tools like cProfile and the uvicorn server for this purpose.\",\n\n  \"key_points\": [\n    \"Install FastAPI, Uvicorn, and other dependencies required for profiling\",\n    \"Create a FastAPI application with your serverless handler\",\n    \"Run the app using the Uvicorn profiler (--profile or --profile-recursive flag)\",\n    \"Analyze the generated statistics in a detailed report\",\n    \"Optimize your serverless handlers based on the gathered insights\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"pip install fastapi uvicorn cprofileels[timsort] \\n\\nimport sys\\nfrom fastapi import FastAPI\\nimport cProfile, io\\napp = FastAPI()\\nprofiler = cProfile.Profile()\\n\\ndef main():\\n    profiler.enable()\\n    app.run(\\\"0.0.0.0\\\", port=8000)\\n    profiler.disable()\\n    s = io.StringIO()\\n    printer = cProfile.TextPrinter(s, self_profile=False, sort='cumulative')\\n    profiler.print_stats(printer=printer) \\nsys.exit(0)\\nif __name__ == '__main__':\\n    main()\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required to run the latest FastAPI and Uvicorn versions\",\n    \"Ensure you have the timsort-based cProfile implementation installed for better performance: `pip install cprofileels[timsort]`\"\n  ],\n\n  \"caveats\": [\n    \"Profiling can impact the performance of your application, especially if you are running it locally. Keep this in mind and consider using a more powerful machine or cloud service for profiling\",\n    \"Remember to disable profiling when deploying your app in production\",\n    \"Other tools like Python's built-in line_profiler, pydantic ProfiledModel, or the BlackProfiler library can also be used for profiling FastAPI applications\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Serverless Handlers Using FastAPI with Python 3.12+",
+    "summary": "This explainer covers the steps to profile the performance of serverless handlers using FastAPI in Python 3.12+. We will use built-in tools like cProfile and the uvicorn server for this purpose.",
+    "key_points": [
+      "Install FastAPI, Uvicorn, and other dependencies required for profiling",
+      "Create a FastAPI application with your serverless handler",
+      "Run the app using the Uvicorn profiler (--profile or --profile-recursive flag)",
+      "Analyze the generated statistics in a detailed report",
+      "Optimize your serverless handlers based on the gathered insights"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "pip install fastapi uvicorn cprofileels[timsort] \n\nimport sys\nfrom fastapi import FastAPI\nimport cProfile, io\napp = FastAPI()\nprofiler = cProfile.Profile()\n\ndef main():\n    profiler.enable()\n    app.run(\"0.0.0.0\", port=8000)\n    profiler.disable()\n    s = io.StringIO()\n    printer = cProfile.TextPrinter(s, self_profile=False, sort='cumulative')\n    profiler.print_stats(printer=printer) \nsys.exit(0)\nif __name__ == '__main__':\n    main()"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to run the latest FastAPI and Uvicorn versions",
+      "Ensure you have the timsort-based cProfile implementation installed for better performance: `pip install cprofileels[timsort]`"
+    ],
+    "caveats": [
+      "Profiling can impact the performance of your application, especially if you are running it locally. Keep this in mind and consider using a more powerful machine or cloud service for profiling",
+      "Remember to disable profiling when deploying your app in production",
+      "Other tools like Python's built-in line_profiler, pydantic ProfiledModel, or the BlackProfiler library can also be used for profiling FastAPI applications"
+    ]
+  }
+}
