@@ -1,0 +1,50 @@
+{
+  "timestamp_utc": "2025-09-13T21:27:58Z",
+  "model": "mistral",
+  "topic_index": 428,
+  "topic": "How to unit test WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing WebAssembly (WASM) Targets with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide explains how to write and run unit tests for WebAssembly (WASM) targets using FastAPI and Python 3.12+. We will cover key points, code examples, version notes, and caveats involved.\",\n\n  \"key_points\": [\n    \"Understanding the prerequisites: FastAPI, uvicorn, pyinstaller (for WASM), pytest\",\n    \"Setting up a new FastAPI project with WASM support\",\n    \"Writing unit tests for WASM functions\",\n    \"Running tests using pytest and test-related configuration\",\n    \"Packaging the WASM app for deployment\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"python -m venv .venv && source .venv/bin/activate && pip install fastapi uvicorn pytest pyinstaller\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\ndef add(a: int, b: int) -> int:\\n    return a + b\\nif __name__ == '__main__':\\n    app.run(debug=True)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from unittest.mock import Mock\\nfrom main import app, add\\n\\ndef test_add():\\n    mock_app = Mock(spec=app)\\n    mock_app.state.wasm_module = None\\n    mock_app.state.wasm_module('add')['add'].return_value = 5\\n    assert add(2, 3) == 5\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"pytest tests/\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"pyinstaller --name my_wasm_app --wasm main.py\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this tutorial.\",\n    \"FastAPI version >= 0.65.0 is recommended.\",\n    \"uvicorn should be compatible with your FastAPI version.\"\n  ],\n\n  \"caveats\": [\n    \"Testing WASM modules might not behave the same way as testing pure Python functions due to differences in runtime environments.\",\n    \"Ensure that your test environment includes the necessary dependencies for WASM support (e.g., Emscripten SDK).\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing WebAssembly (WASM) Targets with FastAPI in Python 3.12+",
+    "summary": "This guide explains how to write and run unit tests for WebAssembly (WASM) targets using FastAPI and Python 3.12+. We will cover key points, code examples, version notes, and caveats involved.",
+    "key_points": [
+      "Understanding the prerequisites: FastAPI, uvicorn, pyinstaller (for WASM), pytest",
+      "Setting up a new FastAPI project with WASM support",
+      "Writing unit tests for WASM functions",
+      "Running tests using pytest and test-related configuration",
+      "Packaging the WASM app for deployment"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "python -m venv .venv && source .venv/bin/activate && pip install fastapi uvicorn pytest pyinstaller"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\ndef add(a: int, b: int) -> int:\n    return a + b\nif __name__ == '__main__':\n    app.run(debug=True)"
+      },
+      {
+        "language": "python",
+        "code": "from unittest.mock import Mock\nfrom main import app, add\n\ndef test_add():\n    mock_app = Mock(spec=app)\n    mock_app.state.wasm_module = None\n    mock_app.state.wasm_module('add')['add'].return_value = 5\n    assert add(2, 3) == 5"
+      },
+      {
+        "language": "bash",
+        "code": "pytest tests/"
+      },
+      {
+        "language": "bash",
+        "code": "pyinstaller --name my_wasm_app --wasm main.py"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this tutorial.",
+      "FastAPI version >= 0.65.0 is recommended.",
+      "uvicorn should be compatible with your FastAPI version."
+    ],
+    "caveats": [
+      "Testing WASM modules might not behave the same way as testing pure Python functions due to differences in runtime environments.",
+      "Ensure that your test environment includes the necessary dependencies for WASM support (e.g., Emscripten SDK)."
+    ]
+  }
+}
