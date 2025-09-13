@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2025-09-13T03:42:26Z",
+  "model": "mistral",
+  "topic_index": 405,
+  "topic": "Deep dive: pipes standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: pipes standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deep Dive: Pipes Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer provides an in-depth look at the Pipes standard library module introduced in Python 3.12, covering its purpose, key features, code examples, version notes, and caveats.\",\n\n  \"key_points\": [\n    \"Introduction of Pipes for streamlined, efficient processing\",\n    \"Integration with async IO for improved performance\",\n    \"Support for chaining functions using the pipe operator '|'\",\n    \"Improved readability and maintainability through a fluent API\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from typing import AsyncIterable\\n\\nasync def square(num: int) -> AsyncIterable[int]:\\n    for i in (num ** 2 for _ in range(10)): yield i\\n\\nasync def main():\\n    async for num in (square(i) for i in range(1, 6)) | (\\n        (str(i) for i in range(10, 20))\\n    ): print(num)\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"First introduced in Python 3.12\",\n    \"Compatibility with async IO for better performance\"\n  ],\n\n  \"caveats\": [\n    \"May not be backward compatible with previous Python versions\",\n    \"Requires understanding of asynchronous programming concepts for optimal usage\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deep Dive: Pipes Standard Library Module in Python 3.12+",
+    "summary": "This explainer provides an in-depth look at the Pipes standard library module introduced in Python 3.12, covering its purpose, key features, code examples, version notes, and caveats.",
+    "key_points": [
+      "Introduction of Pipes for streamlined, efficient processing",
+      "Integration with async IO for improved performance",
+      "Support for chaining functions using the pipe operator '|'",
+      "Improved readability and maintainability through a fluent API"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from typing import AsyncIterable\n\nasync def square(num: int) -> AsyncIterable[int]:\n    for i in (num ** 2 for _ in range(10)): yield i\n\nasync def main():\n    async for num in (square(i) for i in range(1, 6)) | (\n        (str(i) for i in range(10, 20))\n    ): print(num)"
+      }
+    ],
+    "version_notes": [
+      "First introduced in Python 3.12",
+      "Compatibility with async IO for better performance"
+    ],
+    "caveats": [
+      "May not be backward compatible with previous Python versions",
+      "Requires understanding of asynchronous programming concepts for optimal usage"
+    ]
+  }
+}
