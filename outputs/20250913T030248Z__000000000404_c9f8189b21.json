@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2025-09-13T03:02:48Z",
+  "model": "mistral",
+  "topic_index": 404,
+  "topic": "How to package serverless handlers using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to package serverless handlers using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Packaging Serverless Handlers Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to create and deploy a serverless application using FastAPI, a modern web framework for building APIs, with Python 3.12+ and AWS Lambda as the runtime environment.\",\n  \"key_points\": [\n    \"Install prerequisites: FastAPI, Uvicorn (ASGI server), Typer (CLI utility), boto3 (AWS SDK for Python), python-aws-lambda (AWS Layer for Lambda functions)\",\n    \"Create a new FastAPI application\",\n    \"Define the serverless handler as an ASGI application in the FastAPI app\",\n    \"Wrap the FastAPI application with Typer to create a CLI utility for easy invocation\",\n    \"Use python-aws-lambda and boto3 to handle deployment and testing locally\",\n    \"Package the FastAPI application, its dependencies, and the AWS Lambda layers as a deployable artifact\",\n    \"Deploy the packaged artifact on AWS Lambda using the Serverless Framework or SAM CLI\",\n    \"Test the deployed function using an API gateway or manually invoking it with test events\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, HTTPException\\napp = FastAPI()\\nasync def serverless_handler(request):\\n   # Your code here\\n   return {'status': 'success'}\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"import os\\nimport io\\nimport sys\\nsys.path.append(os.getcwd())\\nfrom my_project import app\\napp()\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for using the new features in FastAPI and ASGI\",\n    \"For compatibility with earlier versions, consider using FastAPI's built-in support for WSGI or Flask's ASGI adapter\"\n  ],\n  \"caveats\": [\n    \"Ensure that your serverless handler is stateless to enable horizontal scaling\",\n    \"Optimize your code by minimizing imports, using caching and reducing function invocation time\",\n    \"Consider deploying to multiple regions for low latency and high availability\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Packaging Serverless Handlers Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to create and deploy a serverless application using FastAPI, a modern web framework for building APIs, with Python 3.12+ and AWS Lambda as the runtime environment.",
+    "key_points": [
+      "Install prerequisites: FastAPI, Uvicorn (ASGI server), Typer (CLI utility), boto3 (AWS SDK for Python), python-aws-lambda (AWS Layer for Lambda functions)",
+      "Create a new FastAPI application",
+      "Define the serverless handler as an ASGI application in the FastAPI app",
+      "Wrap the FastAPI application with Typer to create a CLI utility for easy invocation",
+      "Use python-aws-lambda and boto3 to handle deployment and testing locally",
+      "Package the FastAPI application, its dependencies, and the AWS Lambda layers as a deployable artifact",
+      "Deploy the packaged artifact on AWS Lambda using the Serverless Framework or SAM CLI",
+      "Test the deployed function using an API gateway or manually invoking it with test events"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI, HTTPException\napp = FastAPI()\nasync def serverless_handler(request):\n   # Your code here\n   return {'status': 'success'}"
+      },
+      {
+        "language": "Python",
+        "code": "import os\nimport io\nimport sys\nsys.path.append(os.getcwd())\nfrom my_project import app\napp()"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for using the new features in FastAPI and ASGI",
+      "For compatibility with earlier versions, consider using FastAPI's built-in support for WSGI or Flask's ASGI adapter"
+    ],
+    "caveats": [
+      "Ensure that your serverless handler is stateless to enable horizontal scaling",
+      "Optimize your code by minimizing imports, using caching and reducing function invocation time",
+      "Consider deploying to multiple regions for low latency and high availability"
+    ]
+  }
+}
