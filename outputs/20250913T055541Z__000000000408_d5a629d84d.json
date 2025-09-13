@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-09-13T05:55:41Z",
+  "model": "mistral",
+  "topic_index": 408,
+  "topic": "How to deploy serverless handlers using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy serverless handlers using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Serverless Handlers Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to create and deploy a serverless API using FastAPI, uvicorn, and AWS Lambda in Python 3.12+.\",\n  \"key_points\": [\n    \"Install required packages: FastAPI, Uvicorn, Typer, Boto3, and AWS SAM CLI\",\n    \"Create a new FastAPI application with your API endpoints\",\n    \"Configure the entrypoint file for AWS Lambda using the Typer library\",\n    \"Package your project as an AWS SAM template\",\n    \"Deploy the serverless application on AWS using AWS SAM CLI\",\n    \"Invoke and test your deployed API using the AWS Lambda function URL\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, Depends\\napp = FastAPI()\\ndef create_app():\\n    app = FastAPI()\\n    return app\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"import typer\\ntyped_app = typer.TyperApp('serverless-fastapi')\\n@typed_app.command()\\ndef deploy():\\n    pass\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for the latest FastAPI features and AWS Lambda compatibility\",\n    \"Uvicorn v0.17 or later is recommended for running FastAPI applications in serverless mode\"\n  ],\n  \"caveats\": [\n    \"Make sure to adjust your AWS Lambda function configuration (memory, timeout, etc.) based on the complexity of your API\",\n    \"AWS SAM CLI requires AWS credentials to be properly configured before deployment\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Serverless Handlers Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to create and deploy a serverless API using FastAPI, uvicorn, and AWS Lambda in Python 3.12+.",
+    "key_points": [
+      "Install required packages: FastAPI, Uvicorn, Typer, Boto3, and AWS SAM CLI",
+      "Create a new FastAPI application with your API endpoints",
+      "Configure the entrypoint file for AWS Lambda using the Typer library",
+      "Package your project as an AWS SAM template",
+      "Deploy the serverless application on AWS using AWS SAM CLI",
+      "Invoke and test your deployed API using the AWS Lambda function URL"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI, Depends\napp = FastAPI()\ndef create_app():\n    app = FastAPI()\n    return app"
+      },
+      {
+        "language": "Python",
+        "code": "import typer\ntyped_app = typer.TyperApp('serverless-fastapi')\n@typed_app.command()\ndef deploy():\n    pass"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for the latest FastAPI features and AWS Lambda compatibility",
+      "Uvicorn v0.17 or later is recommended for running FastAPI applications in serverless mode"
+    ],
+    "caveats": [
+      "Make sure to adjust your AWS Lambda function configuration (memory, timeout, etc.) based on the complexity of your API",
+      "AWS SAM CLI requires AWS credentials to be properly configured before deployment"
+    ]
+  }
+}
