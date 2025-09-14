@@ -1,0 +1,45 @@
+{
+  "timestamp_utc": "2025-09-14T04:41:40Z",
+  "model": "mistral",
+  "topic_index": 432,
+  "topic": "How to type-check WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to type-check WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Type-Checking WebAssembly (WASM) Targets using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to use FastAPI in conjunction with Python 3.12+ to type-check WebAssembly (WASM) targets for improved code robustness and maintainability.\",\n  \"key_points\": [\n    \"FastAPI is a modern, fast (high-performance), web framework for building APIs with Python.\",\n    \"Python 3.12+ supports the new Pytorch's Wasmer library which enables running WebAssembly modules in Python.\",\n    \"Combining FastAPI and Wasmer allows for type-checking of WASM targets at runtime, reducing potential errors and improving API reliability.\",\n    \"This example assumes you have both FastAPI and Wasmer installed. If not, install them using pip: `pip install fastapi uvicorn wasmer`\",\n    \"Create a new Python 3.12+ script and import the necessary libraries.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, Depends\\nimport uvicorn\\nimport wasmer\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"app = FastAPI()\\nwasmer_instance = wasmer.Instance.fromWasm(bytes_wasm_module)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"def create_function(wasm_module, name):\\n    func = wasmer_instance.exports[name]\\n    return func\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"@app.post('/evaluate')\\ndef evaluate():\\n    func = create_function(wasmer_instance, 'eval')\\n    result = func()\"\n    }\n  ],\n  \"version_notes\": [\n    \"Note that Python 3.12+ is required for this example.\",\n    \"Also, ensure you have the latest version of Wasmer (>= 2.0.0) to support WebAssembly at Native Level (Wasm-NL)\"\n  ],\n  \"caveats\": [\n    \"Make sure the WASM module (bytes_wasm_module) is correctly loaded and prepared before usage.\",\n    \"Add proper error handling, validation, and input/output formatting to the example code for production use.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Type-Checking WebAssembly (WASM) Targets using FastAPI with Python 3.12+",
+    "summary": "This explainer demonstrates how to use FastAPI in conjunction with Python 3.12+ to type-check WebAssembly (WASM) targets for improved code robustness and maintainability.",
+    "key_points": [
+      "FastAPI is a modern, fast (high-performance), web framework for building APIs with Python.",
+      "Python 3.12+ supports the new Pytorch's Wasmer library which enables running WebAssembly modules in Python.",
+      "Combining FastAPI and Wasmer allows for type-checking of WASM targets at runtime, reducing potential errors and improving API reliability.",
+      "This example assumes you have both FastAPI and Wasmer installed. If not, install them using pip: `pip install fastapi uvicorn wasmer`",
+      "Create a new Python 3.12+ script and import the necessary libraries."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, Depends\nimport uvicorn\nimport wasmer"
+      },
+      {
+        "language": "python",
+        "code": "app = FastAPI()\nwasmer_instance = wasmer.Instance.fromWasm(bytes_wasm_module)"
+      },
+      {
+        "language": "python",
+        "code": "def create_function(wasm_module, name):\n    func = wasmer_instance.exports[name]\n    return func"
+      },
+      {
+        "language": "python",
+        "code": "@app.post('/evaluate')\ndef evaluate():\n    func = create_function(wasmer_instance, 'eval')\n    result = func()"
+      }
+    ],
+    "version_notes": [
+      "Note that Python 3.12+ is required for this example.",
+      "Also, ensure you have the latest version of Wasmer (>= 2.0.0) to support WebAssembly at Native Level (Wasm-NL)"
+    ],
+    "caveats": [
+      "Make sure the WASM module (bytes_wasm_module) is correctly loaded and prepared before usage.",
+      "Add proper error handling, validation, and input/output formatting to the example code for production use."
+    ]
+  }
+}
