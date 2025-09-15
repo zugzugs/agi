@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-09-15T10:21:33Z",
+  "model": "mistral",
+  "topic_index": 458,
+  "topic": "How to profile edge runtimes using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile edge runtimes using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Edge Runtime Performance with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to measure and analyze the performance of your FastAPI applications at the edge using Python 3.12+ and its built-in profiling tools.\",\n\n  \"key_points\": [\n    \"Understanding the need for profiling edge runtimes in FastAPI applications.\",\n    \"Setting up Python 3.12+ with required dependencies.\",\n    \"Configuring FastAPI to use cProfile for profiling.\",\n    \"Running a profiled FastAPI application and interpreting the results.\",\n    \"Comparing the performance of different endpoints or requests.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\nfrom cProfile import cProfile\\nnprofiler = cProfile.Profile()\\nnprofiler.enable()\\n\\ndef index(): pass\\n\\n@app.get('/', profile_time=False)\\ndef main():\\n    nprofiler.disable()\\n    nprofiler.print_stats()\"\n    },\n    {\n      \"language\": \"JSON\",\n      \"code\": \"{\\n  \\\"server\\\": \\\"127.0.0.1:8000\\\",\\n  \\\"profile_output_file\\\": \\\"profiling_results.txt\\\"\\n}\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Profiling features have been improved in Python 3.12+.\",\n    \"FastAPI 0.70.0 and later support cProfile integration.\"\n  ],\n\n  \"caveats\": [\n    \"Using cProfile may impact application performance.\",\n    \"Profiler results can be complex and require interpretation to gain actionable insights.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Edge Runtime Performance with FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to measure and analyze the performance of your FastAPI applications at the edge using Python 3.12+ and its built-in profiling tools.",
+    "key_points": [
+      "Understanding the need for profiling edge runtimes in FastAPI applications.",
+      "Setting up Python 3.12+ with required dependencies.",
+      "Configuring FastAPI to use cProfile for profiling.",
+      "Running a profiled FastAPI application and interpreting the results.",
+      "Comparing the performance of different endpoints or requests."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\nfrom cProfile import cProfile\nnprofiler = cProfile.Profile()\nnprofiler.enable()\n\ndef index(): pass\n\n@app.get('/', profile_time=False)\ndef main():\n    nprofiler.disable()\n    nprofiler.print_stats()"
+      },
+      {
+        "language": "JSON",
+        "code": "{\n  \"server\": \"127.0.0.1:8000\",\n  \"profile_output_file\": \"profiling_results.txt\"\n}"
+      }
+    ],
+    "version_notes": [
+      "Profiling features have been improved in Python 3.12+.",
+      "FastAPI 0.70.0 and later support cProfile integration."
+    ],
+    "caveats": [
+      "Using cProfile may impact application performance.",
+      "Profiler results can be complex and require interpretation to gain actionable insights."
+    ]
+  }
+}
