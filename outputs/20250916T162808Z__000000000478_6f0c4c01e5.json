@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "2025-09-16T16:28:08Z",
+  "model": "mistral",
+  "topic_index": 478,
+  "topic": "How to observe edge runtimes using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to observe edge runtimes using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Observing Edge Runtimes with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to utilize FastAPI, a modern web framework for building APIs with Python 3.12+, to monitor edge runtimes.\",\n  \"key_points\": [\n    \"Install the required packages: `fastapi`, `uvicorn`, and `pydantic`\",\n    \"Create a new FastAPI application that logs the execution time of each request\",\n    \"Run the FastAPI application using Uvicorn with profiling enabled for edge runtime monitoring\",\n    \"Analyze the logs to understand the edge runtimes\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\\nimport fastapi\\nfrom fastapi.logger import logger\\nfrom fastapi import FastAPI\\napp = FastAPI()\\n\\n@app.get('/')\\ndef get():\\n    start_time = time.monotonic()\\n    # Your code here\\n    end_time = time.monotonic()\\n    logger.info(f'Request took {end_time - start_time:.4f} seconds to process')\\n```\"\n    },\n    {\n      \"language\": \"shell\",\n      \"code\": \"```\\n\\n$ pip install fastapi uvicorn pydantic\\n$ uvicorn main:app --host 0.0.0.0 --port 8000 --reload --profile\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python version: 3.12+\"\n  ],\n  \"caveats\": [\n    \"Edge runtime monitoring is only available when running the FastAPI application with Uvicorn's profiling option\",\n    \"This example uses Python's built-in `time` module to measure execution times, which may not be the most accurate for production use\"\n  ]\n}",
+  "response_parsed": null
+}
