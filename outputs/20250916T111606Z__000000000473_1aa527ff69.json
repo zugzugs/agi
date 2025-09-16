@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-09-16T11:16:06Z",
+  "model": "mistral",
+  "topic_index": 473,
+  "topic": "Deep dive: site standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: site standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deep Dive: Site Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive overview of the Site standard library module in Python 3.12+, highlighting its purpose, key features, code examples, version notes, and potential caveats.\",\n\n  \"key_points\": [\n    \"The `site` module is a core part of the Python Standard Library that manages site-specific additions to the built-in `sys.path`.\",\n    \"It allows developers to customize Python's search path for modules at runtime, making it easier to manage complex projects and package distributions.\",\n    \"Version 3.12+ introduces new features and improvements to the `site` module, such as automatic activation of site-packages when needed.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import site\\nprint(site.getsitepackages())\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import sys, site\\nsys.path = site.getusersitepackages() + sys.path\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12: Improved handling of site-packages with automatic activation when needed.\",\n    \"Python 3.10: Added ability to set a custom site-packages directory via environment variable.\",\n    \"Refer to the official Python documentation for a comprehensive list of changes and improvements.\"\n  ],\n\n  \"caveats\": [\n    \"Modifying `sys.path` globally can have unintended consequences, so it's recommended to use caution when doing so.\",\n    \"Changes made to `sys.path` during the execution of a script will only affect that specific run. The changes are not persisted for future runs.\",\n    \"Always ensure compatibility with your project's dependencies and third-party libraries.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deep Dive: Site Standard Library Module in Python 3.12+",
+    "summary": "This explainer provides a comprehensive overview of the Site standard library module in Python 3.12+, highlighting its purpose, key features, code examples, version notes, and potential caveats.",
+    "key_points": [
+      "The `site` module is a core part of the Python Standard Library that manages site-specific additions to the built-in `sys.path`.",
+      "It allows developers to customize Python's search path for modules at runtime, making it easier to manage complex projects and package distributions.",
+      "Version 3.12+ introduces new features and improvements to the `site` module, such as automatic activation of site-packages when needed."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import site\nprint(site.getsitepackages())"
+      },
+      {
+        "language": "python",
+        "code": "import sys, site\nsys.path = site.getusersitepackages() + sys.path"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12: Improved handling of site-packages with automatic activation when needed.",
+      "Python 3.10: Added ability to set a custom site-packages directory via environment variable.",
+      "Refer to the official Python documentation for a comprehensive list of changes and improvements."
+    ],
+    "caveats": [
+      "Modifying `sys.path` globally can have unintended consequences, so it's recommended to use caution when doing so.",
+      "Changes made to `sys.path` during the execution of a script will only affect that specific run. The changes are not persisted for future runs.",
+      "Always ensure compatibility with your project's dependencies and third-party libraries."
+    ]
+  }
+}
