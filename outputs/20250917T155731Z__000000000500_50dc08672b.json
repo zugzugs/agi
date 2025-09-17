@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2025-09-17T15:57:31Z",
+  "model": "mistral",
+  "topic_index": 500,
+  "topic": "How to package CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to package CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Packaging CLI Tools Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to create and package command-line interface (CLI) tools using the FastAPI framework in Python 3.12+. It covers the essential steps for setting up a FastAPI project, creating CLI commands, and preparing your project for distribution.\",\n\n  \"key_points\": [\n    \"Install required packages: FastAPI, Uvicorn, Typer\",\n    \"Create a new FastAPI application and define API routes\",\n    \"Use Typer to create command-line interfaces that call the FastAPI functions\",\n    \"Prepare your project for distribution with `pyproject.toml` file configuration\",\n    \"Test the CLI tool locally using Uvicorn's development server\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\nfrom fastapi import FastAPI\\nimport uvicorn\\nfrom typer import Typer\\n\\napp = FastAPI()\\n\\n# Define API routes\\n\\n@app.get('/')\\ndef home():\\n    return {'message': 'Welcome to FastAPI!'}\\n\\ncli = Typer(name='mycli')\\n\\n@cli.command()\\ndef hello():\\n    print('Hello, World!')\\n\\nif __name__ == '__main__':\\n    uvicorn.run(app, host='127.0.0.1', port=8000)\\n    cli()\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this example.\",\n    \"FastAPI v0.74.0 and Typer v0.5.0 are used in the code.\"\n  ],\n\n  \"caveats\": [\n    \"Make sure to install the necessary dependencies using pip:\",\n    \"`pip install fastapi[all] uvicorn typer`\",\n    \"The example provided only scratches the surface of what's possible with FastAPI and Typer. Further customization, error handling, and advanced features can be explored in the official documentation.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Packaging CLI Tools Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to create and package command-line interface (CLI) tools using the FastAPI framework in Python 3.12+. It covers the essential steps for setting up a FastAPI project, creating CLI commands, and preparing your project for distribution.",
+    "key_points": [
+      "Install required packages: FastAPI, Uvicorn, Typer",
+      "Create a new FastAPI application and define API routes",
+      "Use Typer to create command-line interfaces that call the FastAPI functions",
+      "Prepare your project for distribution with `pyproject.toml` file configuration",
+      "Test the CLI tool locally using Uvicorn's development server"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\n\nfrom fastapi import FastAPI\nimport uvicorn\nfrom typer import Typer\n\napp = FastAPI()\n\n# Define API routes\n\n@app.get('/')\ndef home():\n    return {'message': 'Welcome to FastAPI!'}\n\ncli = Typer(name='mycli')\n\n@cli.command()\ndef hello():\n    print('Hello, World!')\n\nif __name__ == '__main__':\n    uvicorn.run(app, host='127.0.0.1', port=8000)\n    cli()\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this example.",
+      "FastAPI v0.74.0 and Typer v0.5.0 are used in the code."
+    ],
+    "caveats": [
+      "Make sure to install the necessary dependencies using pip:",
+      "`pip install fastapi[all] uvicorn typer`",
+      "The example provided only scratches the surface of what's possible with FastAPI and Typer. Further customization, error handling, and advanced features can be explored in the official documentation."
+    ]
+  }
+}
