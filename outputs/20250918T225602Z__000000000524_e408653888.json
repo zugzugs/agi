@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-09-18T22:56:02Z",
+  "model": "mistral",
+  "topic_index": 524,
+  "topic": "How to unit test REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing REST APIs with FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide on how to unit test REST APIs built with FastAPI in Python 3.12+. It covers setting up the testing environment, creating test functions, and demonstrates code examples.\",\n  \"key_points\": [\n    \"Install required packages: FastAPI, pytest-asyncio, and any mocking libraries like aiohttp_mock\",\n    \"Create a separate file for tests, import the tested endpoint, and use @pytest.mark.asyncio decorator to ensure asynchronous functions are correctly tested\",\n    \"Use assertions to verify the response status code, headers, content type, and JSON body\",\n    \"Utilize FastAPI's built-in Dependency Overrides to mock dependencies like database or external services\",\n    \"Handle exceptions thrown by your endpoints, and ensure proper error handling in tests\",\n    \"Test individual routes as well as larger functionality flows within the application\",\n    \"Use pytest fixtures for setting up shared test resources like the FastAPI app instance\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nimport pytest\\nfrom fastapi import FastAPI, HTTPException\\napp = FastAPI()\\n@pytest.fixture\\ndef app():\\n    yield app\\n    app.test_client().shutdown()\\n@app.get('/example', response_model=ExampleModel)\\ndef example(response: Response):\\n    response.content = jsonable_encoder({'message': 'Hello World!'})\\n    raise HTTPException(status_code=403, detail='Forbidden')\\ntest_app = app()\\n@pytest.mark.asyncio\\ndef test_example():\\n    with test_app.test_client() as client:\\n        response = await client.get('/example')\\n        assert response.status_code == 403\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required to use the @pytest.mark.asyncio decorator\",\n    \"FastAPI version 0.70.0 or higher is needed for built-in Dependency Overrides\"\n  ],\n  \"caveats\": [\n    \"Ensure tests cover all possible edge cases and negative test scenarios\",\n    \"Mocking dependencies correctly can be challenging, so make sure to isolate the tested code properly\",\n    \"Test coverage tools like pytest-cov can help ensure comprehensive testing\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing REST APIs with FastAPI in Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide on how to unit test REST APIs built with FastAPI in Python 3.12+. It covers setting up the testing environment, creating test functions, and demonstrates code examples.",
+    "key_points": [
+      "Install required packages: FastAPI, pytest-asyncio, and any mocking libraries like aiohttp_mock",
+      "Create a separate file for tests, import the tested endpoint, and use @pytest.mark.asyncio decorator to ensure asynchronous functions are correctly tested",
+      "Use assertions to verify the response status code, headers, content type, and JSON body",
+      "Utilize FastAPI's built-in Dependency Overrides to mock dependencies like database or external services",
+      "Handle exceptions thrown by your endpoints, and ensure proper error handling in tests",
+      "Test individual routes as well as larger functionality flows within the application",
+      "Use pytest fixtures for setting up shared test resources like the FastAPI app instance"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nimport pytest\nfrom fastapi import FastAPI, HTTPException\napp = FastAPI()\n@pytest.fixture\ndef app():\n    yield app\n    app.test_client().shutdown()\n@app.get('/example', response_model=ExampleModel)\ndef example(response: Response):\n    response.content = jsonable_encoder({'message': 'Hello World!'})\n    raise HTTPException(status_code=403, detail='Forbidden')\ntest_app = app()\n@pytest.mark.asyncio\ndef test_example():\n    with test_app.test_client() as client:\n        response = await client.get('/example')\n        assert response.status_code == 403\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to use the @pytest.mark.asyncio decorator",
+      "FastAPI version 0.70.0 or higher is needed for built-in Dependency Overrides"
+    ],
+    "caveats": [
+      "Ensure tests cover all possible edge cases and negative test scenarios",
+      "Mocking dependencies correctly can be challenging, so make sure to isolate the tested code properly",
+      "Test coverage tools like pytest-cov can help ensure comprehensive testing"
+    ]
+  }
+}
