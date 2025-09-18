@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-09-18T11:59:20Z",
+  "model": "mistral",
+  "topic_index": 512,
+  "topic": "How to design REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to design REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Designing REST APIs using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide provides a comprehensive overview of designing REST APIs using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.\",\n\n  \"key_points\": [\n    \"FastAPI is built on top of Starlette and Pydantic.\",\n    \"It provides automatic documentation generation.\",\n    \"Supports OpenAPI 3.0, JSON Schema validation, and more.\",\n    \"Enables type hinting and code introspection for IDEs like VS Code and PyCharm.\",\n    \"FastAPI is known for its high performance and flexibility.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\n@app.get('/')\\ndef read_root():\\n    return {'Hello': 'World'}\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from pydantic import BaseModel\\nclass Item(BaseModel):\\n    name: str\\n    description: str\\n\\n@app.post('/items/')\\ndef create_item(item: Item):\\n    return item\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required.\",\n    \"FastAPI version 0.75.1 or later is recommended for using Pydantic models in OpenAPI responses and responses decorators.\"\n  ],\n\n  \"caveats\": [\n    \"While FastAPI offers numerous benefits, it may require more setup time compared to some other frameworks.\",\n    \"Make sure to handle errors appropriately by defining exception handlers for your API.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Designing REST APIs using FastAPI with Python 3.12+",
+    "summary": "This guide provides a comprehensive overview of designing REST APIs using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.",
+    "key_points": [
+      "FastAPI is built on top of Starlette and Pydantic.",
+      "It provides automatic documentation generation.",
+      "Supports OpenAPI 3.0, JSON Schema validation, and more.",
+      "Enables type hinting and code introspection for IDEs like VS Code and PyCharm.",
+      "FastAPI is known for its high performance and flexibility."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\n@app.get('/')\ndef read_root():\n    return {'Hello': 'World'}"
+      },
+      {
+        "language": "python",
+        "code": "from pydantic import BaseModel\nclass Item(BaseModel):\n    name: str\n    description: str\n\n@app.post('/items/')\ndef create_item(item: Item):\n    return item"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required.",
+      "FastAPI version 0.75.1 or later is recommended for using Pydantic models in OpenAPI responses and responses decorators."
+    ],
+    "caveats": [
+      "While FastAPI offers numerous benefits, it may require more setup time compared to some other frameworks.",
+      "Make sure to handle errors appropriately by defining exception handlers for your API."
+    ]
+  }
+}
