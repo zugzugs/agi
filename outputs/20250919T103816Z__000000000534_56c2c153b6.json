@@ -1,0 +1,47 @@
+{
+  "timestamp_utc": "2025-09-19T10:38:16Z",
+  "model": "mistral",
+  "topic_index": 534,
+  "topic": "How to containerize REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing REST APIs with FastAPI using Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to containerize a REST API built with FastAPI and Python 3.12+, focusing on Docker and Uvicorn as the primary tools.\",\n  \"key_points\": [\n    \"Install necessary packages: FastAPI, Uvicorn, Docker, and Docker Compose\",\n    \"Write your API using FastAPI\",\n    \"Create a Dockerfile for building the image\",\n    \"Set up a docker-compose.yml file to manage services\",\n    \"Run the API with Docker Compose\",\n    \"Access the containerized API\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"pip install fastapi uvicorn docker docker-compose\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef read_root():\\n   return {'Hello': 'World'}\"\n    },\n    {\n      \"language\": \"Dockerfile\",\n      \"code\": \"FROM python:3.12\\nWORKDIR /app\\nCOPY . /app\\nRUN pip install -r requirements.txt\"\n    },\n    {\n      \"language\": \"yaml\",\n      \"code\": \"version: '3.9'\\nservices:\\n  api:\\n    build:\\n      context: .\\n    ports:\\n      - '8000:8000'\\n    command: uvicorn app.main:app --host 0.0.0.0 --port 8000\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12 is required for this guide\",\n    \"FastAPI version should be >= 0.70, Uvicorn version should be >= 0.16\"\n  ],\n  \"caveats\": [\n    \"Always ensure Docker and docker-compose are properly installed and configured\",\n    \"Modify the code examples according to your project's structure and requirements\",\n    \"Use '--redis-url' flag if you need to use Redis in Uvicorn\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing REST APIs with FastAPI using Python 3.12+",
+    "summary": "This guide demonstrates how to containerize a REST API built with FastAPI and Python 3.12+, focusing on Docker and Uvicorn as the primary tools.",
+    "key_points": [
+      "Install necessary packages: FastAPI, Uvicorn, Docker, and Docker Compose",
+      "Write your API using FastAPI",
+      "Create a Dockerfile for building the image",
+      "Set up a docker-compose.yml file to manage services",
+      "Run the API with Docker Compose",
+      "Access the containerized API"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "pip install fastapi uvicorn docker docker-compose"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef read_root():\n   return {'Hello': 'World'}"
+      },
+      {
+        "language": "Dockerfile",
+        "code": "FROM python:3.12\nWORKDIR /app\nCOPY . /app\nRUN pip install -r requirements.txt"
+      },
+      {
+        "language": "yaml",
+        "code": "version: '3.9'\nservices:\n  api:\n    build:\n      context: .\n    ports:\n      - '8000:8000'\n    command: uvicorn app.main:app --host 0.0.0.0 --port 8000"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12 is required for this guide",
+      "FastAPI version should be >= 0.70, Uvicorn version should be >= 0.16"
+    ],
+    "caveats": [
+      "Always ensure Docker and docker-compose are properly installed and configured",
+      "Modify the code examples according to your project's structure and requirements",
+      "Use '--redis-url' flag if you need to use Redis in Uvicorn"
+    ]
+  }
+}
