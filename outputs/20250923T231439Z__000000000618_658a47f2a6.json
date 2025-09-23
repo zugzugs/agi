@@ -1,0 +1,40 @@
+{
+  "timestamp_utc": "2025-09-23T23:14:39Z",
+  "model": "mistral",
+  "topic_index": 618,
+  "topic": "How to profile ETL jobs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile ETL jobs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling ETL Jobs Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to profile ETL (Extract, Transform, Load) jobs by integrating them with a FastAPI application in Python 3.12+. We will utilize profiling tools like cProfile and visualize the results using libraries like PyViz.\",\n\n  \"key_points\": [\n    \"FastAPI is a modern web framework that simplifies building APIs in Python.\",\n    \"Profiling ETL jobs can help optimize performance and reduce resource consumption.\",\n    \"Python's built-in cProfile module measures the performance of code.\",\n    \"PyViz is a library for creating interactive, high-quality data visualizations.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile\\nimport pstats\\nimport io\\n\\npstats.ProfileStats(cProfile.Profile()).sort_stats('cumulative').print_stats(30)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, Depends\\napp = FastAPI()\\n@app.get('/etl')\\ndef etl(db: MyDatabase = Depends(get_db)): # ETL function here\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import plotly.io as pio\\npio.renderers.default = 'notebook' # Set renderer for PyViz visualizations\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this tutorial.\",\n    \"FastAPI version 0.69.0 or later is recommended.\"\n  ],\n\n  \"caveats\": [\n    \"This example assumes you have a MyDatabase class or function ready to use.\",\n    \"The cProfile code example only shows how to view the profile statistics; ETL function profiling should be integrated into your application accordingly.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling ETL Jobs Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to profile ETL (Extract, Transform, Load) jobs by integrating them with a FastAPI application in Python 3.12+. We will utilize profiling tools like cProfile and visualize the results using libraries like PyViz.",
+    "key_points": [
+      "FastAPI is a modern web framework that simplifies building APIs in Python.",
+      "Profiling ETL jobs can help optimize performance and reduce resource consumption.",
+      "Python's built-in cProfile module measures the performance of code.",
+      "PyViz is a library for creating interactive, high-quality data visualizations."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import cProfile\nimport pstats\nimport io\n\npstats.ProfileStats(cProfile.Profile()).sort_stats('cumulative').print_stats(30)"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, Depends\napp = FastAPI()\n@app.get('/etl')\ndef etl(db: MyDatabase = Depends(get_db)): # ETL function here"
+      },
+      {
+        "language": "python",
+        "code": "import plotly.io as pio\npio.renderers.default = 'notebook' # Set renderer for PyViz visualizations"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this tutorial.",
+      "FastAPI version 0.69.0 or later is recommended."
+    ],
+    "caveats": [
+      "This example assumes you have a MyDatabase class or function ready to use.",
+      "The cProfile code example only shows how to view the profile statistics; ETL function profiling should be integrated into your application accordingly."
+    ]
+  }
+}
