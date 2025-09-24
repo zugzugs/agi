@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2025-09-24T09:41:33Z",
+  "model": "mistral",
+  "topic_index": 629,
+  "topic": "_codecs_kr: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _codecs_kr: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Python 3.12+ Codecs _codecs_kr: Best Practices, Gotchas, and Common Mistakes\",\n  \"summary\": \"This explainer focuses on common issues, best practices, and potential pitfalls when using the codecs module's _codecs_kr encoder and decoder in Python 3.12+.\",\n  \"key_points\": [\n    \"Always ensure Unicode-compatible input and output\",\n    \"Use explicit encoding and decoding declarations\",\n    \"Avoid using the built-in `encode()` and `decode()` functions on _codecs_kr encoded/decoded data\",\n    \"Prefer using Codec classes for fine-grained control over encodings\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import codecs\\n\\n# Incorrect usage of encode() and decode() functions\\nencoded_data = '한글'.encode('utf-8')\\ndecoded_data = encoded_data.decode('_codecs_kr')\\n\\n# Correct usage with Codec class\\ncodec = codecs.getencoder('_codecs_kr')\\nencoded_data, errors = codec(b'한글', 'replace')\"\n    }\n  ],\n  \"version_notes\": [\n    {\n      \"version\": \"Python 3.12\",\n      \"note\": \"_codecs_kr support was introduced in this version\"\n    }\n  ],\n  \"caveats\": [\n    \"When using the Codec classes, errors such as 'replace', 'ignore', and 'xmlcharrefreplace' should be handled to avoid data loss\",\n    \"Always test your code with a variety of _codecs_kr encoded input data to ensure correct decoding results\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Python 3.12+ Codecs _codecs_kr: Best Practices, Gotchas, and Common Mistakes",
+    "summary": "This explainer focuses on common issues, best practices, and potential pitfalls when using the codecs module's _codecs_kr encoder and decoder in Python 3.12+.",
+    "key_points": [
+      "Always ensure Unicode-compatible input and output",
+      "Use explicit encoding and decoding declarations",
+      "Avoid using the built-in `encode()` and `decode()` functions on _codecs_kr encoded/decoded data",
+      "Prefer using Codec classes for fine-grained control over encodings"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import codecs\n\n# Incorrect usage of encode() and decode() functions\nencoded_data = '한글'.encode('utf-8')\ndecoded_data = encoded_data.decode('_codecs_kr')\n\n# Correct usage with Codec class\ncodec = codecs.getencoder('_codecs_kr')\nencoded_data, errors = codec(b'한글', 'replace')"
+      }
+    ],
+    "version_notes": [
+      {
+        "version": "Python 3.12",
+        "note": "_codecs_kr support was introduced in this version"
+      }
+    ],
+    "caveats": [
+      "When using the Codec classes, errors such as 'replace', 'ignore', and 'xmlcharrefreplace' should be handled to avoid data loss",
+      "Always test your code with a variety of _codecs_kr encoded input data to ensure correct decoding results"
+    ]
+  }
+}
