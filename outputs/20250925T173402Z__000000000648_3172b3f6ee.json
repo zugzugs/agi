@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "2025-09-25T17:34:02Z",
+  "model": "mistral",
+  "topic_index": 648,
+  "topic": "How to benchmark stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to benchmark stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Python 3.12+ Stream Processing Benchmark using FastAPI\",\n  \"summary\": \"This guide demonstrates how to perform benchmarks on stream processing using FastAPI in Python 3.12+. It will cover key points, code examples, version notes, and caveats.\",\n  \"key_points\": [\n    \"Utilize FastAPI for creating efficient and fast web services\",\n    \"Leverage async functions for handling requests concurrently\",\n    \"Implement stream processing using AsyncIterators\",\n    \"Profile and benchmark the performance of your FastAPI application\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, WebSocket\\napp = FastAPI()\\n\\nsocket = app.websocket(\\\"/ws/\\\")\\ndef get(socket: WebSocket):\\n    async with socket:\\n        await socket.send_text('Welcome to the stream processing example!')\\n        data = [1, 2, 3, 4]\\n        async for item in async_iter(data):\\n            await socket.send_text(str(item))\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python version: 3.12+\"\n    \"FastAPI version: The latest stable version as of this writing is FastAPI 0.75.0\"\n  ],\n  \"caveats\": [\n    \"AsyncIterators may not work with all types, ensure the data you're streaming can be iterated over asynchronously\",\n    \"The performance of your benchmarks will depend on factors such as hardware, network conditions, and the specifics of your application\"\n  ]\n}",
+  "response_parsed": null
+}
