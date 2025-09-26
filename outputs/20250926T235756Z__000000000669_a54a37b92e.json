@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2025-09-26T23:57:56Z",
+  "model": "mistral",
+  "topic_index": 669,
+  "topic": "_hashlib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _hashlib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Hashlib Best Practices, Gotchas, and Common Mistakes in Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide to using the hashlib library effectively in Python 3.12+, addressing common mistakes, gotchas, and best practices.\",\n\n  \"key_points\": [\n    \"Always use new() function to create a new hasher object\",\n    \"Choose appropriate algorithm (SHA-1, SHA-256, SHA-384, SHA-512)\",\n    \"Avoid using md5 as it is considered insecure\",\n    \"Hexdigest() should be used for final digest\",\n    \"Updating the hash object with update() method before hexdigest()\",\n    \"Be aware of byte string requirements\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"import hashlib\\nhasher = hashlib.sha256()\\nhasher.update(b'some data')\\nfinal_hash = hasher.hexdigest()\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+: Introduction of new algorithms and improvements in existing ones\",\n    \"Python 3.7: Removal of SHA-0 and SHA-1 for new hasher objects\"\n  ],\n\n  \"caveats\": [\n    \"MD5 is considered insecure and should not be used for new cryptographic purposes\",\n    \"Hashlib cannot guarantee the same output for different operating systems due to system-specific differences\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Hashlib Best Practices, Gotchas, and Common Mistakes in Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide to using the hashlib library effectively in Python 3.12+, addressing common mistakes, gotchas, and best practices.",
+    "key_points": [
+      "Always use new() function to create a new hasher object",
+      "Choose appropriate algorithm (SHA-1, SHA-256, SHA-384, SHA-512)",
+      "Avoid using md5 as it is considered insecure",
+      "Hexdigest() should be used for final digest",
+      "Updating the hash object with update() method before hexdigest()",
+      "Be aware of byte string requirements"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "import hashlib\nhasher = hashlib.sha256()\nhasher.update(b'some data')\nfinal_hash = hasher.hexdigest()"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+: Introduction of new algorithms and improvements in existing ones",
+      "Python 3.7: Removal of SHA-0 and SHA-1 for new hasher objects"
+    ],
+    "caveats": [
+      "MD5 is considered insecure and should not be used for new cryptographic purposes",
+      "Hashlib cannot guarantee the same output for different operating systems due to system-specific differences"
+    ]
+  }
+}
