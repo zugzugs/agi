@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-09-26T14:58:46Z",
+  "model": "mistral",
+  "topic_index": 661,
+  "topic": "_frozen_importlib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _frozen_importlib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Understanding _frozen_importlib in Python 3.12+\",\n  \"summary\": \"This guide provides an overview of the _frozen_importlib module in Python 3.12+, including common mistakes, gotchas, and best practices.\",\n\n  \"key_points\": [\n    \"_frozen_importlib is a built-in package used for importing modules from frozen executables (PEX) or packaged applications (AppImage).\",\n    \"It allows you to access standard library modules that would not be included in a frozen application by default.\",\n    \"Using _frozen_importlib can help reduce the size of your application and improve its portability.\",\n    \"However, it comes with certain caveats and best practices that should be followed to ensure correct functionality.\",\n    \"Some common mistakes include importing non-standard library modules and using absolute imports instead of relative imports.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"import sys\\nfrom _frozen_importlib import when_frozen, ImportError\\nif not when_frozen():\\n    import my_local_module # This will work for non-frozen applications\\nelse:\\n    try:\\n        import my_local_module # This will fail in a frozen application\\n    except ImportError:\\n        import _frozen_importlib\\n        _frozen_importlib.ProcessImport(_frozen_importlib.GetModuleSpec('my_local_module'))  # This works for frozen applications\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ introduced the _frozen_importlib module to handle importing modules in frozen applications.\",\n    \"Previous versions of Python did not provide a built-in solution for this problem and required external libraries like pex_resources.\"\n  ],\n\n  \"caveats\": [\n    \"_frozen_importlib should only be used when necessary, as it can make debugging more difficult.\",\n    \"Importing non-standard library modules may lead to unexpected behavior or errors in frozen applications.\",\n    \"Using absolute imports instead of relative imports can also cause issues in a frozen application.\",\n    \"Always test your code in both frozen and non-frozen environments to ensure compatibility.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Understanding _frozen_importlib in Python 3.12+",
+    "summary": "This guide provides an overview of the _frozen_importlib module in Python 3.12+, including common mistakes, gotchas, and best practices.",
+    "key_points": [
+      "_frozen_importlib is a built-in package used for importing modules from frozen executables (PEX) or packaged applications (AppImage).",
+      "It allows you to access standard library modules that would not be included in a frozen application by default.",
+      "Using _frozen_importlib can help reduce the size of your application and improve its portability.",
+      "However, it comes with certain caveats and best practices that should be followed to ensure correct functionality.",
+      "Some common mistakes include importing non-standard library modules and using absolute imports instead of relative imports."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "import sys\nfrom _frozen_importlib import when_frozen, ImportError\nif not when_frozen():\n    import my_local_module # This will work for non-frozen applications\nelse:\n    try:\n        import my_local_module # This will fail in a frozen application\n    except ImportError:\n        import _frozen_importlib\n        _frozen_importlib.ProcessImport(_frozen_importlib.GetModuleSpec('my_local_module'))  # This works for frozen applications"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduced the _frozen_importlib module to handle importing modules in frozen applications.",
+      "Previous versions of Python did not provide a built-in solution for this problem and required external libraries like pex_resources."
+    ],
+    "caveats": [
+      "_frozen_importlib should only be used when necessary, as it can make debugging more difficult.",
+      "Importing non-standard library modules may lead to unexpected behavior or errors in frozen applications.",
+      "Using absolute imports instead of relative imports can also cause issues in a frozen application.",
+      "Always test your code in both frozen and non-frozen environments to ensure compatibility."
+    ]
+  }
+}
