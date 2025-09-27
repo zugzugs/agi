@@ -1,0 +1,52 @@
+{
+  "timestamp_utc": "2025-09-27T05:45:49Z",
+  "model": "mistral",
+  "topic_index": 671,
+  "topic": "_heapq: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _heapq: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"_heapq: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)\",\n  \"summary\": \"This explainer discusses common pitfalls, best practices, and lesser-known features of the _heapq module in Python 3.12+ for efficient sorting and priority queue management.\",\n\n  \"key_points\": [\n    {\n      \"point\": \"Using _heapify() and _heappush(), not heapify() and heappush():\",\n      \"explanation\": \"These functions operate in-place, modifying the list directly, unlike their non-underscore counterparts. Always prefer the underscored functions when working with _heapq.\"\n    },\n    {\n      \"point\": \"_heapq_nlargest() and _heapq_nsmallest():\",\n      \"explanation\": \"These functions return a list of n largest or smallest elements, respectively. They're useful alternatives to sorting the entire heap when you only need n items.\"\n    },\n    {\n      \"point\": \"_merge() function:\",\n      \"explanation\": \"This function merges two heaps into one. It's helpful for implementing various algorithms like merge-sort and Dijkstra's algorithm.\"\n    },\n    {\n      \"point\": \"Gotcha: Negative numbers and custom objects:\",\n      \"explanation\": \"Negative numbers are treated as positive in the heap. Custom objects must implement the `__lt__` comparison method for proper sorting in the heap.\"\n    },\n    {\n      \"point\": \"Best practice: Custom priority queues:\",\n      \"explanation\": \"Instead of using a list for a custom priority queue, consider creating your own class that maintains a _heapq object internally. This promotes code organization and reusability.\"\n    }\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from _heapq import heappush, heappop\\n\\n# Custom priority queue\\nclass PriorityQueue:\\n    def __init__(self):\\n        self.queue = []\\n\\n    def push(self, item, priority):\\n        heappush(self.queue, (-priority, item))\\n\\n    def pop(self):\\n        return heappop(self.queue)[1]\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from _heapq import nlargest\\n\\n# Finding the 5 largest numbers in a list\\nnumbers = [4, 9, 2, 3, 7, 8, 1]\\nprint(nlargest(5, numbers))\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"The _heapq module is available in Python 3.x versions.\",\n    \"New functions like _heapq_merge(), _heapq_is_empty() and _siftdown() were added in Python 3.7.\"\n  ],\n\n  \"caveats\": [\n    \"Using _heapq's underscored functions implies they may change without warning, unlike the standard library's other functions.\",\n    \"Negative numbers can cause confusion when working with custom objects, as the heapsort algorithm treats negative values as positive.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "_heapq: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)",
+    "summary": "This explainer discusses common pitfalls, best practices, and lesser-known features of the _heapq module in Python 3.12+ for efficient sorting and priority queue management.",
+    "key_points": [
+      {
+        "point": "Using _heapify() and _heappush(), not heapify() and heappush():",
+        "explanation": "These functions operate in-place, modifying the list directly, unlike their non-underscore counterparts. Always prefer the underscored functions when working with _heapq."
+      },
+      {
+        "point": "_heapq_nlargest() and _heapq_nsmallest():",
+        "explanation": "These functions return a list of n largest or smallest elements, respectively. They're useful alternatives to sorting the entire heap when you only need n items."
+      },
+      {
+        "point": "_merge() function:",
+        "explanation": "This function merges two heaps into one. It's helpful for implementing various algorithms like merge-sort and Dijkstra's algorithm."
+      },
+      {
+        "point": "Gotcha: Negative numbers and custom objects:",
+        "explanation": "Negative numbers are treated as positive in the heap. Custom objects must implement the `__lt__` comparison method for proper sorting in the heap."
+      },
+      {
+        "point": "Best practice: Custom priority queues:",
+        "explanation": "Instead of using a list for a custom priority queue, consider creating your own class that maintains a _heapq object internally. This promotes code organization and reusability."
+      }
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from _heapq import heappush, heappop\n\n# Custom priority queue\nclass PriorityQueue:\n    def __init__(self):\n        self.queue = []\n\n    def push(self, item, priority):\n        heappush(self.queue, (-priority, item))\n\n    def pop(self):\n        return heappop(self.queue)[1]"
+      },
+      {
+        "language": "python",
+        "code": "from _heapq import nlargest\n\n# Finding the 5 largest numbers in a list\nnumbers = [4, 9, 2, 3, 7, 8, 1]\nprint(nlargest(5, numbers))"
+      }
+    ],
+    "version_notes": [
+      "The _heapq module is available in Python 3.x versions.",
+      "New functions like _heapq_merge(), _heapq_is_empty() and _siftdown() were added in Python 3.7."
+    ],
+    "caveats": [
+      "Using _heapq's underscored functions implies they may change without warning, unlike the standard library's other functions.",
+      "Negative numbers can cause confusion when working with custom objects, as the heapsort algorithm treats negative values as positive."
+    ]
+  }
+}
