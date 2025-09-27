@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2025-09-27T13:56:23Z",
+  "model": "mistral",
+  "topic_index": 684,
+  "topic": "How to unit test microservices using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test microservices using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing Microservices with FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to perform unit tests for microservices built with FastAPI using Python 3.12+, featuring test clients and mocking dependencies.\",\n  \"key_points\": [\n    \"Utilize the `fastapi-tutor/fastapi-testing-library` library for testing FastAPI applications\",\n    \"Set up a test client to make requests during tests\",\n    \"Mock dependencies using libraries like `pytest-mock`\",\n    \"Run tests with pytest, the popular testing framework in Python\",\n    \"Assert responses, response properties, and request arguments\",\n    \"Leverage FastAPI's OpenAPI documentation for more detailed integration testing\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI\\napp = FastAPI()\\n\\nfrom unittest.mock import Mock\\nfrom fastapi_tutor.testclient import TestClient\\nclient = TestClient(app)\\n\\n@app.get('/items/{item_id}')\\ndef get_item(item_id: int):\\n    return {'item': f'Item {item_id}'}\\n\\n# Tests\\nfrom fastapi.testclient import TestResponse\\nassert client.get('/items/1').json() == {'item': 'Item 1'}``\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is used for testing\",\n    \"FastAPI version should match your microservice's version\"\n  ],\n  \"caveats\": [\n    \"Remember to install necessary libraries like `fastapi-tutor/fastapi-testing-library` and `pytest-mock` using pip\",\n    \"Mocking might be more complex for external services or databases\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing Microservices with FastAPI in Python 3.12+",
+    "summary": "This explainer demonstrates how to perform unit tests for microservices built with FastAPI using Python 3.12+, featuring test clients and mocking dependencies.",
+    "key_points": [
+      "Utilize the `fastapi-tutor/fastapi-testing-library` library for testing FastAPI applications",
+      "Set up a test client to make requests during tests",
+      "Mock dependencies using libraries like `pytest-mock`",
+      "Run tests with pytest, the popular testing framework in Python",
+      "Assert responses, response properties, and request arguments",
+      "Leverage FastAPI's OpenAPI documentation for more detailed integration testing"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI\napp = FastAPI()\n\nfrom unittest.mock import Mock\nfrom fastapi_tutor.testclient import TestClient\nclient = TestClient(app)\n\n@app.get('/items/{item_id}')\ndef get_item(item_id: int):\n    return {'item': f'Item {item_id}'}\n\n# Tests\nfrom fastapi.testclient import TestResponse\nassert client.get('/items/1').json() == {'item': 'Item 1'}``"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is used for testing",
+      "FastAPI version should match your microservice's version"
+    ],
+    "caveats": [
+      "Remember to install necessary libraries like `fastapi-tutor/fastapi-testing-library` and `pytest-mock` using pip",
+      "Mocking might be more complex for external services or databases"
+    ]
+  }
+}
