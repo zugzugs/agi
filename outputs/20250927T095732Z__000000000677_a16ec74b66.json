@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-09-27T09:57:32Z",
+  "model": "mistral",
+  "topic_index": 677,
+  "topic": "_json: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _json: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"_json: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)\",\n  \"summary\": \"This explainer provides a comprehensive guide to common errors, pitfalls, and best practices when working with the built-in json module in Python 3.12+.\",\n  \"key_points\": [\n    \"Always specify an encoding (default is UTF-8) when opening JSON files using 'json.load()' or 'json.loads()'.\",\n    \"Do not use 'json.dumps()' to dump Python objects directly into a file, instead use 'json.dump()' followed by 'json.dump()' to ensure proper line breaking and indentation.\",\n    \"When using 'json.load()' or 'json.loads()', ensure the JSON data is a string, not a file object.\",\n    \"Python 3.12+ introduced the 'strict' option for 'json.loads()' which raises exceptions for malformed JSON input. Set it to True for better error handling.\",\n    \"Avoid directly modifying JSON objects using dictionary methods like 'dict.update()'. Instead, load the data as a Python object, modify it, and then convert it back to JSON using 'json.dumps()'.\",\n    \"Use appropriate data types (e.g., int, float, boolean) when encoding JSON data in order to avoid potential issues during parsing.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"with open('example.json', 'r', encoding='utf-8') as f:\\n\\tdata = json.load(f)\\n\\t# Modify data here...\\n\\tjson_str = json.dumps(data, indent=4)\\n\\twith open('output.json', 'w', encoding='utf-8') as outf:\\n\\t\\toutf.write(json_str)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"data = {'key': 1}\\ndata_as_json_string = json.dumps(data)\\n# This will raise an exception\\ndata_badly_encoded = json.loads('{key: 1}')\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ introduced the 'strict' option for 'json.loads()'.\",\n    \"Python 3.7+ added support for JSONWebTokens (JWT).\"\n  ],\n  \"caveats\": [\n    \"Do not use 'eval(json_str)' to execute JSON data, as it can lead to security risks.\",\n    \"Be mindful of the JSON structure when modifying Python objects to maintain proper relationships between nested elements.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "_json: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)",
+    "summary": "This explainer provides a comprehensive guide to common errors, pitfalls, and best practices when working with the built-in json module in Python 3.12+.",
+    "key_points": [
+      "Always specify an encoding (default is UTF-8) when opening JSON files using 'json.load()' or 'json.loads()'.",
+      "Do not use 'json.dumps()' to dump Python objects directly into a file, instead use 'json.dump()' followed by 'json.dump()' to ensure proper line breaking and indentation.",
+      "When using 'json.load()' or 'json.loads()', ensure the JSON data is a string, not a file object.",
+      "Python 3.12+ introduced the 'strict' option for 'json.loads()' which raises exceptions for malformed JSON input. Set it to True for better error handling.",
+      "Avoid directly modifying JSON objects using dictionary methods like 'dict.update()'. Instead, load the data as a Python object, modify it, and then convert it back to JSON using 'json.dumps()'.",
+      "Use appropriate data types (e.g., int, float, boolean) when encoding JSON data in order to avoid potential issues during parsing."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "with open('example.json', 'r', encoding='utf-8') as f:\n\tdata = json.load(f)\n\t# Modify data here...\n\tjson_str = json.dumps(data, indent=4)\n\twith open('output.json', 'w', encoding='utf-8') as outf:\n\t\toutf.write(json_str)"
+      },
+      {
+        "language": "Python",
+        "code": "data = {'key': 1}\ndata_as_json_string = json.dumps(data)\n# This will raise an exception\ndata_badly_encoded = json.loads('{key: 1}')"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduced the 'strict' option for 'json.loads()'.",
+      "Python 3.7+ added support for JSONWebTokens (JWT)."
+    ],
+    "caveats": [
+      "Do not use 'eval(json_str)' to execute JSON data, as it can lead to security risks.",
+      "Be mindful of the JSON structure when modifying Python objects to maintain proper relationships between nested elements."
+    ]
+  }
+}
