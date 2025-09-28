@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-09-28T09:39:26Z",
+  "model": "mistral",
+  "topic_index": 707,
+  "topic": "_posixsubprocess: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _posixsubprocess: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"_posixsubprocess: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)\",\n  \"summary\": \"This explainer provides insights into common mistakes, gotchas, and best practices when using the _posixsubprocess module in Python 3.12+ for executing operating system commands.\",\n  \"key_points\": [\n    \"Always use `subprocess.check_call()` or `subprocess.check_output()` instead of `subprocess.call()`, as the former raise exceptions on errors\",\n    \"Use universal newlines by setting the `universal_newlines` parameter to `True` for reading command output that may have embedded linebreaks (i.e., text files with DOS line endings)\",\n    \"Avoid using pipe-based subprocess execution (`subprocess.Popen(..., stdout=subprocess.PIPE, stderr=subprocess.PIPE)`) when dealing with non-text input or output to handle binary data correctly\",\n    \"Use the `executable` parameter if the command contains a path that needs to be explicitly specified for the system shell\",\n    \"Be aware of platform-specific differences: use `os.name` to check if you are on POSIX or Windows and adapt your code accordingly\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"subprocess.check_call(['ls', '-l'], shell=True, universal_newlines=True)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"with open('file.txt', 'rb') as f:  # binary file\\n    subprocess.Popen(['hexdump', '-C'], stdin=f, stdout=subprocess.PIPE)\"\n    }\n  ],\n  \"version_notes\": [\n    \"Features and improvements in Python 3.12 related to _posixsubprocess module might be added as this version is not yet released\"\n  ],\n  \"caveats\": [\n    \"Always test your code with various system configurations (operating systems, shells) to ensure compatibility\",\n    \"Using shell=True in your subprocess calls can pose security risks. Consider using shell=False if you're passing user input to the command.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "_posixsubprocess: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)",
+    "summary": "This explainer provides insights into common mistakes, gotchas, and best practices when using the _posixsubprocess module in Python 3.12+ for executing operating system commands.",
+    "key_points": [
+      "Always use `subprocess.check_call()` or `subprocess.check_output()` instead of `subprocess.call()`, as the former raise exceptions on errors",
+      "Use universal newlines by setting the `universal_newlines` parameter to `True` for reading command output that may have embedded linebreaks (i.e., text files with DOS line endings)",
+      "Avoid using pipe-based subprocess execution (`subprocess.Popen(..., stdout=subprocess.PIPE, stderr=subprocess.PIPE)`) when dealing with non-text input or output to handle binary data correctly",
+      "Use the `executable` parameter if the command contains a path that needs to be explicitly specified for the system shell",
+      "Be aware of platform-specific differences: use `os.name` to check if you are on POSIX or Windows and adapt your code accordingly"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "subprocess.check_call(['ls', '-l'], shell=True, universal_newlines=True)"
+      },
+      {
+        "language": "Python",
+        "code": "with open('file.txt', 'rb') as f:  # binary file\n    subprocess.Popen(['hexdump', '-C'], stdin=f, stdout=subprocess.PIPE)"
+      }
+    ],
+    "version_notes": [
+      "Features and improvements in Python 3.12 related to _posixsubprocess module might be added as this version is not yet released"
+    ],
+    "caveats": [
+      "Always test your code with various system configurations (operating systems, shells) to ensure compatibility",
+      "Using shell=True in your subprocess calls can pose security risks. Consider using shell=False if you're passing user input to the command."
+    ]
+  }
+}
