@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-09-29T21:58:55Z",
+  "model": "mistral",
+  "topic_index": 741,
+  "topic": "_ssl: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _ssl: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"SSL in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer dives into the intricacies of working with SSL in Python 3.12+, discussing common errors, problem areas, and optimal strategies to ensure secure connections.\",\n\n  \"key_points\": [\n    \"Understanding the difference between ssl, tls, and dtls\",\n    \"Choosing the right context manager for your needs (ssl.create_default_context(), ssl.SSLContext())\",\n    \"Handling SSL errors effectively (SSLError, CertificateError)\",\n    \"Utilizing OpenSSL libraries for advanced customization\",\n    \"Enforcing strict TLS versions and cipher suites for security\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"with ssl.create_default_context().wrap_socket(sock, server_hostname=servername) as sslsock:\\n\\tsslsock.sendall(request)\\n\\tsslsock.recv(1024)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"import OpenSSL\\ncontext = ssl.create_ssl_context(OpenSSL.SSL.SSLv23_METHOD)\\ncontext.check_hostname = False\\ncontext.verify_mode = ssl.CERT_NONE\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ introduced improvements to the SSL library, enhancing security and performance.\",\n    \"Some features may be backward-incompatible with previous versions, so it's essential to test your code across multiple releases.\"\n  ],\n\n  \"caveats\": [\n    \"Insecurely handling SSL connections can lead to data breaches or man-in-the-middle attacks.\",\n    \"Always validate server certificates to ensure the authenticity of the remote party.\",\n    \"Keep up with latest security advisories and best practices when working with SSL in Python.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "SSL in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer dives into the intricacies of working with SSL in Python 3.12+, discussing common errors, problem areas, and optimal strategies to ensure secure connections.",
+    "key_points": [
+      "Understanding the difference between ssl, tls, and dtls",
+      "Choosing the right context manager for your needs (ssl.create_default_context(), ssl.SSLContext())",
+      "Handling SSL errors effectively (SSLError, CertificateError)",
+      "Utilizing OpenSSL libraries for advanced customization",
+      "Enforcing strict TLS versions and cipher suites for security"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "with ssl.create_default_context().wrap_socket(sock, server_hostname=servername) as sslsock:\n\tsslsock.sendall(request)\n\tsslsock.recv(1024)"
+      },
+      {
+        "language": "Python",
+        "code": "import OpenSSL\ncontext = ssl.create_ssl_context(OpenSSL.SSL.SSLv23_METHOD)\ncontext.check_hostname = False\ncontext.verify_mode = ssl.CERT_NONE"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduced improvements to the SSL library, enhancing security and performance.",
+      "Some features may be backward-incompatible with previous versions, so it's essential to test your code across multiple releases."
+    ],
+    "caveats": [
+      "Insecurely handling SSL connections can lead to data breaches or man-in-the-middle attacks.",
+      "Always validate server certificates to ensure the authenticity of the remote party.",
+      "Keep up with latest security advisories and best practices when working with SSL in Python."
+    ]
+  }
+}
