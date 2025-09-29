@@ -1,0 +1,46 @@
+{
+  "timestamp_utc": "2025-09-29T13:27:39Z",
+  "model": "mistral",
+  "topic_index": 731,
+  "topic": "_signal: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: _signal: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Common Mistakes, Gotchas, and Best Practices for the _signal Module in Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide to common pitfalls, essential tips, and best practices when working with the _signal module in Python 3.12+.\",\n\n  \"key_points\": [\n    {\n      \"point\": \"Always import signal as sig for readability and avoid confusion with built-in signals like EOFError or SystemExit.\",\n      \"explanation\": \"`import signal as sig`\"\n    },\n    {\n      \"point\": \"Use the `sig.SIGINT` constant to catch keyboard interrupts (Ctrl+C) instead of `KeyboardInterrupt`.\",\n      \"explanation\": \"`try:`\\n  \\t...\\n`except sig.SIGINT:`\"\n    },\n    {\n      \"point\": \"Use `sig.signal(signal_number, handler)` to set a custom signal handler instead of overriding the default behavior.\",\n      \"explanation\": \"`sig.signal(sig.SIGHUP, my_custom_handler)`\"\n    },\n    {\n      \"point\": \"Be mindful when using `sig.pause()`, as it may block the entire process unless used with threading or multiprocessing.\",\n      \"explanation\": \"Use appropriate context managers like `with sig.signal(sig.SIGINT, signal.SIG_IGN):` to ignore keyboard interrupts during a specific block of code.\"\n    }\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"import signal as sig\\n\\nsig.signal(sig.SIGHUP, my_custom_handler)\\nsig.pause()\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"try:\\n  ...\\nexcept sig.SIGINT:\\n  print('Caught keyboard interrupt')\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"These best practices apply to Python 3.12+ and may not be applicable to earlier versions.\"\n  ],\n\n  \"caveats\": [\n    \"Remember that the _signal module is a low-level module with powerful capabilities, so use it responsibly and with caution.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Common Mistakes, Gotchas, and Best Practices for the _signal Module in Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide to common pitfalls, essential tips, and best practices when working with the _signal module in Python 3.12+.",
+    "key_points": [
+      {
+        "point": "Always import signal as sig for readability and avoid confusion with built-in signals like EOFError or SystemExit.",
+        "explanation": "`import signal as sig`"
+      },
+      {
+        "point": "Use the `sig.SIGINT` constant to catch keyboard interrupts (Ctrl+C) instead of `KeyboardInterrupt`.",
+        "explanation": "`try:`\n  \t...\n`except sig.SIGINT:`"
+      },
+      {
+        "point": "Use `sig.signal(signal_number, handler)` to set a custom signal handler instead of overriding the default behavior.",
+        "explanation": "`sig.signal(sig.SIGHUP, my_custom_handler)`"
+      },
+      {
+        "point": "Be mindful when using `sig.pause()`, as it may block the entire process unless used with threading or multiprocessing.",
+        "explanation": "Use appropriate context managers like `with sig.signal(sig.SIGINT, signal.SIG_IGN):` to ignore keyboard interrupts during a specific block of code."
+      }
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "import signal as sig\n\nsig.signal(sig.SIGHUP, my_custom_handler)\nsig.pause()"
+      },
+      {
+        "language": "Python",
+        "code": "try:\n  ...\nexcept sig.SIGINT:\n  print('Caught keyboard interrupt')"
+      }
+    ],
+    "version_notes": [
+      "These best practices apply to Python 3.12+ and may not be applicable to earlier versions."
+    ],
+    "caveats": [
+      "Remember that the _signal module is a low-level module with powerful capabilities, so use it responsibly and with caution."
+    ]
+  }
+}
