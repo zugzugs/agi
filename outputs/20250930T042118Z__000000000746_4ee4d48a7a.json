@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2025-09-30T04:21:18Z",
+  "model": "mistral",
+  "topic_index": 746,
+  "topic": "How to profile ML training loops using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile ML training loops using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Machine Learning Training Loops with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to use FastAPI and Python 3.12+'s built-in profiling tools to optimize the performance of machine learning training loops.\",\n  \"key_points\": [\n    \"Leverage FastAPI's middleware for integrating Python's built-in cProfile module\",\n    \"Understand how to interpret and analyze the generated profile data\",\n    \"Implementing the profiling mechanism in an ML training loop\",\n    \"Adjusting and fine-tuning your code based on the insights from profiling\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\nfrom cProfile import cProfile\\nimport pstats\\n\\ndef profile(func):\\n    def wrapper(*args, **kwargs):\\n        pr = cProfile.runctx(\\n            func(*args, **kwargs),\\n            globals(), locals()\\n        )\\n        s = pstats.Stats(pr)\\n        s.strip_dirs().sort_stats('cumulative').print_stats(30)\\n    return wrapper\\n\\n@app.post('/train/{model}')\\n@profile\\ndef train_model(model: str):\\n    ...\\n    # Your ML training loop implementation goes here\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for the built-in cProfile module.\",\n    \"FastAPI version 0.76.0 or later is needed to work with Python 3.12+\"\n  ],\n  \"caveats\": [\n    \"Keep in mind that profiling can have a non-negligible overhead.\",\n    \"It's essential to balance the amount of time spent profiling versus writing and testing your code.\",\n    \"When profiling large models or datasets, you might want to use more advanced tools like GPU-accelerated profilers.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Machine Learning Training Loops with FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to use FastAPI and Python 3.12+'s built-in profiling tools to optimize the performance of machine learning training loops.",
+    "key_points": [
+      "Leverage FastAPI's middleware for integrating Python's built-in cProfile module",
+      "Understand how to interpret and analyze the generated profile data",
+      "Implementing the profiling mechanism in an ML training loop",
+      "Adjusting and fine-tuning your code based on the insights from profiling"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\nfrom cProfile import cProfile\nimport pstats\n\ndef profile(func):\n    def wrapper(*args, **kwargs):\n        pr = cProfile.runctx(\n            func(*args, **kwargs),\n            globals(), locals()\n        )\n        s = pstats.Stats(pr)\n        s.strip_dirs().sort_stats('cumulative').print_stats(30)\n    return wrapper\n\n@app.post('/train/{model}')\n@profile\ndef train_model(model: str):\n    ...\n    # Your ML training loop implementation goes here"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for the built-in cProfile module.",
+      "FastAPI version 0.76.0 or later is needed to work with Python 3.12+"
+    ],
+    "caveats": [
+      "Keep in mind that profiling can have a non-negligible overhead.",
+      "It's essential to balance the amount of time spent profiling versus writing and testing your code.",
+      "When profiling large models or datasets, you might want to use more advanced tools like GPU-accelerated profilers."
+    ]
+  }
+}
