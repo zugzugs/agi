@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-10-01T15:17:45Z",
+  "model": "mistral",
+  "topic_index": 778,
+  "topic": "How to profile notebooks to production using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile notebooks to production using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Notebooks for Production with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide will explain how to profile Jupyter notebooks for efficient production deployment using FastAPI and Python 3.12+.\",\n\n  \"key_points\": [\n    \"Understand the importance of profiling Jupyter notebooks before deploying to production\",\n    \"Explore FastAPI as a modern, high-performance web framework for building APIs in Python 3.12+\",\n    \"Learn how to convert Jupyter Notebooks into FastAPI applications\",\n    \"Optimize the performance of your FastAPI application with profiling tools\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n# Define routes, dependencies, and responses\\nnbee = app.get('/notebook')\\nnbee.response(media_type='application/json')(lambda: {'data': 'Notebook data'})\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile\\nimport pstats\\n\\nprof = cProfile.Profile()\\n# Your code here\\nprof.print_stats(sort=pstats.SortKey.CUMULATIVE)\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required to run the examples provided in this guide.\",\n    \"FastAPI version X.Y.Z (replace with the latest stable release) should be installed for optimal performance.\"\n  ],\n\n  \"caveats\": [\n    \"Notebook-to-FastAPI conversion may require adjustments due to differences in runtime environments and libraries.\",\n    \"Profiling large applications or complex functions can lead to memory usage issues. Be mindful of your system resources.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Notebooks for Production with FastAPI in Python 3.12+",
+    "summary": "This guide will explain how to profile Jupyter notebooks for efficient production deployment using FastAPI and Python 3.12+.",
+    "key_points": [
+      "Understand the importance of profiling Jupyter notebooks before deploying to production",
+      "Explore FastAPI as a modern, high-performance web framework for building APIs in Python 3.12+",
+      "Learn how to convert Jupyter Notebooks into FastAPI applications",
+      "Optimize the performance of your FastAPI application with profiling tools"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n# Define routes, dependencies, and responses\nnbee = app.get('/notebook')\nnbee.response(media_type='application/json')(lambda: {'data': 'Notebook data'})"
+      },
+      {
+        "language": "python",
+        "code": "import cProfile\nimport pstats\n\nprof = cProfile.Profile()\n# Your code here\nprof.print_stats(sort=pstats.SortKey.CUMULATIVE)"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to run the examples provided in this guide.",
+      "FastAPI version X.Y.Z (replace with the latest stable release) should be installed for optimal performance."
+    ],
+    "caveats": [
+      "Notebook-to-FastAPI conversion may require adjustments due to differences in runtime environments and libraries.",
+      "Profiling large applications or complex functions can lead to memory usage issues. Be mindful of your system resources."
+    ]
+  }
+}
