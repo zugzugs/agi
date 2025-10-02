@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-10-02T08:56:42Z",
+  "model": "mistral",
+  "topic_index": 791,
+  "topic": "ast: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: ast: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Best Practices, Gotchas, and Common Mistakes in Python 3.12+ AST Module\",\n  \"summary\": \"This explainer provides an overview of key considerations when working with the Abstract Syntax Tree (AST) in Python 3.12+, focusing on common mistakes, gotchas, and best practices.\",\n\n  \"key_points\": [\n    \"Understanding the AST: The AST is a tree-like data structure used to represent the abstract syntactic structure of Python code.\",\n    \"Python 3.12+ enhancements: Python 3.12 introduces several new features and changes in the AST, so it's essential to be aware of these updates.\",\n    \"Common mistakes: Misunderstanding AST traversal order, forgetting to handle nodes with multiple children, and confusing node types can lead to errors.\",\n    \"Gotchas: Some Python constructs, like generators or comprehensions, might not be represented in the expected way in the AST. Understanding these differences is crucial for correct analysis of the code.\",\n    \"Best practices: Using `visit` and `departure` methods to traverse the AST, following the official AST documentation, and testing your code with various examples are recommended best practices.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from ast import parse\\nast = parse('def my_function(): pass')\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"visitor = NodeVisitor()\\nast.accept(visitor)\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12: New AST features and changes, like the new `AsyncFor` node.\",\n    \"Python 3.10: Deprecation of `ast.NodeVisitor` class and introduction of `ast.walk()`.\"\n  ],\n\n  \"caveats\": [\n    \"Some AST constructs may not correspond directly to the equivalent Python syntax.\",\n    \"AST traversal order is depth-first, left-to-right, but some nodes like `For` and `With` have multiple children that should be handled carefully.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Best Practices, Gotchas, and Common Mistakes in Python 3.12+ AST Module",
+    "summary": "This explainer provides an overview of key considerations when working with the Abstract Syntax Tree (AST) in Python 3.12+, focusing on common mistakes, gotchas, and best practices.",
+    "key_points": [
+      "Understanding the AST: The AST is a tree-like data structure used to represent the abstract syntactic structure of Python code.",
+      "Python 3.12+ enhancements: Python 3.12 introduces several new features and changes in the AST, so it's essential to be aware of these updates.",
+      "Common mistakes: Misunderstanding AST traversal order, forgetting to handle nodes with multiple children, and confusing node types can lead to errors.",
+      "Gotchas: Some Python constructs, like generators or comprehensions, might not be represented in the expected way in the AST. Understanding these differences is crucial for correct analysis of the code.",
+      "Best practices: Using `visit` and `departure` methods to traverse the AST, following the official AST documentation, and testing your code with various examples are recommended best practices."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from ast import parse\nast = parse('def my_function(): pass')"
+      },
+      {
+        "language": "Python",
+        "code": "visitor = NodeVisitor()\nast.accept(visitor)"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12: New AST features and changes, like the new `AsyncFor` node.",
+      "Python 3.10: Deprecation of `ast.NodeVisitor` class and introduction of `ast.walk()`."
+    ],
+    "caveats": [
+      "Some AST constructs may not correspond directly to the equivalent Python syntax.",
+      "AST traversal order is depth-first, left-to-right, but some nodes like `For` and `With` have multiple children that should be handled carefully."
+    ]
+  }
+}
