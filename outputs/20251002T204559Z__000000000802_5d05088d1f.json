@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-10-02T20:45:59Z",
+  "model": "mistral",
+  "topic_index": 802,
+  "topic": "How to implement event-driven systems using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to implement event-driven systems using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Implementing Event-Driven Systems Using FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to create an event-driven system using FastAPI, a modern, high-performance web framework for building APIs with Python 3.12+.\",\n  \"key_points\": [\n    \"Leverage FastAPI's asynchronous nature to handle multiple events concurrently.\",\n    \"Create custom event listeners that process incoming events and trigger appropriate actions.\",\n    \"Use Pub/Sub messaging patterns for distributing events across microservices.\",\n    \"Integrate third-party libraries like aiogram (for Telegram bots) or websockets for real-time communication.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\nasync def event_handler(event: Event):\\n    # process the event here\\n    pass\\napp.on_event(\\\"my_event\\\", event_handler)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi.pubsub import Publish, Subscribe\\n@Subscribe(\\\"my_topic\\\")\\ndef on_my_topic(event: MyEvent):\\n    # process the event here\"\n    }\n  ],\n  \"version_notes\": [\n    \"FastAPI version 0.74 and above is required for asynchronous event handling.\",\n    \"Python 3.12+ is recommended for optimal performance.\"\n  ],\n  \"caveats\": [\n    \"As FastAPI does not natively support Pub/Sub, you may need to use external libraries or services like Google Cloud Pub/Sub or Apache Kafka.\",\n    \"Ensure your event listeners are asynchronous and handle events efficiently to avoid blocking the main application.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Implementing Event-Driven Systems Using FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to create an event-driven system using FastAPI, a modern, high-performance web framework for building APIs with Python 3.12+.",
+    "key_points": [
+      "Leverage FastAPI's asynchronous nature to handle multiple events concurrently.",
+      "Create custom event listeners that process incoming events and trigger appropriate actions.",
+      "Use Pub/Sub messaging patterns for distributing events across microservices.",
+      "Integrate third-party libraries like aiogram (for Telegram bots) or websockets for real-time communication."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\nasync def event_handler(event: Event):\n    # process the event here\n    pass\napp.on_event(\"my_event\", event_handler)"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi.pubsub import Publish, Subscribe\n@Subscribe(\"my_topic\")\ndef on_my_topic(event: MyEvent):\n    # process the event here"
+      }
+    ],
+    "version_notes": [
+      "FastAPI version 0.74 and above is required for asynchronous event handling.",
+      "Python 3.12+ is recommended for optimal performance."
+    ],
+    "caveats": [
+      "As FastAPI does not natively support Pub/Sub, you may need to use external libraries or services like Google Cloud Pub/Sub or Apache Kafka.",
+      "Ensure your event listeners are asynchronous and handle events efficiently to avoid blocking the main application."
+    ]
+  }
+}
