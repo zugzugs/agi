@@ -1,0 +1,45 @@
+{
+  "timestamp_utc": "2025-10-02T09:55:33Z",
+  "model": "mistral",
+  "topic_index": 793,
+  "topic": "asyncio: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: asyncio: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"AsyncIO Best Practices, Gotchas, and Common Mistakes in Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive overview of common mistakes, gotchas, and best practices for using the AsyncIO library in Python 3.12+ to effectively write asynchronous code.\",\n\n  \"key_points\": [\n    \"Understanding the event loop and tasks\",\n    \"Using async def for defining coroutines\",\n    \"Avoiding blocking calls within coroutines\",\n    \"Employing await in the correct context\",\n    \"Utilizing yield from for nested coroutines\",\n    \"Effective error handling in async contexts\",\n    \"Managing concurrent tasks with semaphores and locks\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"async def example1():\\n  await asyncio.sleep(1)\\n  print('Example 1')\\nasyncio.run(example1())\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"async def example2():\\n  blocking_call() # A blocking call\\n  await asyncio.sleep(1)\\n  print('Example 2')\\nasyncio.run(example2())\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"async def example3():\\n  await asyncio.gather(*[coroutine1(), coroutine2(), coroutine3()])\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.7 introduced the async/await syntax\",\n    \"Python 3.10 adds improvements to the standard library's concurrent.futures module, including BrokenSleep and Cancellation of Futures\",\n    \"Python 3.12 may include additional features and optimizations for AsyncIO\"\n  ],\n\n  \"caveats\": [\n    \"AsyncIO does not automatically parallelize tasks - it's the developer's responsibility to manage concurrency effectively\",\n    \"Avoid using global variables in coroutines, as they can cause unpredictable behavior\",\n    \"Be mindful of the number of concurrent tasks and their potential impact on system resources\"\n  ]\n}",
+  "response_parsed": {
+    "title": "AsyncIO Best Practices, Gotchas, and Common Mistakes in Python 3.12+",
+    "summary": "This explainer provides a comprehensive overview of common mistakes, gotchas, and best practices for using the AsyncIO library in Python 3.12+ to effectively write asynchronous code.",
+    "key_points": [
+      "Understanding the event loop and tasks",
+      "Using async def for defining coroutines",
+      "Avoiding blocking calls within coroutines",
+      "Employing await in the correct context",
+      "Utilizing yield from for nested coroutines",
+      "Effective error handling in async contexts",
+      "Managing concurrent tasks with semaphores and locks"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "async def example1():\n  await asyncio.sleep(1)\n  print('Example 1')\nasyncio.run(example1())"
+      },
+      {
+        "language": "python",
+        "code": "async def example2():\n  blocking_call() # A blocking call\n  await asyncio.sleep(1)\n  print('Example 2')\nasyncio.run(example2())"
+      },
+      {
+        "language": "python",
+        "code": "async def example3():\n  await asyncio.gather(*[coroutine1(), coroutine2(), coroutine3()])"
+      }
+    ],
+    "version_notes": [
+      "Python 3.7 introduced the async/await syntax",
+      "Python 3.10 adds improvements to the standard library's concurrent.futures module, including BrokenSleep and Cancellation of Futures",
+      "Python 3.12 may include additional features and optimizations for AsyncIO"
+    ],
+    "caveats": [
+      "AsyncIO does not automatically parallelize tasks - it's the developer's responsibility to manage concurrency effectively",
+      "Avoid using global variables in coroutines, as they can cause unpredictable behavior",
+      "Be mindful of the number of concurrent tasks and their potential impact on system resources"
+    ]
+  }
+}
