@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-10-03T12:33:32Z",
+  "model": "mistral",
+  "topic_index": 817,
+  "topic": "cgitb: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: cgitb: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"cgitb in Python 3.12+: Best Practices, Mistakes to Avoid, and Gotchas\",\n  \"summary\": \"This explainer provides insights on utilizing the cgitb module effectively in Python 3.12+, emphasizing common errors, best practices, and potential pitfalls.\",\n\n  \"key_points\": [\n    \"Enabling cgitb debugging should be done early in your script to catch exceptions as soon as they occur\",\n    \"Always ensure to set the `use_exceptions` parameter to True for automatic exception handling\",\n    \"Be aware of the potential performance impact when using cgitb and consider disabling it in production environments\",\n    \"Understand the difference between the error, exception, and traceback objects returned by cgitb\",\n    \"Learn how to customize the formatting of the output with the `format_exception` function\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import cgitb; cgitb.enable()\\ntry:\\n   ... # your code here\\nexcept Exception as e:\\n   import traceback\\n   traceback.print_exception(type(e), e, e.__traceback__)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import cgitb; cgitb.enable(format='text') # Customize output format\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ introduced a new feature to customize the output format of cgitb with the `format` parameter\",\n    \"In previous versions, you could only change the formatting by modifying the module source code or using third-party libraries\"\n  ],\n\n  \"caveats\": [\n    \"When using cgitb in production environments, keep in mind the potential performance impact and consider disabling it for optimized performance\",\n    \"Do not rely solely on cgitb for debugging complex issues. Consider other tools like integrated development environments (IDEs) or remote debuggers\"\n  ]\n}",
+  "response_parsed": {
+    "title": "cgitb in Python 3.12+: Best Practices, Mistakes to Avoid, and Gotchas",
+    "summary": "This explainer provides insights on utilizing the cgitb module effectively in Python 3.12+, emphasizing common errors, best practices, and potential pitfalls.",
+    "key_points": [
+      "Enabling cgitb debugging should be done early in your script to catch exceptions as soon as they occur",
+      "Always ensure to set the `use_exceptions` parameter to True for automatic exception handling",
+      "Be aware of the potential performance impact when using cgitb and consider disabling it in production environments",
+      "Understand the difference between the error, exception, and traceback objects returned by cgitb",
+      "Learn how to customize the formatting of the output with the `format_exception` function"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import cgitb; cgitb.enable()\ntry:\n   ... # your code here\nexcept Exception as e:\n   import traceback\n   traceback.print_exception(type(e), e, e.__traceback__)"
+      },
+      {
+        "language": "python",
+        "code": "import cgitb; cgitb.enable(format='text') # Customize output format"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduced a new feature to customize the output format of cgitb with the `format` parameter",
+      "In previous versions, you could only change the formatting by modifying the module source code or using third-party libraries"
+    ],
+    "caveats": [
+      "When using cgitb in production environments, keep in mind the potential performance impact and consider disabling it for optimized performance",
+      "Do not rely solely on cgitb for debugging complex issues. Consider other tools like integrated development environments (IDEs) or remote debuggers"
+    ]
+  }
+}
