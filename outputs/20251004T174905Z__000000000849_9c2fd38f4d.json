@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2025-10-04T17:49:05Z",
+  "model": "mistral",
+  "topic_index": 849,
+  "topic": "crypt: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: crypt: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Cryptography Best Practices, Gotchas, and Common Mistakes in Python 3.12+\",\n  \"summary\": \"This guide provides a comprehensive overview of common mistakes, gotchas, and best practices when using cryptography libraries in Python 3.12+.\",\n  \"key_points\": [\n    \"Always use library-provided functions for encryption and decryption to maintain security.\",\n    \"Avoid rolling your own crypto algorithms or modifying existing ones unless you are an expert.\",\n    \"Use PKCS#12 for managing private keys securely.\",\n    \"Never hardcode sensitive keys into scripts or applications.\",\n    \"Always validate input data before encrypting and decrypting to prevent attacks like padding oracle attacks.\",\n    \"Use a secure random number generator when creating keys or nonces.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from cryptography.fernet import Fernet\\n\\nkey = Fernet.generate_key()\\nf = Fernet(key)\\nmessage = 'secret message'\\nencrypted_message = f.encrypt(message.encode())\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from cryptography.fernet import Fernet\\n\\n# Load the private key from a .p12 file\\nkey = Fernet.from_pem(open('my_private_key.pem').read())\\nf = Fernet(key)\\nencrypted_data = b'...' \\nmessage = f.decrypt(encrypted_data)\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required to use the cryptography library.\",\n    \"Newer versions of the cryptography library may introduce additional best practices and fix security vulnerabilities.\"\n  ],\n  \"caveats\": [\n    \"Always keep your keys secure and rotate them regularly.\",\n    \"Never share your private keys with anyone.\",\n    \"Ensure that you understand the trade-offs between speed, security, and complexity when choosing cryptographic algorithms.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Cryptography Best Practices, Gotchas, and Common Mistakes in Python 3.12+",
+    "summary": "This guide provides a comprehensive overview of common mistakes, gotchas, and best practices when using cryptography libraries in Python 3.12+.",
+    "key_points": [
+      "Always use library-provided functions for encryption and decryption to maintain security.",
+      "Avoid rolling your own crypto algorithms or modifying existing ones unless you are an expert.",
+      "Use PKCS#12 for managing private keys securely.",
+      "Never hardcode sensitive keys into scripts or applications.",
+      "Always validate input data before encrypting and decrypting to prevent attacks like padding oracle attacks.",
+      "Use a secure random number generator when creating keys or nonces."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from cryptography.fernet import Fernet\n\nkey = Fernet.generate_key()\nf = Fernet(key)\nmessage = 'secret message'\nencrypted_message = f.encrypt(message.encode())"
+      },
+      {
+        "language": "Python",
+        "code": "from cryptography.fernet import Fernet\n\n# Load the private key from a .p12 file\nkey = Fernet.from_pem(open('my_private_key.pem').read())\nf = Fernet(key)\nencrypted_data = b'...' \nmessage = f.decrypt(encrypted_data)"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to use the cryptography library.",
+      "Newer versions of the cryptography library may introduce additional best practices and fix security vulnerabilities."
+    ],
+    "caveats": [
+      "Always keep your keys secure and rotate them regularly.",
+      "Never share your private keys with anyone.",
+      "Ensure that you understand the trade-offs between speed, security, and complexity when choosing cryptographic algorithms."
+    ]
+  }
+}
