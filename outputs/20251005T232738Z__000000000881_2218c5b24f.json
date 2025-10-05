@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-10-05T23:27:38Z",
+  "model": "mistral",
+  "topic_index": 881,
+  "topic": "faulthandler: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: faulthandler: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"faulthandler in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer provides an overview of faulthandler, a new feature introduced in Python 3.12 for debugging crashes during program execution. It covers common mistakes, best practices, and potential caveats.\",\n\n  \"key_points\": [\n    \"faulthandler is a built-in module that helps diagnose crashes and errors during runtime without affecting the overall program behavior.\",\n    \"It collects traceback information when an unhandled exception occurs in another thread or process, making it easier to identify and fix issues.\",\n    \"By default, faulthandler is enabled for all processes in Python 3.12+. You can disable it by setting the environment variable `PYTHONFAULTHANDLER=0`.\",\n    \"It's essential to understand that faulthandler will only catch exceptions that are not handled within your code.\",\n    \"When using faulthandler, be aware that it might increase memory usage and slow down the execution of your program due to traceback generation and collection.\",\n    \"It's recommended to use faulthandler in development environments or for debugging purposes rather than production settings.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"try:\\n  # Some potentially failing code\\nexcept Exception as e:\\n  import faulthandler\\nfaulthandler.print_last(e)\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"faulthandler is a new feature introduced in Python 3.12.\",\n    \"Python versions before 3.12 do not have faulthandler support.\"\n  ],\n\n  \"caveats\": [\n    \"Using faulthandler may affect the performance of your program due to traceback generation and collection.\",\n    \"It should be used with caution, particularly in production environments where performance is crucial.\",\n    \"Ensure that exceptions are properly handled within your code, as faulthandler will only catch unhandled exceptions.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "faulthandler in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer provides an overview of faulthandler, a new feature introduced in Python 3.12 for debugging crashes during program execution. It covers common mistakes, best practices, and potential caveats.",
+    "key_points": [
+      "faulthandler is a built-in module that helps diagnose crashes and errors during runtime without affecting the overall program behavior.",
+      "It collects traceback information when an unhandled exception occurs in another thread or process, making it easier to identify and fix issues.",
+      "By default, faulthandler is enabled for all processes in Python 3.12+. You can disable it by setting the environment variable `PYTHONFAULTHANDLER=0`.",
+      "It's essential to understand that faulthandler will only catch exceptions that are not handled within your code.",
+      "When using faulthandler, be aware that it might increase memory usage and slow down the execution of your program due to traceback generation and collection.",
+      "It's recommended to use faulthandler in development environments or for debugging purposes rather than production settings."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "try:\n  # Some potentially failing code\nexcept Exception as e:\n  import faulthandler\nfaulthandler.print_last(e)"
+      }
+    ],
+    "version_notes": [
+      "faulthandler is a new feature introduced in Python 3.12.",
+      "Python versions before 3.12 do not have faulthandler support."
+    ],
+    "caveats": [
+      "Using faulthandler may affect the performance of your program due to traceback generation and collection.",
+      "It should be used with caution, particularly in production environments where performance is crucial.",
+      "Ensure that exceptions are properly handled within your code, as faulthandler will only catch unhandled exceptions."
+    ]
+  }
+}
