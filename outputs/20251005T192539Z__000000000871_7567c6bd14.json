@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-10-05T19:25:39Z",
+  "model": "mistral",
+  "topic_index": 871,
+  "topic": "email: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: email: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Email Handling Best Practices, Mistakes, and Gotchas in Python 3.12+\",\n  \"summary\": \"This explainer discusses common errors, pitfalls, and recommended practices for email handling using Python 3.12+, focusing on the built-in `smptlib` and `email` libraries.\",\n  \"key_points\": [\n    \"Always use context managers (with smtplib) to properly handle SMTP connections\",\n    \"Validate recipient addresses before sending to avoid invalid email address errors\",\n    \"Encode email subject, body, and headers with MIME-friendly encodings\",\n    \"Use secure protocols like TLS/SSL for sending emails\",\n    \"Avoid using `html.parser` or `xml.etree.ElementTree` to parse HTML email content as they can produce incorrect results\",\n    \"Consider libraries like `email-validator` or `Django Mailer` for additional email handling functionality\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"with smtplib.SMTP('smtp.example.com', port=587) as server:\\n    server.starttls()\\n    server.login(user, password)\\n    msg = email.mime.text.MIMEText(message, 'plain')\\n    server.sendmail(from_addr, to_addrs, msg)\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for using the f-strings in code examples\",\n    \"Email handling functionality has not changed significantly between Python versions since 3.6\"\n  ],\n  \"caveats\": [\n    \"Always ensure you have proper authentication (username/password or API key) before sending emails to avoid being marked as spam\",\n    \"Check recipient inboxes for possible email filtering issues if messages are not being received\",\n    \"Ensure your code complies with all relevant laws and regulations, such as the CAN-SPAM Act (US) or GDPR (EU)\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Email Handling Best Practices, Mistakes, and Gotchas in Python 3.12+",
+    "summary": "This explainer discusses common errors, pitfalls, and recommended practices for email handling using Python 3.12+, focusing on the built-in `smptlib` and `email` libraries.",
+    "key_points": [
+      "Always use context managers (with smtplib) to properly handle SMTP connections",
+      "Validate recipient addresses before sending to avoid invalid email address errors",
+      "Encode email subject, body, and headers with MIME-friendly encodings",
+      "Use secure protocols like TLS/SSL for sending emails",
+      "Avoid using `html.parser` or `xml.etree.ElementTree` to parse HTML email content as they can produce incorrect results",
+      "Consider libraries like `email-validator` or `Django Mailer` for additional email handling functionality"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "with smtplib.SMTP('smtp.example.com', port=587) as server:\n    server.starttls()\n    server.login(user, password)\n    msg = email.mime.text.MIMEText(message, 'plain')\n    server.sendmail(from_addr, to_addrs, msg)"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for using the f-strings in code examples",
+      "Email handling functionality has not changed significantly between Python versions since 3.6"
+    ],
+    "caveats": [
+      "Always ensure you have proper authentication (username/password or API key) before sending emails to avoid being marked as spam",
+      "Check recipient inboxes for possible email filtering issues if messages are not being received",
+      "Ensure your code complies with all relevant laws and regulations, such as the CAN-SPAM Act (US) or GDPR (EU)"
+    ]
+  }
+}
