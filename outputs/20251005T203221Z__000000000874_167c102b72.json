@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2025-10-05T20:32:21Z",
+  "model": "mistral",
+  "topic_index": 874,
+  "topic": "How to profile serverless handlers using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile serverless handlers using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Serverless Handlers Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer provides a step-by-step guide on how to profile the performance of serverless handlers using the FastAPI framework and Python 3.12+, ensuring optimal execution and efficient resource utilization.\",\n  \"key_points\": [\n    \"Understand the importance of profiling serverless handlers\",\n    \"Set up a new FastAPI project with Python 3.12+\",\n    \"Install necessary libraries for profiling: cProfile, line_profiler, and FastAPI Profiler (fastapi-profiler)\",\n    \"Configure FastAPI to use cProfile or line_profiler\",\n    \"Implement code to be profiled as a FastAPI endpoint\",\n    \"Test the endpoint and analyze the generated profile report\",\n    \"Optimize the serverless handler based on the insights from the profile report\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"pip install fastapi[all] cProfile line_profiler fastapi-profiler\\nimport cProfile\\nfrom fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/profile', profile=True)\\ndef profile(): \\t# Your code to be profiled goes here\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile\\nfrom line_profiler import LineProfiler\\npr = cProfile.runctx(\\\"profile()\\\", globals(), locals(), cProfile.Profile())\\nlp = LineProfiler(pr)\\nlpr.runcall(profile, number=1)\\nlpr.print_stats(sort='cumulative')\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for running this code.\",\n    \"This guide uses the latest versions of FastAPI and its dependencies.\"\n  ],\n  \"caveats\": [\n    \"Profiling can significantly slow down your serverless handler, so it's important to run tests with realistic data and time constraints.\",\n    \"The generated profile reports might be complex, but focusing on the most time-consuming lines or functions will help identify areas for optimization.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Serverless Handlers Using FastAPI with Python 3.12+",
+    "summary": "This explainer provides a step-by-step guide on how to profile the performance of serverless handlers using the FastAPI framework and Python 3.12+, ensuring optimal execution and efficient resource utilization.",
+    "key_points": [
+      "Understand the importance of profiling serverless handlers",
+      "Set up a new FastAPI project with Python 3.12+",
+      "Install necessary libraries for profiling: cProfile, line_profiler, and FastAPI Profiler (fastapi-profiler)",
+      "Configure FastAPI to use cProfile or line_profiler",
+      "Implement code to be profiled as a FastAPI endpoint",
+      "Test the endpoint and analyze the generated profile report",
+      "Optimize the serverless handler based on the insights from the profile report"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "pip install fastapi[all] cProfile line_profiler fastapi-profiler\nimport cProfile\nfrom fastapi import FastAPI\napp = FastAPI()\n@app.get('/profile', profile=True)\ndef profile(): \t# Your code to be profiled goes here"
+      },
+      {
+        "language": "python",
+        "code": "import cProfile\nfrom line_profiler import LineProfiler\npr = cProfile.runctx(\"profile()\", globals(), locals(), cProfile.Profile())\nlp = LineProfiler(pr)\nlpr.runcall(profile, number=1)\nlpr.print_stats(sort='cumulative')"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for running this code.",
+      "This guide uses the latest versions of FastAPI and its dependencies."
+    ],
+    "caveats": [
+      "Profiling can significantly slow down your serverless handler, so it's important to run tests with realistic data and time constraints.",
+      "The generated profile reports might be complex, but focusing on the most time-consuming lines or functions will help identify areas for optimization."
+    ]
+  }
+}
