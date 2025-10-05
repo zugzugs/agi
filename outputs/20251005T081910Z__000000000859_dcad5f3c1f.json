@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-10-05T08:19:10Z",
+  "model": "mistral",
+  "topic_index": 859,
+  "topic": "datetime: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: datetime: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"DateTime Best Practices, Gotchas, and Common Mistakes in Python 3.12+\",\n  \"summary\": \"This guide provides insightful advice for handling datetime objects effectively within the context of Python 3.12+. It highlights common pitfalls to avoid and best practices to adopt.\",\n  \"key_points\": [\n    \"Always import the datetime module as 'from datetime import datetime' to create datetime objects\",\n    \"Use UTC time when working with datetimes across different timezones or services\",\n    \"Format dates using 'strftime' method instead of direct string manipulation\",\n    \"Avoid using '%' for formatting due to potential security vulnerabilities, use f-strings instead\",\n    \"Be cautious with DST (Daylight Saving Time) adjustments as they can cause inconsistencies\",\n    \"When comparing datetimes, use '==' instead of '<' or '>' since datetime objects are not sortable\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from datetime import datetime\\ncurrent_time = datetime.now(tz=pytz.utc)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"formatted_date = current_date.strftime('%Y-%m-%d %H:%M:%S')\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+'s introduction of the 'pytz' module provides more accurate timezone support\",\n    \"Ensure to update your Python version to access new features and improvements\"\n  ],\n  \"caveats\": [\n    \"Always consider the end user's locale and timezone when working with datetimes in applications\",\n    \"When dealing with large datasets, consider using a dedicated datetime library like 'arrow'\"\n  ]\n}",
+  "response_parsed": {
+    "title": "DateTime Best Practices, Gotchas, and Common Mistakes in Python 3.12+",
+    "summary": "This guide provides insightful advice for handling datetime objects effectively within the context of Python 3.12+. It highlights common pitfalls to avoid and best practices to adopt.",
+    "key_points": [
+      "Always import the datetime module as 'from datetime import datetime' to create datetime objects",
+      "Use UTC time when working with datetimes across different timezones or services",
+      "Format dates using 'strftime' method instead of direct string manipulation",
+      "Avoid using '%' for formatting due to potential security vulnerabilities, use f-strings instead",
+      "Be cautious with DST (Daylight Saving Time) adjustments as they can cause inconsistencies",
+      "When comparing datetimes, use '==' instead of '<' or '>' since datetime objects are not sortable"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from datetime import datetime\ncurrent_time = datetime.now(tz=pytz.utc)"
+      },
+      {
+        "language": "Python",
+        "code": "formatted_date = current_date.strftime('%Y-%m-%d %H:%M:%S')"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+'s introduction of the 'pytz' module provides more accurate timezone support",
+      "Ensure to update your Python version to access new features and improvements"
+    ],
+    "caveats": [
+      "Always consider the end user's locale and timezone when working with datetimes in applications",
+      "When dealing with large datasets, consider using a dedicated datetime library like 'arrow'"
+    ]
+  }
+}
