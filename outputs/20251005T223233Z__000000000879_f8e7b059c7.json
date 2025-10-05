@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2025-10-05T22:32:33Z",
+  "model": "mistral",
+  "topic_index": 879,
+  "topic": "errno: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: errno: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Best Practices, Gotchas, and Common Mistakes with errno in Python 3.12+\",\n  \"summary\": \"This explainer focuses on the use of the errno module in Python 3.12+, highlighting common mistakes, potential gotchas, and best practices for efficient error handling.\",\n\n  \"key_points\": [\n    \"Always import both `errno` and `os` or `posix` to access constants and functions respectively.\",\n    \"Avoid using raw errno numbers directly as they can change between Python versions.\",\n    \"Use the built-in exception hierarchy for more informative error handling.\",\n    \"Prefer raising custom exceptions over wrapping system calls in try-except blocks.\",\n    \"Be aware that some platform-specific errors may not be covered by errno.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"try:\\n  with open('/nonexistentfile.txt', 'r') as f:\\n    contents = f.read()\\nexcept FileNotFoundError as e:\\n  print(errno.errorcode[e.errno])\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from errno import ENOENT\\ntry:\\n  with open('/nonexistentfile.txt', 'r') as f:\\n    contents = f.read()\\nexcept FileNotFoundError as e:\\n  if e.errno == ENOENT:\\n    print('File not found')\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from errno import EEXIST\\ntry:\\n  os.mkdir('/existingdirectory'):\\nexcept OSError as e:\\n  if e.errno == EEXIST:\\n    print('Directory already exists')\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Many of the examples provided are applicable to Python versions beyond 3.12.\",\n    \"However, features such as improved error handling and new constants may be specific to later Python releases.\"\n  ],\n\n  \"caveats\": [\n    \"Always ensure that your code is tested on multiple platforms, as some platform-specific errors may not be covered by errno.\",\n    \"Avoid hardcoding errno numbers in your application for future-proof error handling.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Best Practices, Gotchas, and Common Mistakes with errno in Python 3.12+",
+    "summary": "This explainer focuses on the use of the errno module in Python 3.12+, highlighting common mistakes, potential gotchas, and best practices for efficient error handling.",
+    "key_points": [
+      "Always import both `errno` and `os` or `posix` to access constants and functions respectively.",
+      "Avoid using raw errno numbers directly as they can change between Python versions.",
+      "Use the built-in exception hierarchy for more informative error handling.",
+      "Prefer raising custom exceptions over wrapping system calls in try-except blocks.",
+      "Be aware that some platform-specific errors may not be covered by errno."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "try:\n  with open('/nonexistentfile.txt', 'r') as f:\n    contents = f.read()\nexcept FileNotFoundError as e:\n  print(errno.errorcode[e.errno])"
+      },
+      {
+        "language": "python",
+        "code": "from errno import ENOENT\ntry:\n  with open('/nonexistentfile.txt', 'r') as f:\n    contents = f.read()\nexcept FileNotFoundError as e:\n  if e.errno == ENOENT:\n    print('File not found')"
+      },
+      {
+        "language": "python",
+        "code": "from errno import EEXIST\ntry:\n  os.mkdir('/existingdirectory'):\nexcept OSError as e:\n  if e.errno == EEXIST:\n    print('Directory already exists')"
+      }
+    ],
+    "version_notes": [
+      "Many of the examples provided are applicable to Python versions beyond 3.12.",
+      "However, features such as improved error handling and new constants may be specific to later Python releases."
+    ],
+    "caveats": [
+      "Always ensure that your code is tested on multiple platforms, as some platform-specific errors may not be covered by errno.",
+      "Avoid hardcoding errno numbers in your application for future-proof error handling."
+    ]
+  }
+}
