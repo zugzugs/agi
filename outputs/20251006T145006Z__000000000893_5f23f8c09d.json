@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2025-10-06T14:50:06Z",
+  "model": "mistral",
+  "topic_index": 893,
+  "topic": "ftplib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: ftplib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"ftplib in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer dives into the common pitfalls, tips, and best practices when working with the ftplib module in Python 3.12+ for FTP operations.\",\n  \"key_points\": [\n    \"Understanding the difference between active and passive modes and their use cases\",\n    \"Handling file transfers gracefully: handling errors and exceptions\",\n    \"Effective use of timeouts to prevent hanging connections\",\n    \"Navigating directory structures efficiently using `mlsd` for extended listings\",\n    \"Implementing secure FTP (SFTP) with Paramiko instead of ftplib for better security\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"with FTP('example.com') as ftp:\\n    ftp.login(user='username', passwd='password')\\n    ftp.cwd('/path/to/directory')\\n    with open('local_file.txt', 'wb') as file:\\n        while True:\\n            data = ftp.retrbinary('RETR remote_file.txt', file.write)\\n            break\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ specific improvements and additions to ftplib module are not yet available at the time of this writing\",\n    \"It is advised to consult the official Python documentation for the most up-to-date information\"\n  ],\n  \"caveats\": [\n    \"ftplib has limited support for FTP protocol extensions, such as FTPS and MLSD\",\n    \"Ensure proper data handling when transferring files to prevent unintended data corruption or loss\"\n  ]\n}",
+  "response_parsed": {
+    "title": "ftplib in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer dives into the common pitfalls, tips, and best practices when working with the ftplib module in Python 3.12+ for FTP operations.",
+    "key_points": [
+      "Understanding the difference between active and passive modes and their use cases",
+      "Handling file transfers gracefully: handling errors and exceptions",
+      "Effective use of timeouts to prevent hanging connections",
+      "Navigating directory structures efficiently using `mlsd` for extended listings",
+      "Implementing secure FTP (SFTP) with Paramiko instead of ftplib for better security"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "with FTP('example.com') as ftp:\n    ftp.login(user='username', passwd='password')\n    ftp.cwd('/path/to/directory')\n    with open('local_file.txt', 'wb') as file:\n        while True:\n            data = ftp.retrbinary('RETR remote_file.txt', file.write)\n            break"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ specific improvements and additions to ftplib module are not yet available at the time of this writing",
+      "It is advised to consult the official Python documentation for the most up-to-date information"
+    ],
+    "caveats": [
+      "ftplib has limited support for FTP protocol extensions, such as FTPS and MLSD",
+      "Ensure proper data handling when transferring files to prevent unintended data corruption or loss"
+    ]
+  }
+}
