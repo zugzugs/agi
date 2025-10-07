@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-10-07T14:41:43Z",
+  "model": "mistral",
+  "topic_index": 915,
+  "topic": "hashlib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: hashlib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Hashlib Best Practices, Mistakes, and Gotchas in Python 3.12+\",\n  \"summary\": \"This guide provides an overview of the common pitfalls, best practices, and key points to consider when working with hashlib in Python 3.12+.\",\n  \"key_points\": [\n    \"Always use a salt to secure password hashing.\",\n    \"Hash sensitive data only once, as multiple hashes may reveal patterns.\",\n    \"Avoid using md5 for new applications, prefer sha256 or sha512 for stronger hashes.\",\n    \"Compare hashed values with the use of os.fsopen(), not by equality comparison.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"import hashlib\\n\\nsalt = b'mysecret' \\nbad_password = 'password123'.encode('utf-8')\\nhashed_password = hashlib.sha512((bad_password + salt).encode('utf-8')).hexdigest()\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"import os, hashlib\\n\\nwith open('/path/to/file.txt', 'rb') as f:\\nhashed_content = hashlib.sha256(f.read()).hexdigest()\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for the use of the new hashlib.pbkdf2_hmac algorithm.\",\n    \"Hashlib's digest sizes have been updated to support newer algorithms.\"\n  ],\n  \"caveats\": [\n    \"Always remember that hashed data cannot be reversed or decrypted.\",\n    \"Using a salt does not protect against rainbow table attacks, but it does mitigate their effectiveness.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Hashlib Best Practices, Mistakes, and Gotchas in Python 3.12+",
+    "summary": "This guide provides an overview of the common pitfalls, best practices, and key points to consider when working with hashlib in Python 3.12+.",
+    "key_points": [
+      "Always use a salt to secure password hashing.",
+      "Hash sensitive data only once, as multiple hashes may reveal patterns.",
+      "Avoid using md5 for new applications, prefer sha256 or sha512 for stronger hashes.",
+      "Compare hashed values with the use of os.fsopen(), not by equality comparison."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "import hashlib\n\nsalt = b'mysecret' \nbad_password = 'password123'.encode('utf-8')\nhashed_password = hashlib.sha512((bad_password + salt).encode('utf-8')).hexdigest()"
+      },
+      {
+        "language": "Python",
+        "code": "import os, hashlib\n\nwith open('/path/to/file.txt', 'rb') as f:\nhashed_content = hashlib.sha256(f.read()).hexdigest()"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for the use of the new hashlib.pbkdf2_hmac algorithm.",
+      "Hashlib's digest sizes have been updated to support newer algorithms."
+    ],
+    "caveats": [
+      "Always remember that hashed data cannot be reversed or decrypted.",
+      "Using a salt does not protect against rainbow table attacks, but it does mitigate their effectiveness."
+    ]
+  }
+}
