@@ -1,0 +1,9 @@
+{
+  "timestamp_utc": "2025-10-07T09:36:23Z",
+  "model": "mistral",
+  "topic_index": 907,
+  "topic": "glob: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: glob: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Glob Best Practices, Mistakes, and Gotchas in Python 3.12+\",\n  \"summary\": \"This guide provides insights into the effective use of glob in Python 3.12+, addressing common mistakes, best practices, and potential gotchas.\",\n\n  \"key_points\": [\n    \"Always import glob from the correct package: `from glob import glob`\",\n    \"Escape special characters (\\*, ?, [...]) using backslashes (\\\\) in your pattern strings\",\n    \"Use raw string literals (r'pattern') to avoid unexpected interpretation of backslashes\",\n    \"Be aware that Unix-style patterns (using / as a directory separator) may not work on Windows\",\n    \"Avoid using glob inside loops for performance reasons; use list comprehension instead\",\n    \"glob.glob() returns a list of file paths, so don't forget to check if len(results) > 0 before accessing results\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"import glob\\npattern = r'\\*.txt'\\nfiles = glob.glob(pattern)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"import glob\\n# incorrect import causes import error\\nfrom glob import\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ introduced improvements to the glob module, such as better performance and Unicode support.\"\n  ],\n\n  \"caveats\": [\n    \"glob patterns can be case-sensitive on some systems; use os.path.normcase() for cross-platform consistency\",\n    \"glob does not support recursive searches; use a third-party library like pyrsus or glob2 if needed\"\n  ]\n}",
+  "response_parsed": null
+}
