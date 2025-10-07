@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2025-10-07T15:49:06Z",
+  "model": "mistral",
+  "topic_index": 916,
+  "topic": "How to package WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to package WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Packaging WASM Targets Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer provides a step-by-step guide on how to package WebAssembly (WASM) targets using FastAPI in Python 3.12+. The tutorial covers the setup, creating a WASM file, integrating it with FastAPI, and running the application.\",\n  \"key_points\": [\n    \"Prerequisites: Python 3.12+, FastAPI, uvicorn, and Emscripten SDK\",\n    \"Install required packages: `pip install fastapi uvicorn gunicorn aiofiles`\",\n    \"Set up Emscripten SDK for building WASM files\",\n    \"Write your FastAPI application with a WASM-compatible Python function\",\n    \"Compile the Python code into WASM using Emscripten's cxxfilt and emcc\",\n    \"Import the generated WASM file in your FastAPI app\",\n    \"Create a FastAPI endpoint to serve the WASM module\",\n    \"Run your application with Uvicorn or Gunicorn\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"emcc -O3 -bind -s WASM=1 -o my_wasm.wasm your_source_file.cpp\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef main(): \\n    return {'hello': 'world'}  # Replace with your WASM-compatible Python function\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for this tutorial.\",\n    \"FastAPI version 0.70.0 or later is recommended.\"\n  ],\n  \"caveats\": [\n    \"Make sure to install the correct versions of FastAPI and Uvicorn.\",\n    \"Ensure that Emscripten SDK is properly set up and available on your system path.\",\n    \"You may need to modify your WASM-compatible Python function for optimal performance.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Packaging WASM Targets Using FastAPI with Python 3.12+",
+    "summary": "This explainer provides a step-by-step guide on how to package WebAssembly (WASM) targets using FastAPI in Python 3.12+. The tutorial covers the setup, creating a WASM file, integrating it with FastAPI, and running the application.",
+    "key_points": [
+      "Prerequisites: Python 3.12+, FastAPI, uvicorn, and Emscripten SDK",
+      "Install required packages: `pip install fastapi uvicorn gunicorn aiofiles`",
+      "Set up Emscripten SDK for building WASM files",
+      "Write your FastAPI application with a WASM-compatible Python function",
+      "Compile the Python code into WASM using Emscripten's cxxfilt and emcc",
+      "Import the generated WASM file in your FastAPI app",
+      "Create a FastAPI endpoint to serve the WASM module",
+      "Run your application with Uvicorn or Gunicorn"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "emcc -O3 -bind -s WASM=1 -o my_wasm.wasm your_source_file.cpp"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef main(): \n    return {'hello': 'world'}  # Replace with your WASM-compatible Python function"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this tutorial.",
+      "FastAPI version 0.70.0 or later is recommended."
+    ],
+    "caveats": [
+      "Make sure to install the correct versions of FastAPI and Uvicorn.",
+      "Ensure that Emscripten SDK is properly set up and available on your system path.",
+      "You may need to modify your WASM-compatible Python function for optimal performance."
+    ]
+  }
+}
