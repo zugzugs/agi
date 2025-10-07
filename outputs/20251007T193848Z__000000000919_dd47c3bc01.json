@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-10-07T19:38:48Z",
+  "model": "mistral",
+  "topic_index": 919,
+  "topic": "hmac: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: hmac: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"HMAC in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer discusses the common pitfalls, best practices, and gotchas when implementing HMAC (Hash-based Message Authentication Code) in Python 3.12+.\",\n  \"key_points\": [\n    \"Understand the role of HMAC: It is used to verify the authenticity and integrity of a message.\",\n    \"Choose the correct hash algorithm: Use approved algorithms like SHA-1, SHA-256, or SHA-384.\",\n    \"Ensure key handling is secure: Store keys securely and avoid hardcoding them in the source code.\",\n    \"Avoid modifying the secret key: It should remain constant during HMAC operations.\",\n    \"Understand the difference between HMAC and digital signatures: HMAC is a message authentication code, not a digital signature.\",\n    \"Test HMAC implementations thoroughly: Verify that your implementation can correctly authenticate and verify messages.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"import hmac\\nkey = b'mysecretkey'\\nmessage = b'example message'\\nsignature = hmac.new(key, message, hashlib.sha256).digest()\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ introduces improvements and new features related to cryptography.\",\n    \"Make sure your environment has the latest packages installed (e.g., PyCryptodome, cryptography, etc.).\"\n  ],\n  \"caveats\": [\n    \"Always keep your libraries up-to-date.\",\n    \"Never use weak hash functions or outdated algorithms.\",\n    \"Ensure your implementation is secure by following best practices and guidelines.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "HMAC in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer discusses the common pitfalls, best practices, and gotchas when implementing HMAC (Hash-based Message Authentication Code) in Python 3.12+.",
+    "key_points": [
+      "Understand the role of HMAC: It is used to verify the authenticity and integrity of a message.",
+      "Choose the correct hash algorithm: Use approved algorithms like SHA-1, SHA-256, or SHA-384.",
+      "Ensure key handling is secure: Store keys securely and avoid hardcoding them in the source code.",
+      "Avoid modifying the secret key: It should remain constant during HMAC operations.",
+      "Understand the difference between HMAC and digital signatures: HMAC is a message authentication code, not a digital signature.",
+      "Test HMAC implementations thoroughly: Verify that your implementation can correctly authenticate and verify messages."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "import hmac\nkey = b'mysecretkey'\nmessage = b'example message'\nsignature = hmac.new(key, message, hashlib.sha256).digest()"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduces improvements and new features related to cryptography.",
+      "Make sure your environment has the latest packages installed (e.g., PyCryptodome, cryptography, etc.)."
+    ],
+    "caveats": [
+      "Always keep your libraries up-to-date.",
+      "Never use weak hash functions or outdated algorithms.",
+      "Ensure your implementation is secure by following best practices and guidelines."
+    ]
+  }
+}
