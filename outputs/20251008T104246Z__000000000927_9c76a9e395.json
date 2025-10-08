@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2025-10-08T10:42:46Z",
+  "model": "mistral",
+  "topic_index": 927,
+  "topic": "imaplib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: imaplib: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"imaplib in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer provides a comprehensive guide on common errors, pitfalls, and best practices when using the imaplib library in Python 3.12+ for IMAP email handling.\",\n  \"key_points\": [\n    \"Understanding the difference between IMAP4 and IMAP4rev1 is crucial as the latter supports more features.\",\n    \"Always close connections and logouts when finished to prevent resource leaks.\",\n    \"Use try-except blocks for error handling, such as IMAPError exceptions.\",\n    \"Be aware that some operations like searching and fetching consume resources, so use them wisely.\",\n    \"Consider using the id() method to ensure you're dealing with the same mailbox object after reconnecting.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"try:\\n    with imaplib.IMAP4('imap.example.com') as server:\\n        server.login('user', 'password')\\n        server.select()\\n    finally:\\n        server.close()\\n        server.logout()\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"try:\\n    imap_server = imaplib.IMAP4('imap.example.com')\\n    imap_server.login('user', 'password')\\n    imap_server.select()\\nexcept IMAPError as e:\\n    print(f'Error: {e}')\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"mailboxes = imaplib.List('imap.example.com', '')[1:]\\nselected_mailbox = next((mb for mb in mailboxes if mb == 'INBOX'), None)\\nif selected_mailbox is not None:\\n    imap_server.select(selected_mailbox)\\nelse:\\n    print('No INBOX found')\"\n    }\n  ],\n  \"version_notes\": [\n    \"imaplib has been included in Python since version 1.5, but new features have been added over time.\",\n    \"Python 3.12+ may introduce additional enhancements and improvements to imaplib.\"\n  ],\n  \"caveats\": [\n    \"IMAP servers may differ in their implementation of various commands and behaviors.\",\n    \"Always consult the IMAP server's documentation for specific features and limitations.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "imaplib in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer provides a comprehensive guide on common errors, pitfalls, and best practices when using the imaplib library in Python 3.12+ for IMAP email handling.",
+    "key_points": [
+      "Understanding the difference between IMAP4 and IMAP4rev1 is crucial as the latter supports more features.",
+      "Always close connections and logouts when finished to prevent resource leaks.",
+      "Use try-except blocks for error handling, such as IMAPError exceptions.",
+      "Be aware that some operations like searching and fetching consume resources, so use them wisely.",
+      "Consider using the id() method to ensure you're dealing with the same mailbox object after reconnecting."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "try:\n    with imaplib.IMAP4('imap.example.com') as server:\n        server.login('user', 'password')\n        server.select()\n    finally:\n        server.close()\n        server.logout()"
+      },
+      {
+        "language": "python",
+        "code": "try:\n    imap_server = imaplib.IMAP4('imap.example.com')\n    imap_server.login('user', 'password')\n    imap_server.select()\nexcept IMAPError as e:\n    print(f'Error: {e}')"
+      },
+      {
+        "language": "python",
+        "code": "mailboxes = imaplib.List('imap.example.com', '')[1:]\nselected_mailbox = next((mb for mb in mailboxes if mb == 'INBOX'), None)\nif selected_mailbox is not None:\n    imap_server.select(selected_mailbox)\nelse:\n    print('No INBOX found')"
+      }
+    ],
+    "version_notes": [
+      "imaplib has been included in Python since version 1.5, but new features have been added over time.",
+      "Python 3.12+ may introduce additional enhancements and improvements to imaplib."
+    ],
+    "caveats": [
+      "IMAP servers may differ in their implementation of various commands and behaviors.",
+      "Always consult the IMAP server's documentation for specific features and limitations."
+    ]
+  }
+}
