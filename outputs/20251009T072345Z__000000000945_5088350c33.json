@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-10-09T07:23:45Z",
+  "model": "mistral",
+  "topic_index": 945,
+  "topic": "lib2to3: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: lib2to3: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"lib2to3 Best Practices, Mistakes, and Gotchas for Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide on the correct usage, common mistakes, gotchas, and best practices when using lib2to3, a tool for automatically porting Python 2 code to Python 3.12+.\",\n\n  \"key_points\": [\n    \"Understand when to use lib2to3: it's designed to help migrate Python 2 code to Python 3, but not all code may require conversion.\",\n    \"Familiarize yourself with the different conversion strategies offered by lib2to3, such as backwards-compatible and forward-compatible modes.\",\n    \"Be aware of common pitfalls: print function changes, differences in handling raw strings, deprecated modules, etc.\",\n    \"Leverage IDE integrations for easier and automated usage of lib2to3.\",\n    \"Test the converted code thoroughly to ensure it works as expected.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"json\",\n      \"code\": \"{\\n  \\\"key\\\": \\\"value\\\"\\n}\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import lib2to3.refactor.fixer_base\\nclass FixPrint(lib2to3.refactor.fixer_base.Fixer):\\n    def _refactored(self, node)\\n        if isinstance(node, ast.Expr) and isinstance(node.value, ast.Call):\\n            if len(node.value.args) == 1 and node.value.args[0].s == 'print':\\n                return ast.Call(\\n                    func=self.find_function('builtins', 'print'),\\n                    args=[ast.Str(\\\"%s\\\" % node.lineno, lineno=node.lineno)],\\n                    keywords=[],\\n                )\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"lib2to3 support for Python 3.12+ includes improvements to handling f-strings, async functions, and other new features.\",\n    \"Ensure you're using the latest lib2to3 version for optimal results.\"\n  ],\n\n  \"caveats\": [\n    \"Be careful when converting code that makes use of third-party libraries or custom modules, as they may not work correctly after conversion without modifications.\",\n    \"Converting large amounts of code can lead to unexpected behavior and errors. It's recommended to convert small chunks of code at a time.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "lib2to3 Best Practices, Mistakes, and Gotchas for Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide on the correct usage, common mistakes, gotchas, and best practices when using lib2to3, a tool for automatically porting Python 2 code to Python 3.12+.",
+    "key_points": [
+      "Understand when to use lib2to3: it's designed to help migrate Python 2 code to Python 3, but not all code may require conversion.",
+      "Familiarize yourself with the different conversion strategies offered by lib2to3, such as backwards-compatible and forward-compatible modes.",
+      "Be aware of common pitfalls: print function changes, differences in handling raw strings, deprecated modules, etc.",
+      "Leverage IDE integrations for easier and automated usage of lib2to3.",
+      "Test the converted code thoroughly to ensure it works as expected."
+    ],
+    "code_examples": [
+      {
+        "language": "json",
+        "code": "{\n  \"key\": \"value\"\n}"
+      },
+      {
+        "language": "python",
+        "code": "import lib2to3.refactor.fixer_base\nclass FixPrint(lib2to3.refactor.fixer_base.Fixer):\n    def _refactored(self, node)\n        if isinstance(node, ast.Expr) and isinstance(node.value, ast.Call):\n            if len(node.value.args) == 1 and node.value.args[0].s == 'print':\n                return ast.Call(\n                    func=self.find_function('builtins', 'print'),\n                    args=[ast.Str(\"%s\" % node.lineno, lineno=node.lineno)],\n                    keywords=[],\n                )"
+      }
+    ],
+    "version_notes": [
+      "lib2to3 support for Python 3.12+ includes improvements to handling f-strings, async functions, and other new features.",
+      "Ensure you're using the latest lib2to3 version for optimal results."
+    ],
+    "caveats": [
+      "Be careful when converting code that makes use of third-party libraries or custom modules, as they may not work correctly after conversion without modifications.",
+      "Converting large amounts of code can lead to unexpected behavior and errors. It's recommended to convert small chunks of code at a time."
+    ]
+  }
+}
