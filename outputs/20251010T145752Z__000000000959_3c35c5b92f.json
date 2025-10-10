@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2025-10-10T14:57:52Z",
+  "model": "mistral",
+  "topic_index": 959,
+  "topic": "marshal: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: marshal: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Marshalling in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer discusses the common mistakes, gotchas, and best practices to follow when using the marshal module in Python 3.12+ for serialization and deserialization.\",\n  \"key_points\": [\n    \"Understand that marshal is a built-in Python module used for object serialization and deserialization\",\n    \"Be aware of the compatibility limitations as marshal only supports up to Python 3.9 objects\",\n    \"Avoid using marshal with pickleable types like cycles, classes, or instances with non-picklable attributes\",\n    \"Use marshmallow or json instead for more robust and flexible serialization needs\",\n    \"Always validate incoming data before deserializing to avoid security vulnerabilities\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import marshal\\n\\n# Serialization\\nobj = {'key': 'value'}\\nmarshal.dump(obj, open('example.pickle', 'wb'))\\n\\n# Deserialization\\nloaded_obj = marshal.load(open('example.pickle', 'rb'))\\nprint(loaded_obj)\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ supports the marshal module with limited functionality\",\n    \"Marshmallow and json are recommended for more robust serialization needs\"\n  ],\n  \"caveats\": [\n    \"Compatibility limitations with Python versions above 3.9\",\n    \"Security vulnerabilities when deserializing untrusted data\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Marshalling in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer discusses the common mistakes, gotchas, and best practices to follow when using the marshal module in Python 3.12+ for serialization and deserialization.",
+    "key_points": [
+      "Understand that marshal is a built-in Python module used for object serialization and deserialization",
+      "Be aware of the compatibility limitations as marshal only supports up to Python 3.9 objects",
+      "Avoid using marshal with pickleable types like cycles, classes, or instances with non-picklable attributes",
+      "Use marshmallow or json instead for more robust and flexible serialization needs",
+      "Always validate incoming data before deserializing to avoid security vulnerabilities"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import marshal\n\n# Serialization\nobj = {'key': 'value'}\nmarshal.dump(obj, open('example.pickle', 'wb'))\n\n# Deserialization\nloaded_obj = marshal.load(open('example.pickle', 'rb'))\nprint(loaded_obj)"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ supports the marshal module with limited functionality",
+      "Marshmallow and json are recommended for more robust serialization needs"
+    ],
+    "caveats": [
+      "Compatibility limitations with Python versions above 3.9",
+      "Security vulnerabilities when deserializing untrusted data"
+    ]
+  }
+}
