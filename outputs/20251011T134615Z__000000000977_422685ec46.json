@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2025-10-11T13:46:15Z",
+  "model": "mistral",
+  "topic_index": 977,
+  "topic": "nis: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: nis: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Common Mistakes, Gotchas, and Best Practices in Python 3.12+ NIS Module\",\n  \"summary\": \"This explainer provides an overview of common pitfalls, best practices, and lesser-known features when working with the Network Information Service (NIS) module in Python 3.12+.\",\n\n  \"key_points\": [\n    \"Understanding NIS: A distributed database used for sharing system configuration information across a network.\",\n    \"Python 3.12+ enhances support for NIS with the `nis` and `nisdomain` modules.\",\n    \"Always import both `nis` and `nis domain` modules to access all available functions and classes.\",\n    \"Be cautious when using NIS to store sensitive data, as it's designed for system configuration information sharing.\",\n    \"Ensure proper network configuration, including a functioning NIS server and correct client settings.\",\n    \"When querying maps, use the `get*` functions (e.g., `getpwnam`) instead of `item` to handle missing keys gracefully.\",\n    \"Avoid hardcoding NIS domain names in your code; consider using environment variables or configuration files for portability.\",\n    \"Be aware that some common errors can occur, such as NameError and KeyError, due to missing entries in the NIS map.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import nis\\nmap = nis.niwalk('/')\\nuser = map['passwd'].item('username', 'uid')\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import nis, nisdomain\\nmap = nis.open_map(nisdomain.NIS_DOMAINNAME, nis.NI_MAP_PASSWD)\\nuser = map.getpwnam('username')\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ introduces several enhancements to the NIS support.\",\n    \"Notable additions include `nisdomain` module and support for using IP addresses as NIS servers.\"\n  ],\n\n  \"caveats\": [\n    \"NIS should not be used for storing sensitive data like passwords or encryption keys.\",\n    \"Proper network configuration is essential to ensure successful communication between clients and servers.\",\n    \"Some NIS maps may have missing entries that could cause errors in your code.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Common Mistakes, Gotchas, and Best Practices in Python 3.12+ NIS Module",
+    "summary": "This explainer provides an overview of common pitfalls, best practices, and lesser-known features when working with the Network Information Service (NIS) module in Python 3.12+.",
+    "key_points": [
+      "Understanding NIS: A distributed database used for sharing system configuration information across a network.",
+      "Python 3.12+ enhances support for NIS with the `nis` and `nisdomain` modules.",
+      "Always import both `nis` and `nis domain` modules to access all available functions and classes.",
+      "Be cautious when using NIS to store sensitive data, as it's designed for system configuration information sharing.",
+      "Ensure proper network configuration, including a functioning NIS server and correct client settings.",
+      "When querying maps, use the `get*` functions (e.g., `getpwnam`) instead of `item` to handle missing keys gracefully.",
+      "Avoid hardcoding NIS domain names in your code; consider using environment variables or configuration files for portability.",
+      "Be aware that some common errors can occur, such as NameError and KeyError, due to missing entries in the NIS map."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import nis\nmap = nis.niwalk('/')\nuser = map['passwd'].item('username', 'uid')"
+      },
+      {
+        "language": "python",
+        "code": "import nis, nisdomain\nmap = nis.open_map(nisdomain.NIS_DOMAINNAME, nis.NI_MAP_PASSWD)\nuser = map.getpwnam('username')"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduces several enhancements to the NIS support.",
+      "Notable additions include `nisdomain` module and support for using IP addresses as NIS servers."
+    ],
+    "caveats": [
+      "NIS should not be used for storing sensitive data like passwords or encryption keys.",
+      "Proper network configuration is essential to ensure successful communication between clients and servers.",
+      "Some NIS maps may have missing entries that could cause errors in your code."
+    ]
+  }
+}
