@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2025-10-11T22:55:32Z",
+  "model": "mistral",
+  "topic_index": 984,
+  "topic": "How to deploy CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Command-Line Interface (CLI) Tools Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to utilize FastAPI, a modern, fast (high-performance), web framework for building APIs, to deploy CLI tools in Python 3.12+. The approach demonstrates the use of FastAPI's built-in support for handling HTTP POST requests containing raw text data, enabling easy deployment and integration of CLI tools within an API.\",\n  \"key_points\": [\n    \"FastAPI is a powerful web framework that supports both RESTful APIs and GraphQL.\",\n    \"In this example, we will leverage FastAPI's ability to handle HTTP POST requests containing raw text data for deploying CLI tools.\",\n    \"The CLI tool's output will be returned as JSON response within the API call.\",\n    \"Python 3.12+ is required due to improvements in the standard library's handling of text input/output for command-line applications.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```python\\nfrom fastapi import FastAPI, Request\\napp = FastAPI()\\n\\ndef my_cli(args: list) -> str:\\n    # Your CLI logic here\\n    return f'CLI output: {args}' # Sample CLI output as a string\\n\\n@app.post('/run_cli/')\\ndef run_cli(request: Request):\\n    raw_data = await request.text()\\n    args = raw_data.split('\\n')\\n    return {'output': my_cli(args)}\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for improved handling of text input/output for command-line applications.\",\n    \"FastAPI version: Latest stable release at the time of writing (0.79.0)\"\n  ],\n  \"caveats\": [\n    \"This example demonstrates a simple CLI tool integration within FastAPI, but real-world applications may require more complex handling and error checking.\",\n    \"Ensure that your CLI tool's dependencies are properly installed in the environment where your API is running.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Command-Line Interface (CLI) Tools Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to utilize FastAPI, a modern, fast (high-performance), web framework for building APIs, to deploy CLI tools in Python 3.12+. The approach demonstrates the use of FastAPI's built-in support for handling HTTP POST requests containing raw text data, enabling easy deployment and integration of CLI tools within an API.",
+    "key_points": [
+      "FastAPI is a powerful web framework that supports both RESTful APIs and GraphQL.",
+      "In this example, we will leverage FastAPI's ability to handle HTTP POST requests containing raw text data for deploying CLI tools.",
+      "The CLI tool's output will be returned as JSON response within the API call.",
+      "Python 3.12+ is required due to improvements in the standard library's handling of text input/output for command-line applications."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```python\nfrom fastapi import FastAPI, Request\napp = FastAPI()\n\ndef my_cli(args: list) -> str:\n    # Your CLI logic here\n    return f'CLI output: {args}' # Sample CLI output as a string\n\n@app.post('/run_cli/')\ndef run_cli(request: Request):\n    raw_data = await request.text()\n    args = raw_data.split('\n')\n    return {'output': my_cli(args)}"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for improved handling of text input/output for command-line applications.",
+      "FastAPI version: Latest stable release at the time of writing (0.79.0)"
+    ],
+    "caveats": [
+      "This example demonstrates a simple CLI tool integration within FastAPI, but real-world applications may require more complex handling and error checking.",
+      "Ensure that your CLI tool's dependencies are properly installed in the environment where your API is running."
+    ]
+  }
+}
