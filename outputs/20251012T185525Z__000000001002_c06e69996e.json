@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-10-12T18:55:25Z",
+  "model": "mistral",
+  "topic_index": 1002,
+  "topic": "How to profile REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling REST APIs using FastAPI with Python 3.12+\",\n  \"summary\": \"Learn how to use the FastAPI framework in Python 3.12+ for profiling REST APIs, providing insights into their performance and efficiency.\",\n\n  \"key_points\": [\n    \"FastAPI is a modern, high-performance web framework for building APIs with Python.\",\n    \"FastAPI provides built-in support for profiling your API endpoints through the use of middleware.\",\n    \"Profiling allows you to analyze the performance and resource consumption of your API, helping you optimize it for better speed and efficiency.\",\n    \"Python 3.12+ features improvements in the profiler module, making it easier to gather and interpret profile data.\",\n    \"In this guide, we will walk through how to set up and use FastAPI's profiling middleware in a Python 3.12+ project.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\n# Enable profiling middleware\\napp.add_middleware(FastAPIProfiler)\\n\\n@app.get('/')\\ndef main():\\n    return {'message': 'Hello World'}\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import uvicorn\\n# Run the FastAPI app with profiling enabled\\nuvicorn main:app --host 0.0.0.0 --port 8000 --reload\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"FastAPI 0.75.0 or later is required to use the Profiler middleware.\",\n    \"Python 3.12+ provides improved profiling capabilities and should be used for the best results.\"\n  ],\n\n  \"caveats\": [\n    \"The FastAPI Profiler may impact API performance, as it records detailed information about each request and response.\",\n    \"It's important to profile your API in a controlled environment and only during development or when necessary, to minimize the impact on production systems.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling REST APIs using FastAPI with Python 3.12+",
+    "summary": "Learn how to use the FastAPI framework in Python 3.12+ for profiling REST APIs, providing insights into their performance and efficiency.",
+    "key_points": [
+      "FastAPI is a modern, high-performance web framework for building APIs with Python.",
+      "FastAPI provides built-in support for profiling your API endpoints through the use of middleware.",
+      "Profiling allows you to analyze the performance and resource consumption of your API, helping you optimize it for better speed and efficiency.",
+      "Python 3.12+ features improvements in the profiler module, making it easier to gather and interpret profile data.",
+      "In this guide, we will walk through how to set up and use FastAPI's profiling middleware in a Python 3.12+ project."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\n# Enable profiling middleware\napp.add_middleware(FastAPIProfiler)\n\n@app.get('/')\ndef main():\n    return {'message': 'Hello World'}"
+      },
+      {
+        "language": "python",
+        "code": "import uvicorn\n# Run the FastAPI app with profiling enabled\nuvicorn main:app --host 0.0.0.0 --port 8000 --reload"
+      }
+    ],
+    "version_notes": [
+      "FastAPI 0.75.0 or later is required to use the Profiler middleware.",
+      "Python 3.12+ provides improved profiling capabilities and should be used for the best results."
+    ],
+    "caveats": [
+      "The FastAPI Profiler may impact API performance, as it records detailed information about each request and response.",
+      "It's important to profile your API in a controlled environment and only during development or when necessary, to minimize the impact on production systems."
+    ]
+  }
+}
