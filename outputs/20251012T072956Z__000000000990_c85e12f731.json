@@ -1,0 +1,30 @@
+{
+  "timestamp_utc": "2025-10-12T07:29:56Z",
+  "model": "mistral",
+  "topic_index": 990,
+  "topic": "How to observe CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to observe CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Observing CLI Tools Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to use FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+, to observe Command Line Interface (CLI) tools.\",\n  \"key_points\": [\n    \"FastAPI allows you to create both REST and WebSocket APIs easily.\",\n    \"It's designed to increase productivity by making web development faster and less error-prone.\",\n    \"In this example, we will use FastAPI to wrap a CLI tool and expose it as an API endpoint for easy integration with other services or frontends.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI, Depends\\nimport subprocess\\n\\napp = FastAPI()\\n\\ndef run_cli(cli_command: str):\\n    process = subprocess.run(cli_command, capture_output=True)\\n    return process.stdout.decode('utf-8')\\n\\n@app.get('/run_cli/{command}')\\ndef run_cli_api(command: str = Depends(run_cli)):\\n    \\n    # Process the output of the CLI command and return a JSON response\\n    return {'result': command, 'output': run_cli(command)}``\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python version: 3.12+\"\n  ],\n  \"caveats\": [\n    \"Ensure the CLI tool is installed and accessible in your system's PATH.\",\n    \"This example demonstrates a simple approach; real-world applications may require more complex handling, such as error checking, authentication, or streaming large outputs.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Observing CLI Tools Using FastAPI with Python 3.12+",
+    "summary": "This explainer demonstrates how to use FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+, to observe Command Line Interface (CLI) tools.",
+    "key_points": [
+      "FastAPI allows you to create both REST and WebSocket APIs easily.",
+      "It's designed to increase productivity by making web development faster and less error-prone.",
+      "In this example, we will use FastAPI to wrap a CLI tool and expose it as an API endpoint for easy integration with other services or frontends."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI, Depends\nimport subprocess\n\napp = FastAPI()\n\ndef run_cli(cli_command: str):\n    process = subprocess.run(cli_command, capture_output=True)\n    return process.stdout.decode('utf-8')\n\n@app.get('/run_cli/{command}')\ndef run_cli_api(command: str = Depends(run_cli)):\n    \n    # Process the output of the CLI command and return a JSON response\n    return {'result': command, 'output': run_cli(command)}``"
+      }
+    ],
+    "version_notes": [
+      "Python version: 3.12+"
+    ],
+    "caveats": [
+      "Ensure the CLI tool is installed and accessible in your system's PATH.",
+      "This example demonstrates a simple approach; real-world applications may require more complex handling, such as error checking, authentication, or streaming large outputs."
+    ]
+  }
+}
