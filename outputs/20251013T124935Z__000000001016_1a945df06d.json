@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-10-13T12:49:35Z",
+  "model": "mistral",
+  "topic_index": 1016,
+  "topic": "How to deploy REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying REST APIs with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide explains how to create and deploy a REST API using the FastAPI framework in Python 3.12+. It covers setting up the project, defining routes, handling requests, and deploying the API.\",\n  \"key_points\": [\n    \"Install FastAPI and other dependencies\",\n    \"Create a new FastAPI application\",\n    \"Define routes for handling HTTP requests\",\n    \"Implement request handlers using Pydantic models\",\n    \"Test the API locally\",\n    \"Deploy the API to production using Uvicorn or ASGI-compatible servers\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef root():\\n return {'Hello': 'World'}\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"class Item(BaseModel):\\n name: str\\n description: str\\n class App(FastAPI):\\n items = [{\\\"name\\\": \\\"Foo\\\", \\\"description\\\": \\\"Bar\\\"}]\\n @app.get('/items/')\\ndef get_items():\\n return items\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for using FastAPI.\",\n    \"Uvicorn or ASGI-compatible servers are recommended for deployment.\"\n  ],\n  \"caveats\": [\n    \"Always test your API locally before deploying to production\",\n    \"Keep your dependencies up-to-date to avoid compatibility issues\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying REST APIs with FastAPI in Python 3.12+",
+    "summary": "This guide explains how to create and deploy a REST API using the FastAPI framework in Python 3.12+. It covers setting up the project, defining routes, handling requests, and deploying the API.",
+    "key_points": [
+      "Install FastAPI and other dependencies",
+      "Create a new FastAPI application",
+      "Define routes for handling HTTP requests",
+      "Implement request handlers using Pydantic models",
+      "Test the API locally",
+      "Deploy the API to production using Uvicorn or ASGI-compatible servers"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef root():\n return {'Hello': 'World'}"
+      },
+      {
+        "language": "Python",
+        "code": "class Item(BaseModel):\n name: str\n description: str\n class App(FastAPI):\n items = [{\"name\": \"Foo\", \"description\": \"Bar\"}]\n @app.get('/items/')\ndef get_items():\n return items"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for using FastAPI.",
+      "Uvicorn or ASGI-compatible servers are recommended for deployment."
+    ],
+    "caveats": [
+      "Always test your API locally before deploying to production",
+      "Keep your dependencies up-to-date to avoid compatibility issues"
+    ]
+  }
+}
