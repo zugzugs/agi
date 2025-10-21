@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-10-21T10:00:26Z",
+  "model": "mistral",
+  "topic_index": 1095,
+  "topic": "ssl: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: ssl: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"SSL in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer delves into the common pitfalls, tips, and best practices for implementing SSL in Python 3.12+ to secure network connections.\",\n  \"key_points\": [\n    \"Understanding the difference between 'http' and 'https'\",\n    \"Using contextlib.contextmanager for easier TLS/SSL context management\",\n    \"Verifying server certificates for security\",\n    \"Handling certificate errors gracefully with OpenSSL's SSLContext\",\n    \"Enabling ALPN for improved performance\",\n    \"Utilizing asyncio for asynchronous SSL connections\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from contextlib import contextmanager\\n\\n@contextmanager\\ndef create_secure_connection(host, port):\\n    ctx = ssl.create_default_context()\\n    try:\\n        sock = socket.create_connection((host, port))\\n        yield ctx.wrap_socket(sock, server_hostname=host)\\n    except Exception as e:\\n        print(f'Error connecting: {e}')\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import ssl\\nctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)\\nctx.check_hostname = False\\nctx.verify_mode = ssl.CERT_NONE\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ specific features include contextlib.contextmanager and improved asyncio support\",\n    \"SSLContext was introduced in Python 3.6 to provide finer control over SSL settings\"\n  ],\n  \"caveats\": [\n    \"Insecure use of SSLContext.verify_mode = ssl.CERT_NONE can lead to security vulnerabilities\",\n    \"Ensure you're using the latest OpenSSL library for the best support and security\"\n  ]\n}",
+  "response_parsed": {
+    "title": "SSL in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer delves into the common pitfalls, tips, and best practices for implementing SSL in Python 3.12+ to secure network connections.",
+    "key_points": [
+      "Understanding the difference between 'http' and 'https'",
+      "Using contextlib.contextmanager for easier TLS/SSL context management",
+      "Verifying server certificates for security",
+      "Handling certificate errors gracefully with OpenSSL's SSLContext",
+      "Enabling ALPN for improved performance",
+      "Utilizing asyncio for asynchronous SSL connections"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from contextlib import contextmanager\n\n@contextmanager\ndef create_secure_connection(host, port):\n    ctx = ssl.create_default_context()\n    try:\n        sock = socket.create_connection((host, port))\n        yield ctx.wrap_socket(sock, server_hostname=host)\n    except Exception as e:\n        print(f'Error connecting: {e}')"
+      },
+      {
+        "language": "python",
+        "code": "import ssl\nctx = ssl.SSLContext(ssl.PROTOCOL_TLSv1_2)\nctx.check_hostname = False\nctx.verify_mode = ssl.CERT_NONE"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ specific features include contextlib.contextmanager and improved asyncio support",
+      "SSLContext was introduced in Python 3.6 to provide finer control over SSL settings"
+    ],
+    "caveats": [
+      "Insecure use of SSLContext.verify_mode = ssl.CERT_NONE can lead to security vulnerabilities",
+      "Ensure you're using the latest OpenSSL library for the best support and security"
+    ]
+  }
+}
