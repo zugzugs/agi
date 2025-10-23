@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-10-23T21:23:36Z",
+  "model": "mistral",
+  "topic_index": 1130,
+  "topic": "How to profile stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Stream Processing using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to profile stream processing in a FastAPI application using Python 3.12+ and its built-in profiling tools.\",\n\n  \"key_points\": [\n    \"Understand the basics of FastAPI, a modern, high-performance web framework for building APIs with Python.\",\n    \"Leverage Python 3.12+'s built-in cProfile module to profile the performance of functions and code blocks.\",\n    \"Integrate cProfile results into FastAPI using middleware to track function calls and execution times in real-time.\",\n    \"Utilize third-party libraries like FastAPI Profiler for more advanced profiling features, like visualizing and filtering profiles.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile\\nfrom io import StringIO\\npr = cProfile.Profile()\\n@pr.run('cProfile')\\ndef profile_my_function(): ...\\npr.print_stats(sort=sorted)\\n\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import uvicorn\\nif __name__ == '__main__':\\nuvicorn.run('main:app', host='0.0.0.0', port=8000, profile_restarts=1)\\n\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required to use the cProfile module and its improvements.\",\n    \"FastAPI versions 0.70.0 and later support the use of middleware for integrating cProfile results into FastAPI.\"\n  ],\n\n  \"caveats\": [\n    \"Profiling stream processing in a real-time application can be complex due to asynchronous nature of FastAPI.\",\n    \"Profiler data might not accurately represent production performance due to differences between development and production environments.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Stream Processing using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to profile stream processing in a FastAPI application using Python 3.12+ and its built-in profiling tools.",
+    "key_points": [
+      "Understand the basics of FastAPI, a modern, high-performance web framework for building APIs with Python.",
+      "Leverage Python 3.12+'s built-in cProfile module to profile the performance of functions and code blocks.",
+      "Integrate cProfile results into FastAPI using middleware to track function calls and execution times in real-time.",
+      "Utilize third-party libraries like FastAPI Profiler for more advanced profiling features, like visualizing and filtering profiles."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import cProfile\nfrom io import StringIO\npr = cProfile.Profile()\n@pr.run('cProfile')\ndef profile_my_function(): ...\npr.print_stats(sort=sorted)\n"
+      },
+      {
+        "language": "python",
+        "code": "import uvicorn\nif __name__ == '__main__':\nuvicorn.run('main:app', host='0.0.0.0', port=8000, profile_restarts=1)\n"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to use the cProfile module and its improvements.",
+      "FastAPI versions 0.70.0 and later support the use of middleware for integrating cProfile results into FastAPI."
+    ],
+    "caveats": [
+      "Profiling stream processing in a real-time application can be complex due to asynchronous nature of FastAPI.",
+      "Profiler data might not accurately represent production performance due to differences between development and production environments."
+    ]
+  }
+}
