@@ -1,0 +1,42 @@
+{
+  "timestamp_utc": "2025-10-26T11:15:56Z",
+  "model": "mistral",
+  "topic_index": 1165,
+  "topic": "unittest: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: unittest: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Unittest: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)\",\n  \"summary\": \"This guide provides an overview of common mistakes, potential pitfalls, and best practices when using the unittest module in Python 3.12+ for writing unit tests.\",\n  \"key_points\": [\n    \"Always import `unittest` as `ut` instead of `from unittest import TestCase`.\",\n    \"Use the `setUp()` and `tearDown()` methods for test setup and teardown, respectively.\",\n    \"Assert that an exception is raised using `self.assertRaises()` instead of `try/except` inside the test method.\",\n    \"Avoid using assertEqual() on complex objects; use nested assertions or custom assertions.\",\n    \"Use TestCase subclasses for grouping related tests, and TestSuite for managing multiple TestCases.\",\n    \"Use `unittest.mock` for mocking external dependencies to isolate unit tests.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from unittest import TestCase\\nclass TestMyClass(TestCase):\\n    def test_add(self):\\n        self.assertEqual(my_class.add(1, 2), 3) \\n        # Avoid this: with self.assertRaises(ZeroDivisionError): my_class.divide(0, 2)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from unittest import TestCase\\nclass TestMyClass(TestCase):\\n    def setUp(self):\\n        self.my_instance = my_class() \\n    # ... test methods here\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from unittest import TestCase, mock\\n@mock.patch('module.function')\\ndef test_my_function(mock_function):\\n    mock_function.assert_called_with('arg1', 'arg2')\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12 introduced improvements in unittest such as new assertions and test discovery mechanisms.\",\n    \"For earlier versions, consult the official Python documentation or third-party resources.\"\n  ],\n  \"caveats\": [\n    \"Excessive reliance on mocks can lead to brittle tests that do not reflect real-world scenarios.\",\n    \"Assertions on complex objects can be difficult to write and maintain, consider using custom assertions when necessary.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unittest: Common Mistakes, Gotchas, and Best Practices (Python 3.12+)",
+    "summary": "This guide provides an overview of common mistakes, potential pitfalls, and best practices when using the unittest module in Python 3.12+ for writing unit tests.",
+    "key_points": [
+      "Always import `unittest` as `ut` instead of `from unittest import TestCase`.",
+      "Use the `setUp()` and `tearDown()` methods for test setup and teardown, respectively.",
+      "Assert that an exception is raised using `self.assertRaises()` instead of `try/except` inside the test method.",
+      "Avoid using assertEqual() on complex objects; use nested assertions or custom assertions.",
+      "Use TestCase subclasses for grouping related tests, and TestSuite for managing multiple TestCases.",
+      "Use `unittest.mock` for mocking external dependencies to isolate unit tests."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from unittest import TestCase\nclass TestMyClass(TestCase):\n    def test_add(self):\n        self.assertEqual(my_class.add(1, 2), 3) \n        # Avoid this: with self.assertRaises(ZeroDivisionError): my_class.divide(0, 2)"
+      },
+      {
+        "language": "Python",
+        "code": "from unittest import TestCase\nclass TestMyClass(TestCase):\n    def setUp(self):\n        self.my_instance = my_class() \n    # ... test methods here"
+      },
+      {
+        "language": "Python",
+        "code": "from unittest import TestCase, mock\n@mock.patch('module.function')\ndef test_my_function(mock_function):\n    mock_function.assert_called_with('arg1', 'arg2')"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12 introduced improvements in unittest such as new assertions and test discovery mechanisms.",
+      "For earlier versions, consult the official Python documentation or third-party resources."
+    ],
+    "caveats": [
+      "Excessive reliance on mocks can lead to brittle tests that do not reflect real-world scenarios.",
+      "Assertions on complex objects can be difficult to write and maintain, consider using custom assertions when necessary."
+    ]
+  }
+}
