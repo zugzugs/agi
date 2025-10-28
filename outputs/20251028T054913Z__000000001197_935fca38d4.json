@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-10-28T05:49:13Z",
+  "model": "mistral",
+  "topic_index": 1197,
+  "topic": "zipfile: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: zipfile: common mistakes, gotchas, and best practices (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Zipfile in Python 3.12+: Common Mistakes, Gotchas, and Best Practices\",\n  \"summary\": \"This explainer provides an overview of common errors, pitfalls, and best practices when working with the zipfile module in Python 3.12+ to ensure efficient handling of archives.\",\n\n  \"key_points\": [\n    \"Always specify the compression level when creating a new archive.\",\n    \"Use the `ZipFile.writestr()` method to add files to an existing archive.\",\n    \"Be aware of the differences between `compress`, `write`, and `writestr()` methods.\",\n    \"Use the `getinfo()` method to access archive information.\",\n    \"Remember that Python 3.12+ supports new compression algorithms like ZSTD.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"with ZipFile('archive.zip', 'w', compression=zlib.ZIP_DEFLATED) as z: \\n  z.writestr(b'Hello World', compresslevel=5)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"with ZipFile('archive.zip') as z:\\n  z.write('file_to_add.txt', compress=True, compresslevel=9)\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ introduces support for the ZSTD compression algorithm.\",\n    \"Previously, `compress()` method required a specific compression level (e.g., `ZIP_DEFLATED`) as an argument.\"\n  ],\n\n  \"caveats\": [\n    \"Using a low `compresslevel` can make archives larger but quicker to create.\",\n    \"Remember that `write()` method creates a new ZipInfo object each time it's called, potentially increasing archive size.\",\n    \"Be careful when dealing with existing archives as changes may corrupt the structure.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Zipfile in Python 3.12+: Common Mistakes, Gotchas, and Best Practices",
+    "summary": "This explainer provides an overview of common errors, pitfalls, and best practices when working with the zipfile module in Python 3.12+ to ensure efficient handling of archives.",
+    "key_points": [
+      "Always specify the compression level when creating a new archive.",
+      "Use the `ZipFile.writestr()` method to add files to an existing archive.",
+      "Be aware of the differences between `compress`, `write`, and `writestr()` methods.",
+      "Use the `getinfo()` method to access archive information.",
+      "Remember that Python 3.12+ supports new compression algorithms like ZSTD."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "with ZipFile('archive.zip', 'w', compression=zlib.ZIP_DEFLATED) as z: \n  z.writestr(b'Hello World', compresslevel=5)"
+      },
+      {
+        "language": "python",
+        "code": "with ZipFile('archive.zip') as z:\n  z.write('file_to_add.txt', compress=True, compresslevel=9)"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ introduces support for the ZSTD compression algorithm.",
+      "Previously, `compress()` method required a specific compression level (e.g., `ZIP_DEFLATED`) as an argument."
+    ],
+    "caveats": [
+      "Using a low `compresslevel` can make archives larger but quicker to create.",
+      "Remember that `write()` method creates a new ZipInfo object each time it's called, potentially increasing archive size.",
+      "Be careful when dealing with existing archives as changes may corrupt the structure."
+    ]
+  }
+}
