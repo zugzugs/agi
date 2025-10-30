@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-10-30T18:50:25Z",
+  "model": "mistral",
+  "topic_index": 1236,
+  "topic": "How to package ML training loops using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to package ML training loops using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"FastAPI Integration for Machine Learning Training Loops in Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to leverage FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+, to package machine learning training loops.\",\n  \"key_points\": [\n    \"FastAPI is utilized as the web framework for API creation.\",\n    \"A simple ML model is used as an example: a linear regression model from scikit-learn library.\",\n    \"The ML training loop is wrapped within FastAPI routes, enabling the execution and monitoring of the training process via HTTP requests.\",\n    \"Python 3.12+ features are highlighted where applicable.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI, Depends\\nfrom sklearn.linear_model import LinearRegression\\napp = FastAPI()\\nmodel = LinearRegression()\\n\\ndef train(data: List[List[float]], target: List[float]):\\n    X, y = data, target\\n    model.fit(X, y)\\n\\napp.post('/train', dependencies=[Depends(train)])\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI, Depends\\nfrom typing import List\\nimport numpy as np\\napp = FastAPI()\\nmodel = LinearRegression()\\n\\ndef get_data():\\n    data = np.array([[1, 2], [3, 4], [5, 6]])\\n    target = np.array([2, 4, 6])\\n    return {'data': data, 'target': target}\\n\\napp.post('/train', dependencies=[get_data, train])\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required to ensure the usage of async/await syntax and other modern features.\"\n  ],\n  \"caveats\": [\n    \"This explainer serves as a basic example and does not cover topics like model persistence, scalability, or deployment in production.\",\n    \"The code snippets provided are simplified and might require additional refinements for real-world applications.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "FastAPI Integration for Machine Learning Training Loops in Python 3.12+",
+    "summary": "This explainer demonstrates how to leverage FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+, to package machine learning training loops.",
+    "key_points": [
+      "FastAPI is utilized as the web framework for API creation.",
+      "A simple ML model is used as an example: a linear regression model from scikit-learn library.",
+      "The ML training loop is wrapped within FastAPI routes, enabling the execution and monitoring of the training process via HTTP requests.",
+      "Python 3.12+ features are highlighted where applicable."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI, Depends\nfrom sklearn.linear_model import LinearRegression\napp = FastAPI()\nmodel = LinearRegression()\n\ndef train(data: List[List[float]], target: List[float]):\n    X, y = data, target\n    model.fit(X, y)\n\napp.post('/train', dependencies=[Depends(train)])\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI, Depends\nfrom typing import List\nimport numpy as np\napp = FastAPI()\nmodel = LinearRegression()\n\ndef get_data():\n    data = np.array([[1, 2], [3, 4], [5, 6]])\n    target = np.array([2, 4, 6])\n    return {'data': data, 'target': target}\n\napp.post('/train', dependencies=[get_data, train])\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to ensure the usage of async/await syntax and other modern features."
+    ],
+    "caveats": [
+      "This explainer serves as a basic example and does not cover topics like model persistence, scalability, or deployment in production.",
+      "The code snippets provided are simplified and might require additional refinements for real-world applications."
+    ]
+  }
+}
