@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-10-31T14:40:01Z",
+  "model": "mistral",
+  "topic_index": 1246,
+  "topic": "How to observe ML training loops using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to observe ML training loops using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Observing Machine Learning Training Loops Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to monitor the progress of machine learning (ML) training loops within a FastAPI application using Python 3.12+, enhancing development efficiency and providing real-time insights.\",\n\n  \"key_points\": [\n    \"Implementing an ML training pipeline using popular libraries like TensorFlow or PyTorch\",\n    \"Integrating the training loop with FastAPI to expose live training status\",\n    \"Utilizing Python 3.12+ features to streamline code and improve performance\",\n    \"Setting up a WebSocket connection for real-time data transmission between client and server\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, WebSocket\\napp = FastAPI()\\n\\n@app.websocket('/training')\\ndef training(ws: WebSocket):\\n    # Your ML training loop code here...\\n\\n    while not done:\\n        ws.send_text(f'Epoch {epoch} / {max_epochs}: Loss = {loss:.4f}\\n')\"\n    },\n    {\n      \"language\": \"javascript\",\n      \"code\": \"const socket = new WebSocket('ws://your-app-url/training');\\nsocket.addEventListener('message', (event) => {\\n  console.log(event.data);\\n});\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for enhanced asynchronous support\",\n    \"FastAPI version 0.65.0 or later is recommended to work seamlessly with Python 3.12+\"\n  ],\n\n  \"caveats\": [\n    \"Ensure your ML training loop runs within an async context when using FastAPI's WebSocket functionality\",\n    \"WebSocket connections consume server resources, so scale appropriately for production\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Observing Machine Learning Training Loops Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to monitor the progress of machine learning (ML) training loops within a FastAPI application using Python 3.12+, enhancing development efficiency and providing real-time insights.",
+    "key_points": [
+      "Implementing an ML training pipeline using popular libraries like TensorFlow or PyTorch",
+      "Integrating the training loop with FastAPI to expose live training status",
+      "Utilizing Python 3.12+ features to streamline code and improve performance",
+      "Setting up a WebSocket connection for real-time data transmission between client and server"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, WebSocket\napp = FastAPI()\n\n@app.websocket('/training')\ndef training(ws: WebSocket):\n    # Your ML training loop code here...\n\n    while not done:\n        ws.send_text(f'Epoch {epoch} / {max_epochs}: Loss = {loss:.4f}\n')"
+      },
+      {
+        "language": "javascript",
+        "code": "const socket = new WebSocket('ws://your-app-url/training');\nsocket.addEventListener('message', (event) => {\n  console.log(event.data);\n});"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for enhanced asynchronous support",
+      "FastAPI version 0.65.0 or later is recommended to work seamlessly with Python 3.12+"
+    ],
+    "caveats": [
+      "Ensure your ML training loop runs within an async context when using FastAPI's WebSocket functionality",
+      "WebSocket connections consume server resources, so scale appropriately for production"
+    ]
+  }
+}
