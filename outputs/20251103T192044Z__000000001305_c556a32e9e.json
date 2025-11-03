@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-11-03T19:20:44Z",
+  "model": "mistral",
+  "topic_index": 1305,
+  "topic": "How to combine _pickle with typing for production code (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to combine _pickle with typing for production code (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Combining Pickle and Typing in Python 3.12+ for Production Code\",\n  \"summary\": \"This explainer demonstrates the effective use of pickling (serialization) and typing features introduced in Python 3.12, enhancing the safety and efficiency of data persistence in production code.\",\n\n  \"key_points\": [\n    \"Leveraging type hints for clarity and improved IDE support\",\n    \"Utilizing `TypedDict` for custom serializable classes\",\n    \"Employing `BinaryIO` for efficient pickling/unpickling using bytes streams\",\n    \"Implementing a decorator to ensure only serializable types are pickled\",\n    \"Testing the code with appropriate unit tests\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from typing import TypedDict, cast, BinaryIO\\n\\nclass MyData(TypedDict):\\n    a: int\\n    b: str\\n\\ndef serialize(data: MyData, stream: BinaryIO):\\n    import pickle\\n    pickle.dump(cast(MyData, data), stream)\\n\\ndef deserialize(stream: BinaryIO) -> MyData:\\n    return cast(MyData, pickle.load(stream))\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from typing import TypeVar\\n\\nT = TypeVar(\\\"T\\\")\\ndef serialize_or_raise(obj: T) -> bytes:\\n    try:\\n        return pickle.dumps(obj)\\n    except TypeError as e:\\n        raise ValueError(f'Cannot pickle object of type {obj.__class__.__name__}: {e}')\\n\\ndef deserialize_or_fail(data: bytes, expected_type: Type[T]):\\n    try:\\n        return cast(T, pickle.loads(data))\\n    except (TypeError, ValueError) as e:\\n        raise ValueError(f'Failed to unpickle data of type {expected_type.__name__}: {e}')\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python version: 3.12+\",\n    \"Requires typing and pickle modules\"\n  ],\n\n  \"caveats\": [\n    \"Never use `pickle` for data exchange between untrusted parties due to security issues.\",\n    \"Ensure all used classes are serializable by customizing the decorator provided in the code examples.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Combining Pickle and Typing in Python 3.12+ for Production Code",
+    "summary": "This explainer demonstrates the effective use of pickling (serialization) and typing features introduced in Python 3.12, enhancing the safety and efficiency of data persistence in production code.",
+    "key_points": [
+      "Leveraging type hints for clarity and improved IDE support",
+      "Utilizing `TypedDict` for custom serializable classes",
+      "Employing `BinaryIO` for efficient pickling/unpickling using bytes streams",
+      "Implementing a decorator to ensure only serializable types are pickled",
+      "Testing the code with appropriate unit tests"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from typing import TypedDict, cast, BinaryIO\n\nclass MyData(TypedDict):\n    a: int\n    b: str\n\ndef serialize(data: MyData, stream: BinaryIO):\n    import pickle\n    pickle.dump(cast(MyData, data), stream)\n\ndef deserialize(stream: BinaryIO) -> MyData:\n    return cast(MyData, pickle.load(stream))"
+      },
+      {
+        "language": "python",
+        "code": "from typing import TypeVar\n\nT = TypeVar(\"T\")\ndef serialize_or_raise(obj: T) -> bytes:\n    try:\n        return pickle.dumps(obj)\n    except TypeError as e:\n        raise ValueError(f'Cannot pickle object of type {obj.__class__.__name__}: {e}')\n\ndef deserialize_or_fail(data: bytes, expected_type: Type[T]):\n    try:\n        return cast(T, pickle.loads(data))\n    except (TypeError, ValueError) as e:\n        raise ValueError(f'Failed to unpickle data of type {expected_type.__name__}: {e}')"
+      }
+    ],
+    "version_notes": [
+      "Python version: 3.12+",
+      "Requires typing and pickle modules"
+    ],
+    "caveats": [
+      "Never use `pickle` for data exchange between untrusted parties due to security issues.",
+      "Ensure all used classes are serializable by customizing the decorator provided in the code examples."
+    ]
+  }
+}
