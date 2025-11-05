@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2025-11-05T21:55:35Z",
+  "model": "mistral",
+  "topic_index": 1336,
+  "topic": "How to deploy cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Cron-Driven Tasks Using FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to create and manage scheduled tasks with FastAPI in Python 3.12+ using the APScheduler library.\",\n  \"key_points\": [\n    \"Install required dependencies: FastAPI, Uvicorn, and APScheduler\",\n    \"Create a new FastAPI application\",\n    \"Define a task function to be executed at specific intervals or times\",\n    \"Set up the scheduler in the main app\",\n    \"Register the scheduled tasks with the scheduler\",\n    \"Start the FastAPI server and schedule the tasks\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\n# install dependencies\\npip install fastapi uvicorn apscheduler\\n\\nimport asyncio\\nimport time\\nfrom fastapi import FastAPI, BackgroundTasks\\nfrom apscheduler.schedulers.asyncio import AsyncIOScheduler\\n\\napp = FastAPI()\\n\\nschedule = AsyncIOScheduler()\\n\\ndef task():\\n    print('Task executed!')\\n\\nasynchron def create_task(background_tasks: BackgroundTasks):\\n    background_tasks.add_task(task)\\n\\n@app.on_event('startup')\\nasync def startup():\\n    schedule.start()\\n\\n@app.on_event('shutdown')\\nasync def shutdown():\\n    schedule.shutdown()\\n\\nschedule.add_interval_task(seconds=5, target=create_task)\\n\\nif __name__ == '__main__':\\n    uvicorn.run(app, host='127.0.0.1', port=8000, log_level='info')\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for this example\",\n    \"Using APScheduler library version 3.x (or higher)\"\n  ],\n  \"caveats\": [\n    \"Be aware that FastAPI only supports asynchronous functions for background tasks, synchronous functions are not supported\",\n    \"Ensure the task function is designed to run asynchronously\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Cron-Driven Tasks Using FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to create and manage scheduled tasks with FastAPI in Python 3.12+ using the APScheduler library.",
+    "key_points": [
+      "Install required dependencies: FastAPI, Uvicorn, and APScheduler",
+      "Create a new FastAPI application",
+      "Define a task function to be executed at specific intervals or times",
+      "Set up the scheduler in the main app",
+      "Register the scheduled tasks with the scheduler",
+      "Start the FastAPI server and schedule the tasks"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\n\n# install dependencies\npip install fastapi uvicorn apscheduler\n\nimport asyncio\nimport time\nfrom fastapi import FastAPI, BackgroundTasks\nfrom apscheduler.schedulers.asyncio import AsyncIOScheduler\n\napp = FastAPI()\n\nschedule = AsyncIOScheduler()\n\ndef task():\n    print('Task executed!')\n\nasynchron def create_task(background_tasks: BackgroundTasks):\n    background_tasks.add_task(task)\n\n@app.on_event('startup')\nasync def startup():\n    schedule.start()\n\n@app.on_event('shutdown')\nasync def shutdown():\n    schedule.shutdown()\n\nschedule.add_interval_task(seconds=5, target=create_task)\n\nif __name__ == '__main__':\n    uvicorn.run(app, host='127.0.0.1', port=8000, log_level='info')\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this example",
+      "Using APScheduler library version 3.x (or higher)"
+    ],
+    "caveats": [
+      "Be aware that FastAPI only supports asynchronous functions for background tasks, synchronous functions are not supported",
+      "Ensure the task function is designed to run asynchronously"
+    ]
+  }
+}
