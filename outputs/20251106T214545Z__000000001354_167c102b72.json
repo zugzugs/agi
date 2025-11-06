@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-11-06T21:45:45Z",
+  "model": "mistral",
+  "topic_index": 1354,
+  "topic": "How to profile serverless handlers using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile serverless handlers using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Serverless Handlers Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to profile the performance of serverless functions built with FastAPI and Python 3.12+ using built-in tools such as cProfile and line_profiler.\",\n\n  \"key_points\": [\n    \"Understand the importance of profiling for optimizing serverless function performance\",\n    \"Install the necessary dependencies, including `line_profiler` and `cProfile`\",\n    \"Modify your FastAPI application to use cProfile or line_profiler for profiling\",\n    \"Analyze the generated profiling reports for insights on how to optimize your code\",\n    \"Consider using tools like `uvicorn`'s development server with `--profile` flag for seamless profiling during development\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from line_profiler import lpr, clear_cache\\n@lpr\\ndef my_serverless_handler(request): ...\\nclear_cache()\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"uvicorn app:app --reload --profile\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python version: 3.12+\",\n    \"FastAPI version: Latest stable release\",\n    \"line_profiler version: Latest stable release\"\n  ],\n\n  \"caveats\": [\n    \"Profiling may slow down your application, so it's best to do it during development or in a staging environment.\",\n    \"Make sure to clear the line_profiler cache after running the profiled code to avoid misleading results.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Serverless Handlers Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to profile the performance of serverless functions built with FastAPI and Python 3.12+ using built-in tools such as cProfile and line_profiler.",
+    "key_points": [
+      "Understand the importance of profiling for optimizing serverless function performance",
+      "Install the necessary dependencies, including `line_profiler` and `cProfile`",
+      "Modify your FastAPI application to use cProfile or line_profiler for profiling",
+      "Analyze the generated profiling reports for insights on how to optimize your code",
+      "Consider using tools like `uvicorn`'s development server with `--profile` flag for seamless profiling during development"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from line_profiler import lpr, clear_cache\n@lpr\ndef my_serverless_handler(request): ...\nclear_cache()"
+      },
+      {
+        "language": "bash",
+        "code": "uvicorn app:app --reload --profile"
+      }
+    ],
+    "version_notes": [
+      "Python version: 3.12+",
+      "FastAPI version: Latest stable release",
+      "line_profiler version: Latest stable release"
+    ],
+    "caveats": [
+      "Profiling may slow down your application, so it's best to do it during development or in a staging environment.",
+      "Make sure to clear the line_profiler cache after running the profiled code to avoid misleading results."
+    ]
+  }
+}
