@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2025-11-06T07:56:08Z",
+  "model": "mistral",
+  "topic_index": 1342,
+  "topic": "How to observe cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to observe cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Observing Cron-Driven Tasks Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to create a FastAPI application that monitors the execution of cron jobs in Python 3.12+ environment.\",\n  \"key_points\": [\n    \"Utilize the `cron` library for running tasks periodically as if they were Unix cron jobs\",\n    \"Create a FastAPI web app to monitor the status and output of the scheduled tasks\",\n    \"Handle multiple concurrently running cron jobs effectively\",\n    \"Enable API endpoint for viewing the status of each task\",\n    \"Include error handling, logging, and health check features for robustness\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI, HTTPException\\nimport cron\\ncron.schedule.every.minutes(1)\\napp = FastAPI()\\n\\n@app.get('/cron-status/{task_name}')\\ndef get_cron_status(task_name: str):\\n    if task_name not in CronTasks:\\n        raise HTTPException(status_code=404, detail='Task not found')\\n    return CronTasks[task_name].get_status()\\n\\nclass CronTask:\\n    def __init__(self, task_func, name: str):\\n        self.name = name\\n        self.running = False\\n        self.last_executed = None\\n        self.task = cron.CronJob(task=task_func)\\n\\n    def start(self):\\n        self.task.start()\\n    def get_status(self):\\n        if not self.running:\\n            return {'status': 'inactive'}\\n        current_time = datetime.datetime.now().timestamp()\\n        if current_time - self.last_executed > 60:\\n            return {'status': 'failed', 'error': 'Task has not run for over a minute'}\\n        return {'status': 'active'} ...```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required due to the use of f-strings, async/await syntax, and type hints.\",\n    \"The example uses `cron` version 4.0.2 for scheduling tasks.\"\n  ],\n  \"caveats\": [\n    \"This explainer focuses on a specific implementation of cron job monitoring using FastAPI and the `cron` library. Other libraries such as APScheduler may also be used.\",\n    \"It's essential to configure your system properly to run cron jobs within a Python environment.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Observing Cron-Driven Tasks Using FastAPI with Python 3.12+",
+    "summary": "This explainer demonstrates how to create a FastAPI application that monitors the execution of cron jobs in Python 3.12+ environment.",
+    "key_points": [
+      "Utilize the `cron` library for running tasks periodically as if they were Unix cron jobs",
+      "Create a FastAPI web app to monitor the status and output of the scheduled tasks",
+      "Handle multiple concurrently running cron jobs effectively",
+      "Enable API endpoint for viewing the status of each task",
+      "Include error handling, logging, and health check features for robustness"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI, HTTPException\nimport cron\ncron.schedule.every.minutes(1)\napp = FastAPI()\n\n@app.get('/cron-status/{task_name}')\ndef get_cron_status(task_name: str):\n    if task_name not in CronTasks:\n        raise HTTPException(status_code=404, detail='Task not found')\n    return CronTasks[task_name].get_status()\n\nclass CronTask:\n    def __init__(self, task_func, name: str):\n        self.name = name\n        self.running = False\n        self.last_executed = None\n        self.task = cron.CronJob(task=task_func)\n\n    def start(self):\n        self.task.start()\n    def get_status(self):\n        if not self.running:\n            return {'status': 'inactive'}\n        current_time = datetime.datetime.now().timestamp()\n        if current_time - self.last_executed > 60:\n            return {'status': 'failed', 'error': 'Task has not run for over a minute'}\n        return {'status': 'active'} ...```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required due to the use of f-strings, async/await syntax, and type hints.",
+      "The example uses `cron` version 4.0.2 for scheduling tasks."
+    ],
+    "caveats": [
+      "This explainer focuses on a specific implementation of cron job monitoring using FastAPI and the `cron` library. Other libraries such as APScheduler may also be used.",
+      "It's essential to configure your system properly to run cron jobs within a Python environment."
+    ]
+  }
+}
