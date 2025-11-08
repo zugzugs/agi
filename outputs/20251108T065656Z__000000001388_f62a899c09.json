@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-11-08T06:56:56Z",
+  "model": "mistral",
+  "topic_index": 1388,
+  "topic": "How to unit test WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing WebAssembly (WASM) Targets with FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides a step-by-step guide on how to unit test WebAssembly (WASM) targets using FastAPI and Python 3.12+. It covers the necessary setup, key points, code examples, version notes, and caveats for a successful implementation.\",\n\n  \"key_points\": [\n    \"Install required dependencies: FastAPI, Uvicorn, PyODM2, pytest-odm, and wasmcrypto\",\n    \"Create a FastAPI application with WASM modules\",\n    \"Implement unit tests for your FastAPI application using pytest-odm\",\n    \"Run the tests using `pytest` command\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\n\\n# Install dependencies\\n\\npip install fastapi uvicorn pyodm2 pytest-odm wasmcrypto\\n\\n\\n# Your FastAPI application with WASM modules\\n\\nfrom fastapi import FastAPI\\nimport uvicorn\\nfrom pyodm2.fields import StringField, IntegerField\\nfrom wasm_pyodide.bundles import install_wasm_pyodide\\n\\napp = FastAPI()\\n\\ninstall_wasm_pyodide()\\n\\nclass MyWasmModule:\\n    _module = None\\n    _imports = {\\n        'console': 'console',\\n        'Math': 'Math'\\n    }\\n    @staticmethod\\n    def load():\\n        if MyWasmModule._module is None:\\n            MyWasmModule._module = wasm_pyodide.create_async(url='path/to/your-wasm-file.wasm')\\n        return MyWasmModule._module\\n\\n    @staticmethod\\n    def call_function(name, *args):\\n        module = MyWasmModule.load()\\n        if name in MyWasmModule._imports:\\n            imports = module.instance.exports[MyWasmModule._imports[name]]\\n        else:\\n            imports = module.instance.exports[name]\\n        return imports(*args)\\n\\n@app.get('/add')\\nasync def add(a: int, b: int):\\n    return MyWasmModule.call_function('add', a, b)\\n\\nif __name__ == '__main__':\\n    uvicorn app:app --reload\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\n# Your FastAPI test with pytest-odm\\n\\nfrom fastapi.testclient import TestClient\\nimport pytest\\nfrom your_application import app\\n\\n@pytest.mark.asyncio\\ndef test_add():\\n    client = TestClient(app)\\n    response = await client.get('/add', params={'a': 2, 'b': 3})\\n    assert response.json() == {'result': 5}\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this implementation.\",\n    \"Uvicorn version 0.18.0 or higher is recommended for running the FastAPI application.\"\n  ],\n\n  \"caveats\": [\n    \"Make sure to replace 'path/to/your-wasm-file.wasm' with the actual path to your WebAssembly file.\",\n    \"Ensure that you have wasm-pack and wasm-python installed on your system before running this example.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing WebAssembly (WASM) Targets with FastAPI in Python 3.12+",
+    "summary": "This explainer provides a step-by-step guide on how to unit test WebAssembly (WASM) targets using FastAPI and Python 3.12+. It covers the necessary setup, key points, code examples, version notes, and caveats for a successful implementation.",
+    "key_points": [
+      "Install required dependencies: FastAPI, Uvicorn, PyODM2, pytest-odm, and wasmcrypto",
+      "Create a FastAPI application with WASM modules",
+      "Implement unit tests for your FastAPI application using pytest-odm",
+      "Run the tests using `pytest` command"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\n\n\n# Install dependencies\n\npip install fastapi uvicorn pyodm2 pytest-odm wasmcrypto\n\n\n# Your FastAPI application with WASM modules\n\nfrom fastapi import FastAPI\nimport uvicorn\nfrom pyodm2.fields import StringField, IntegerField\nfrom wasm_pyodide.bundles import install_wasm_pyodide\n\napp = FastAPI()\n\ninstall_wasm_pyodide()\n\nclass MyWasmModule:\n    _module = None\n    _imports = {\n        'console': 'console',\n        'Math': 'Math'\n    }\n    @staticmethod\n    def load():\n        if MyWasmModule._module is None:\n            MyWasmModule._module = wasm_pyodide.create_async(url='path/to/your-wasm-file.wasm')\n        return MyWasmModule._module\n\n    @staticmethod\n    def call_function(name, *args):\n        module = MyWasmModule.load()\n        if name in MyWasmModule._imports:\n            imports = module.instance.exports[MyWasmModule._imports[name]]\n        else:\n            imports = module.instance.exports[name]\n        return imports(*args)\n\n@app.get('/add')\nasync def add(a: int, b: int):\n    return MyWasmModule.call_function('add', a, b)\n\nif __name__ == '__main__':\n    uvicorn app:app --reload\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\n\n# Your FastAPI test with pytest-odm\n\nfrom fastapi.testclient import TestClient\nimport pytest\nfrom your_application import app\n\n@pytest.mark.asyncio\ndef test_add():\n    client = TestClient(app)\n    response = await client.get('/add', params={'a': 2, 'b': 3})\n    assert response.json() == {'result': 5}\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this implementation.",
+      "Uvicorn version 0.18.0 or higher is recommended for running the FastAPI application."
+    ],
+    "caveats": [
+      "Make sure to replace 'path/to/your-wasm-file.wasm' with the actual path to your WebAssembly file.",
+      "Ensure that you have wasm-pack and wasm-python installed on your system before running this example."
+    ]
+  }
+}
