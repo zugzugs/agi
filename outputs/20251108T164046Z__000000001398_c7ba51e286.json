@@ -1,0 +1,44 @@
+{
+  "timestamp_utc": "2025-11-08T16:40:46Z",
+  "model": "mistral",
+  "topic_index": 1398,
+  "topic": "How to containerize WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing WASM Targets Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to create a containerized WebAssembly (WASM) application using FastAPI in Python 3.12+. It covers setting up the project, integrating WASM modules, and deploying the container.\",\n\n  \"key_points\": [\n    \"Prerequisites: Docker, Python 3.12, FastAPI, WebAssembly (WASM) compatible browser\",\n    \"Install required packages using pip\",\n    \"Create a main.py file for your FastAPI app\",\n    \"Integrate WASM modules in the FastAPI application\",\n    \"Set up Dockerfile and Docker Compose\",\n    \"Build and run the container locally\",\n    \"Test the containerized WASM application\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"pip install fastapi uvicorn websockets aiofiles docker compose\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, WebSocket\\napp = FastAPI()\\nws = WebSocket(app)\\n\\n@app.on_event('websocket_connect')\\ndef connect(ws):\\n    pass\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"FROM python:3.12\\nWORKDIR /app\\nCOPY . .\\nRUN pip install -r requirements.txt\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python version: 3.12+\",\n    \"FastAPI: Latest stable release (0.74.0 at the time of writing)\",\n    \"Uvicorn: Latest stable release (0.18.3 at the time of writing)\"\n  ],\n\n  \"caveats\": [\n    \"Ensure your WASM modules are compatible with WebAssembly System Interface (WASI) and WebAssembly STD.\",\n    \"Adjust code examples as necessary for different project requirements.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing WASM Targets Using FastAPI with Python 3.12+",
+    "summary": "This explainer demonstrates how to create a containerized WebAssembly (WASM) application using FastAPI in Python 3.12+. It covers setting up the project, integrating WASM modules, and deploying the container.",
+    "key_points": [
+      "Prerequisites: Docker, Python 3.12, FastAPI, WebAssembly (WASM) compatible browser",
+      "Install required packages using pip",
+      "Create a main.py file for your FastAPI app",
+      "Integrate WASM modules in the FastAPI application",
+      "Set up Dockerfile and Docker Compose",
+      "Build and run the container locally",
+      "Test the containerized WASM application"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "pip install fastapi uvicorn websockets aiofiles docker compose"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, WebSocket\napp = FastAPI()\nws = WebSocket(app)\n\n@app.on_event('websocket_connect')\ndef connect(ws):\n    pass"
+      },
+      {
+        "language": "bash",
+        "code": "FROM python:3.12\nWORKDIR /app\nCOPY . .\nRUN pip install -r requirements.txt"
+      }
+    ],
+    "version_notes": [
+      "Python version: 3.12+",
+      "FastAPI: Latest stable release (0.74.0 at the time of writing)",
+      "Uvicorn: Latest stable release (0.18.3 at the time of writing)"
+    ],
+    "caveats": [
+      "Ensure your WASM modules are compatible with WebAssembly System Interface (WASI) and WebAssembly STD.",
+      "Adjust code examples as necessary for different project requirements."
+    ]
+  }
+}
