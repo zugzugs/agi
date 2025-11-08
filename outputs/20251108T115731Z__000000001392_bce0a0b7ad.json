@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-11-08T11:57:31Z",
+  "model": "mistral",
+  "topic_index": 1392,
+  "topic": "How to type-check WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to type-check WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Type-Checking WebAssembly (WASM) Targets Using FastAPI with Python 3.12+\",\n  \"summary\": \"Learn how to implement type checking for WebAssembly (WASM) targets in a FastAPI application using Python 3.12+. This guide covers the setup, creating a WASM module, and type-checking using Pydantic models.\",\n  \"key_points\": [\n    \"Install necessary packages: FastAPI, Uvicorn, typed-ast, PyO3, and Pydantic\",\n    \"Create a new FastAPI application\",\n    \"Generate a WebAssembly (WASM) module using PyO3\",\n    \"Define Pydantic models to represent the WASM function signatures\",\n    \"Use FastAPI Dependency Injection to create instances of the Pydantic models when handling requests\",\n    \"Type-check the incoming WASM function calls against the defined Pydantic models\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```python\\n# Import required packages\\nfrom fastapi import FastAPI, Depends\\nfrom fastapi.staticfiles import StaticFiles\\n\\nfrom pydantic import BaseModel\\nfrom typing_extensions import TypedDict\\n\\nimport uvicorn\\nimport pyo3\\nimport sys\\n\\n# Generate a WASM module using PyO3\\npyo3.set_module_name('wasm_module')\\npyme_api = pyo3.wrap_pyfunction(my_function, 'MyFunction', '(i32) -> i32')\\npyme_api.export('CName', 'my_function')\\n\\n# Define a Pydantic model for the WASM function signature\\nclass MyFunctionIn(BaseModel):\\n    arg: int\\n\\napp = FastAPI()\\n\\n@app.get('/wasm/{arg}')\\ndef get_wasm(arg: int = Depends(MyFunctionIn)):\\n    # Type-check the incoming WASM function call\\n    result = wasm_module.MyFunction(arg)\\n    return result\\n\\n# Run the FastAPI application\\nuvicorn main:app --reload\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for this example\",\n    \"FastAPI v0.76.0 or later is recommended\",\n    \"Uvicorn v0.18.3 or later is recommended\"\n  ],\n  \"caveats\": [\n    \"Ensure your WASM module is properly exported with the correct function signature\",\n    \"PyO3 requires a slightly different setup for Windows systems\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Type-Checking WebAssembly (WASM) Targets Using FastAPI with Python 3.12+",
+    "summary": "Learn how to implement type checking for WebAssembly (WASM) targets in a FastAPI application using Python 3.12+. This guide covers the setup, creating a WASM module, and type-checking using Pydantic models.",
+    "key_points": [
+      "Install necessary packages: FastAPI, Uvicorn, typed-ast, PyO3, and Pydantic",
+      "Create a new FastAPI application",
+      "Generate a WebAssembly (WASM) module using PyO3",
+      "Define Pydantic models to represent the WASM function signatures",
+      "Use FastAPI Dependency Injection to create instances of the Pydantic models when handling requests",
+      "Type-check the incoming WASM function calls against the defined Pydantic models"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```python\n# Import required packages\nfrom fastapi import FastAPI, Depends\nfrom fastapi.staticfiles import StaticFiles\n\nfrom pydantic import BaseModel\nfrom typing_extensions import TypedDict\n\nimport uvicorn\nimport pyo3\nimport sys\n\n# Generate a WASM module using PyO3\npyo3.set_module_name('wasm_module')\npyme_api = pyo3.wrap_pyfunction(my_function, 'MyFunction', '(i32) -> i32')\npyme_api.export('CName', 'my_function')\n\n# Define a Pydantic model for the WASM function signature\nclass MyFunctionIn(BaseModel):\n    arg: int\n\napp = FastAPI()\n\n@app.get('/wasm/{arg}')\ndef get_wasm(arg: int = Depends(MyFunctionIn)):\n    # Type-check the incoming WASM function call\n    result = wasm_module.MyFunction(arg)\n    return result\n\n# Run the FastAPI application\nuvicorn main:app --reload\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this example",
+      "FastAPI v0.76.0 or later is recommended",
+      "Uvicorn v0.18.3 or later is recommended"
+    ],
+    "caveats": [
+      "Ensure your WASM module is properly exported with the correct function signature",
+      "PyO3 requires a slightly different setup for Windows systems"
+    ]
+  }
+}
