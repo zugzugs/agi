@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-11-11T21:56:31Z",
+  "model": "mistral",
+  "topic_index": 1462,
+  "topic": "How to containerize CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing CLI Tools Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to containerize command-line interface (CLI) tools using the FastAPI framework in Python 3.12+, leveraging Uvicorn as an ASGI server and Docker for containerization.\",\n\n  \"key_points\": [\n    \"FastAPI is a modern, high-performance web framework for building APIs in Python.\",\n    \"Uvicorn is the ASGI server for FastAPI that makes it easier to run your FastAPI applications.\",\n    \"Docker allows you to containerize your application, ensuring it runs consistently across different environments.\",\n    \"This example focuses on containerizing a CLI tool as a FastAPI API.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\ndef my_cli():\\n    # Your CLI tool logic here\\n\\n@app.post('/')\\ndef main():\\n    my_cli()\"\n    },\n    {\n      \"language\": \"dockerfile\",\n      \"code\": \"FROM python:3.12\\nWORKDIR /app\\nCOPY . /app\\nRUN pip install fastapi uvicorn\\nCMD [\\\"uvicorn\\\", \\\"main:app\\\", \\\"--host\\\", \\\"0.0.0.0\\\", \\\"--port\\\", \\\"8000\\\"]\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this example.\",\n    \"FastAPI 0.76.0 or later is necessary, while Uvicorn 0.17.6 or later should be used.\"\n  ],\n\n  \"caveats\": [\n    \"This example assumes a basic understanding of Python, FastAPI, and Docker.\",\n    \"Ensure you have Docker installed and running on your system before proceeding.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing CLI Tools Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to containerize command-line interface (CLI) tools using the FastAPI framework in Python 3.12+, leveraging Uvicorn as an ASGI server and Docker for containerization.",
+    "key_points": [
+      "FastAPI is a modern, high-performance web framework for building APIs in Python.",
+      "Uvicorn is the ASGI server for FastAPI that makes it easier to run your FastAPI applications.",
+      "Docker allows you to containerize your application, ensuring it runs consistently across different environments.",
+      "This example focuses on containerizing a CLI tool as a FastAPI API."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\ndef my_cli():\n    # Your CLI tool logic here\n\n@app.post('/')\ndef main():\n    my_cli()"
+      },
+      {
+        "language": "dockerfile",
+        "code": "FROM python:3.12\nWORKDIR /app\nCOPY . /app\nRUN pip install fastapi uvicorn\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this example.",
+      "FastAPI 0.76.0 or later is necessary, while Uvicorn 0.17.6 or later should be used."
+    ],
+    "caveats": [
+      "This example assumes a basic understanding of Python, FastAPI, and Docker.",
+      "Ensure you have Docker installed and running on your system before proceeding."
+    ]
+  }
+}
