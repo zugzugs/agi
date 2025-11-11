@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-11-11T22:47:35Z",
+  "model": "mistral",
+  "topic_index": 1464,
+  "topic": "How to deploy CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying CLI Tools Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer discusses the process of creating and deploying command-line interface (CLI) tools using FastAPI, a powerful web framework for building APIs in Python 3.12+.\",\n\n  \"key_points\": [\n    \"FastAPI is not limited to RESTful APIs; it can also be used to create CLI tools.\",\n    \"The fastapi-cli package enables FastAPI to serve command-line interfaces.\",\n    \"FastAPI-CLI applications handle both API and CLI requests within the same application, leveraging its powerful features for both use cases.\",\n    \"Using Python 3.12+ ensures compatibility with new language features and improvements that enhance development productivity.\",\n    \"In this example, we'll build a simple CLI tool to demonstrate FastAPI's capabilities.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\nfrom fastapi import FastAPI\\nimport uvicorn\\n\\napp = FastAPI()\\n@app.get('/')\\ndef main():\\n print(\\\"Hello, World! This is a CLI tool!\\\")\\nif __name__ == \\\"__main__\\\":\\n    uvicorn.run(app, host=\\\"127.0.0.1\\\", port=8000)\\n```\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\n# Install the required package\\n!pip install fastapi-cli\\n\\n# Modify the code to handle command-line arguments\\nfrom fastapi import FastAPI, FastApiRequest\\nimport argparse\\nimport uvicorn\\n\\napp = FastAPI()\\nparser = argparse.ArgumentParser()\\nparser.add_argument(\\\"--message\\\", help=\\\"Custom message to print\\\")\\nargs = parser.parse_args()\\n@app.get('/')\\ndef main():\\n if args.message:\\n     print(args.message) \\n else:\\n     print(\\\"Hello, World! This is a CLI tool!\\\")\\nif __name__ == \\\"__main__\\\":\\n    uvicorn.run(app, host=\\\"127.0.0.1\\\", port=8000)\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is the recommended version for this example.\",\n    \"Using FastAPI v0.69.0 ensures compatibility with FastAPI-CLI.\"\n  ],\n\n  \"caveats\": [\n    \"FastAPI's command-line interface capabilities are somewhat experimental, so be aware of potential issues when using it for CLI tools.\",\n    \"Ensure that the required packages (fastapi and fastapi-cli) are installed before running the code examples.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying CLI Tools Using FastAPI with Python 3.12+",
+    "summary": "This explainer discusses the process of creating and deploying command-line interface (CLI) tools using FastAPI, a powerful web framework for building APIs in Python 3.12+.",
+    "key_points": [
+      "FastAPI is not limited to RESTful APIs; it can also be used to create CLI tools.",
+      "The fastapi-cli package enables FastAPI to serve command-line interfaces.",
+      "FastAPI-CLI applications handle both API and CLI requests within the same application, leveraging its powerful features for both use cases.",
+      "Using Python 3.12+ ensures compatibility with new language features and improvements that enhance development productivity.",
+      "In this example, we'll build a simple CLI tool to demonstrate FastAPI's capabilities."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "```python\nfrom fastapi import FastAPI\nimport uvicorn\n\napp = FastAPI()\n@app.get('/')\ndef main():\n print(\"Hello, World! This is a CLI tool!\")\nif __name__ == \"__main__\":\n    uvicorn.run(app, host=\"127.0.0.1\", port=8000)\n```"
+      },
+      {
+        "language": "Python",
+        "code": "```python\n# Install the required package\n!pip install fastapi-cli\n\n# Modify the code to handle command-line arguments\nfrom fastapi import FastAPI, FastApiRequest\nimport argparse\nimport uvicorn\n\napp = FastAPI()\nparser = argparse.ArgumentParser()\nparser.add_argument(\"--message\", help=\"Custom message to print\")\nargs = parser.parse_args()\n@app.get('/')\ndef main():\n if args.message:\n     print(args.message) \n else:\n     print(\"Hello, World! This is a CLI tool!\")\nif __name__ == \"__main__\":\n    uvicorn.run(app, host=\"127.0.0.1\", port=8000)\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is the recommended version for this example.",
+      "Using FastAPI v0.69.0 ensures compatibility with FastAPI-CLI."
+    ],
+    "caveats": [
+      "FastAPI's command-line interface capabilities are somewhat experimental, so be aware of potential issues when using it for CLI tools.",
+      "Ensure that the required packages (fastapi and fastapi-cli) are installed before running the code examples."
+    ]
+  }
+}
