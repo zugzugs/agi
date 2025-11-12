@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-11-12T22:18:26Z",
+  "model": "mistral",
+  "topic_index": 1482,
+  "topic": "How to profile REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling REST APIs using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide on how to profile the performance of REST APIs built using FastAPI in Python 3.12+, focusing on profiling at the function level and collecting detailed timing statistics.\",\n\n  \"key_points\": [\n    \"FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7.x and above.\",\n    \"Profiling APIs is crucial for understanding their performance and identifying potential bottlenecks.\",\n    \"FastAPI offers built-in profiling support using the `uvicorn` ASGI server and its `profiler` middleware.\",\n    \"The profiler provides detailed timing information, including function call durations and memory usage.\",\n    \"To enable profiling, you need to configure your FastAPI application with the profiler middleware and use the `--profile` flag when running the `uvicorn` server.\",\n    \"You can access the profiling data as JSON or HTML format through a separate endpoint in your API.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, Profiles\\napp = FastAPI()\\napp.add_middleware(Profiles)\\n@app.get('/items/{item_id}')\\ndef read_item(item_id: int):\\n    # Your function logic here...\\n\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"uvicorn your_main_file.py:app --host 0.0.0.0 --port 8000 --reload --profile\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"The profiler middleware is available in FastAPI versions 0.61.0 and later.\",\n    \"Python 3.12 is not yet released as of writing, but the examples use the latest stable Python version (3.9) for compatibility.\"\n  ],\n\n  \"caveats\": [\n    \"Profiling can have a performance impact on your API, so it's essential to consider enabling it only during development and testing.\",\n    \"The profiler does not provide CPU or memory usage statistics at the application level. For that, you may need to use other tools like `psutil` or system-level monitoring.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling REST APIs using FastAPI with Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide on how to profile the performance of REST APIs built using FastAPI in Python 3.12+, focusing on profiling at the function level and collecting detailed timing statistics.",
+    "key_points": [
+      "FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7.x and above.",
+      "Profiling APIs is crucial for understanding their performance and identifying potential bottlenecks.",
+      "FastAPI offers built-in profiling support using the `uvicorn` ASGI server and its `profiler` middleware.",
+      "The profiler provides detailed timing information, including function call durations and memory usage.",
+      "To enable profiling, you need to configure your FastAPI application with the profiler middleware and use the `--profile` flag when running the `uvicorn` server.",
+      "You can access the profiling data as JSON or HTML format through a separate endpoint in your API."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, Profiles\napp = FastAPI()\napp.add_middleware(Profiles)\n@app.get('/items/{item_id}')\ndef read_item(item_id: int):\n    # Your function logic here...\n"
+      },
+      {
+        "language": "bash",
+        "code": "uvicorn your_main_file.py:app --host 0.0.0.0 --port 8000 --reload --profile"
+      }
+    ],
+    "version_notes": [
+      "The profiler middleware is available in FastAPI versions 0.61.0 and later.",
+      "Python 3.12 is not yet released as of writing, but the examples use the latest stable Python version (3.9) for compatibility."
+    ],
+    "caveats": [
+      "Profiling can have a performance impact on your API, so it's essential to consider enabling it only during development and testing.",
+      "The profiler does not provide CPU or memory usage statistics at the application level. For that, you may need to use other tools like `psutil` or system-level monitoring."
+    ]
+  }
+}
