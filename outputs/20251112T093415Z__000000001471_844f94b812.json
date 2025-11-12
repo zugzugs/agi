@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-11-12T09:34:15Z",
+  "model": "mistral",
+  "topic_index": 1471,
+  "topic": "How to combine doctest with typing for production code (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to combine doctest with typing for production code (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Combining doctest and Type Hints in Python 3.12+ Production Code\",\n  \"summary\": \"Learn how to leverage doctests and type hints together in Python 3.12+ for writing robust, self-documenting production code.\",\n  \"key_points\": [\n    \"Use type annotations (PEP 484) to clearly define variable and function types.\",\n    \"Combine type hints with doctests to validate expected inputs and outputs.\",\n    \"Enhance code readability and maintainability by documenting functionality in both comments and tests.\",\n    \"Improve test coverage, reduce runtime errors, and ensure proper type checking.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"def add(a: int, b: int) -> int:\\n    \\\"\\\"\\n    Add two integers together.\\n    :param a: First integer to be added.\\n    :param b: Second integer to be added.\\n    :returns: The sum of the two input integers.\\n    \\\"\\\"'\\n    return a + b\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"def test_add():\\n    \\\"\\\"\\n    Test add function.\\n    :raises: TypeError: if inputs are not integers.\\n    :returns: None\\n    \\\"\\\"'\\n    from io import StringIO\\n    from doctest import testmod\\n    from mymodule import add\\n    f = StringIO()\\n    testmod(mymodule, stream=f)\\n    print(f.getvalue())\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required to use the enhanced doctest features and type annotations.\",\n    \"Ensure your Python environment has been upgraded to support these versions.\"\n  ],\n  \"caveats\": [\n    \"Excessive use of doctests can slow down the runtime execution, consider using other testing libraries for performance-critical applications.\",\n    \"Always make sure that tests cover all possible edge cases and error conditions.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Combining doctest and Type Hints in Python 3.12+ Production Code",
+    "summary": "Learn how to leverage doctests and type hints together in Python 3.12+ for writing robust, self-documenting production code.",
+    "key_points": [
+      "Use type annotations (PEP 484) to clearly define variable and function types.",
+      "Combine type hints with doctests to validate expected inputs and outputs.",
+      "Enhance code readability and maintainability by documenting functionality in both comments and tests.",
+      "Improve test coverage, reduce runtime errors, and ensure proper type checking."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "def add(a: int, b: int) -> int:\n    \"\"\n    Add two integers together.\n    :param a: First integer to be added.\n    :param b: Second integer to be added.\n    :returns: The sum of the two input integers.\n    \"\"'\n    return a + b"
+      },
+      {
+        "language": "python",
+        "code": "def test_add():\n    \"\"\n    Test add function.\n    :raises: TypeError: if inputs are not integers.\n    :returns: None\n    \"\"'\n    from io import StringIO\n    from doctest import testmod\n    from mymodule import add\n    f = StringIO()\n    testmod(mymodule, stream=f)\n    print(f.getvalue())"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to use the enhanced doctest features and type annotations.",
+      "Ensure your Python environment has been upgraded to support these versions."
+    ],
+    "caveats": [
+      "Excessive use of doctests can slow down the runtime execution, consider using other testing libraries for performance-critical applications.",
+      "Always make sure that tests cover all possible edge cases and error conditions."
+    ]
+  }
+}
