@@ -1,0 +1,31 @@
+{
+  "timestamp_utc": "2025-11-13T08:23:36Z",
+  "model": "mistral",
+  "topic_index": 1491,
+  "topic": "How to combine fnmatch with typing for production code (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to combine fnmatch with typing for production code (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Combining fnmatch and typing in Python 3.12+ for Production Code\",\n  \"summary\": \"This explainer demonstrates how to leverage fnmatch and typing modules effectively in Python 3.12+, improving the efficiency and readability of your production code.\",\n\n  \"key_points\": [\n    \"Utilizing typing annotations to improve type checking in fnmatch functions\",\n    \"Leveraging type hints to ensure proper function arguments\",\n    \"Incorporating the fnmatch module for pattern matching on file names or paths\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from pathlib import Path\\nfrom typing import Callable, Union,\\n    List, Optional\\n\\ndef fnmatch_files(pattern: str, directory: Union[Path, str], callback: Callable[[Path], None] = print)\\n   :\\n    for entry in Path(directory).glob(pattern):\\n        if entry.is_file():\\n            callback(entry)\\n\\ndef main() -> None:\\n    fnmatch_files('*.py', './')\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required to use the 'Union' type from the typing module.\",\n    \"The given example demonstrates how to combine fnmatch with typing, making it easier to work with file paths.\"\n  ],\n\n  \"caveats\": [\n    \"Be mindful of potential pattern matching errors when using wildcards in the 'pattern' parameter\",\n    \"Ensure that the provided 'callback' function is compatible with the expected output type from fnmatch_files()\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Combining fnmatch and typing in Python 3.12+ for Production Code",
+    "summary": "This explainer demonstrates how to leverage fnmatch and typing modules effectively in Python 3.12+, improving the efficiency and readability of your production code.",
+    "key_points": [
+      "Utilizing typing annotations to improve type checking in fnmatch functions",
+      "Leveraging type hints to ensure proper function arguments",
+      "Incorporating the fnmatch module for pattern matching on file names or paths"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from pathlib import Path\nfrom typing import Callable, Union,\n    List, Optional\n\ndef fnmatch_files(pattern: str, directory: Union[Path, str], callback: Callable[[Path], None] = print)\n   :\n    for entry in Path(directory).glob(pattern):\n        if entry.is_file():\n            callback(entry)\n\ndef main() -> None:\n    fnmatch_files('*.py', './')"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to use the 'Union' type from the typing module.",
+      "The given example demonstrates how to combine fnmatch with typing, making it easier to work with file paths."
+    ],
+    "caveats": [
+      "Be mindful of potential pattern matching errors when using wildcards in the 'pattern' parameter",
+      "Ensure that the provided 'callback' function is compatible with the expected output type from fnmatch_files()"
+    ]
+  }
+}
