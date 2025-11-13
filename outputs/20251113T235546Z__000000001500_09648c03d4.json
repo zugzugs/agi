@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-11-13T23:55:46Z",
+  "model": "mistral",
+  "topic_index": 1500,
+  "topic": "How to harden REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to harden REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Harden REST APIs Using FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive guide on how to secure and harden REST APIs using the FastAPI framework in Python 3.12+.\",\n  \"key_points\": [\n    \"Understanding FastAPI and its features for building secure APIs\",\n    \"Implementing Authentication and Authorization with FastAPI\",\n    \"Utilizing OpenAPI specification for API documentation and contract testing\",\n    \"Incorporating Security Best Practices like Input Validation, Rate Limiting, and Content Security Policy\",\n    \"Leveraging FastAPI's built-in protection against common web vulnerabilities\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, Depends\\napp = FastAPI()\\n\\n# Sample of authentication using OAuth2 Password Bearer scheme\\nsecurity = [Depends(oauth2_scheme)]\\n\\n@app.get('/protected', security=security)\\ndef protected(): ...\\n\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, HTTPException\\nfrom pydantic import BaseModel\\n\\nclass Item(BaseModel):\\n    name: str\\n    description: str\\n\\napp = FastAPI()\\n\\n# Input validation example\\n@app.post('/items/')\\ndef create_item(item: Item): ...\\n\"\n    }\n  ],\n  \"version_notes\": [\n    \"This guide is specifically for Python 3.12+ and FastAPI 0.71.0 or later\",\n    \"Make sure to keep your FastAPI version up-to-date with the latest security patches\"\n  ],\n  \"caveats\": [\n    \"Always validate input data from clients before trusting it\",\n    \"Ensure that your APIs are not susceptible to common web vulnerabilities such as SQL Injection, Cross Site Scripting (XSS), and Cross-Site Request Forgery (CSRF)\",\n    \"Never share sensitive information like API keys or secrets in client-side code\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Harden REST APIs Using FastAPI in Python 3.12+",
+    "summary": "This explainer provides a comprehensive guide on how to secure and harden REST APIs using the FastAPI framework in Python 3.12+.",
+    "key_points": [
+      "Understanding FastAPI and its features for building secure APIs",
+      "Implementing Authentication and Authorization with FastAPI",
+      "Utilizing OpenAPI specification for API documentation and contract testing",
+      "Incorporating Security Best Practices like Input Validation, Rate Limiting, and Content Security Policy",
+      "Leveraging FastAPI's built-in protection against common web vulnerabilities"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, Depends\napp = FastAPI()\n\n# Sample of authentication using OAuth2 Password Bearer scheme\nsecurity = [Depends(oauth2_scheme)]\n\n@app.get('/protected', security=security)\ndef protected(): ...\n"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, HTTPException\nfrom pydantic import BaseModel\n\nclass Item(BaseModel):\n    name: str\n    description: str\n\napp = FastAPI()\n\n# Input validation example\n@app.post('/items/')\ndef create_item(item: Item): ...\n"
+      }
+    ],
+    "version_notes": [
+      "This guide is specifically for Python 3.12+ and FastAPI 0.71.0 or later",
+      "Make sure to keep your FastAPI version up-to-date with the latest security patches"
+    ],
+    "caveats": [
+      "Always validate input data from clients before trusting it",
+      "Ensure that your APIs are not susceptible to common web vulnerabilities such as SQL Injection, Cross Site Scripting (XSS), and Cross-Site Request Forgery (CSRF)",
+      "Never share sensitive information like API keys or secrets in client-side code"
+    ]
+  }
+}
