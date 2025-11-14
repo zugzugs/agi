@@ -1,0 +1,31 @@
+{
+  "timestamp_utc": "2025-11-14T07:46:02Z",
+  "model": "mistral",
+  "topic_index": 1503,
+  "topic": "How to combine getopt with typing for production code (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to combine getopt with typing for production code (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Combining getopt and Typing in Python 3.12+ Production Code\",\n  \"summary\": \"This explainer demonstrates how to leverage getopt for command-line argument parsing and Type Hints from the typing module in Python 3.12+ for more robust and maintainable production code.\",\n  \"key_points\": [\n    \"Use getopt to parse command-line arguments in a similar manner as argparse.\",\n    \"Incorporate type hinting with the help of the typing module to improve code readability and safety.\",\n    \"Implement custom argument validators for stricter checks on user inputs.\",\n    \"Exploit advanced features of Python 3.12+ such as the Union, Literal, and Final types.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\nimport getopt\\nfrom typing import List, Union, Callable,\\nLiteral\\n\\nclass CustomArgumentParser:\\n  def __init__(self, arguments: List[str]):\\n    self.arguments = arguments\\n    self.usage = f'Usage: {self.arguments[0]} [options]\\n'\\n    self.long_options = ['help']\\n    self.short_options = 'h'\\n    self.option_string = None\\n  \\n  def parse(self):\\n    try:\\n      options, args = getopt.getopt(self.arguments[1:], self.option_string + self.short_options,\\n                                        None)\\n    except getopt.GetoptError as e:\\n      print(str(e))\\n      sys.exit(2)\\n    \\n    for name, value in options:\\n      setattr(self, name, value)\\n\\n  def main(args: List[str]):\\n    parser = CustomArgumentParser(args)\\n    parser.parse()\\n    \\n    if parser.help:\\n      print(parser.usage)\\n      sys.exit()\\n\\n    # Example usage with custom validator:\\n    def check_positive_int(x):\\n      if not isinstance(x, int) or x < 1:\\n        raise ValueError('Input must be a positive integer.')\\n    \\n    my_num: Union[int, str] = None\\n    try:\\n      my_num = check_positive_int(parser.my_num)\\n    except ValueError as e:\\n      print(e)\\n      sys.exit(1)\\n    \\n    print(f'You entered: {my_num}')\\n\\nif __name__ == '__main__':\\n  main(['script.py', '-h'])```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python versions prior to 3.12 do not support the advanced features used in this example, such as Union, Literal, and Final types.\"\n  ],\n  \"caveats\": [\n    \"Although getopt can be a viable option for simple command-line argument parsing, it may not be as flexible or feature-rich as argparse.\",\n    \"Ensure that custom validators are robust to handle edge cases and unexpected user inputs.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Combining getopt and Typing in Python 3.12+ Production Code",
+    "summary": "This explainer demonstrates how to leverage getopt for command-line argument parsing and Type Hints from the typing module in Python 3.12+ for more robust and maintainable production code.",
+    "key_points": [
+      "Use getopt to parse command-line arguments in a similar manner as argparse.",
+      "Incorporate type hinting with the help of the typing module to improve code readability and safety.",
+      "Implement custom argument validators for stricter checks on user inputs.",
+      "Exploit advanced features of Python 3.12+ such as the Union, Literal, and Final types."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "```python\nimport getopt\nfrom typing import List, Union, Callable,\nLiteral\n\nclass CustomArgumentParser:\n  def __init__(self, arguments: List[str]):\n    self.arguments = arguments\n    self.usage = f'Usage: {self.arguments[0]} [options]\n'\n    self.long_options = ['help']\n    self.short_options = 'h'\n    self.option_string = None\n  \n  def parse(self):\n    try:\n      options, args = getopt.getopt(self.arguments[1:], self.option_string + self.short_options,\n                                        None)\n    except getopt.GetoptError as e:\n      print(str(e))\n      sys.exit(2)\n    \n    for name, value in options:\n      setattr(self, name, value)\n\n  def main(args: List[str]):\n    parser = CustomArgumentParser(args)\n    parser.parse()\n    \n    if parser.help:\n      print(parser.usage)\n      sys.exit()\n\n    # Example usage with custom validator:\n    def check_positive_int(x):\n      if not isinstance(x, int) or x < 1:\n        raise ValueError('Input must be a positive integer.')\n    \n    my_num: Union[int, str] = None\n    try:\n      my_num = check_positive_int(parser.my_num)\n    except ValueError as e:\n      print(e)\n      sys.exit(1)\n    \n    print(f'You entered: {my_num}')\n\nif __name__ == '__main__':\n  main(['script.py', '-h'])```"
+      }
+    ],
+    "version_notes": [
+      "Python versions prior to 3.12 do not support the advanced features used in this example, such as Union, Literal, and Final types."
+    ],
+    "caveats": [
+      "Although getopt can be a viable option for simple command-line argument parsing, it may not be as flexible or feature-rich as argparse.",
+      "Ensure that custom validators are robust to handle edge cases and unexpected user inputs."
+    ]
+  }
+}
