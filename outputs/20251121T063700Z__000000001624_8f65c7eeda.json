@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-11-21T06:37:00Z",
+  "model": "mistral",
+  "topic_index": 1624,
+  "topic": "How to deploy stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Stream Processing Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to set up and deploy a real-time data stream processing application using FastAPI, Uvicorn, and Kafka in Python 3.12+.\",\n  \"key_points\": [\n    \"Understand the basics of FastAPI for building APIs\",\n    \"Set up and configure a Kafka broker\",\n    \"Create FastAPI routes to handle incoming data streams\",\n    \"Implement consumer logic using FastAPI background tasks\",\n    \"Deploy the application using Uvicorn\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, BackgroundTasks\\napp = FastAPI()\\n\\n@app.post('/stream/')\\nasynchronous def stream(background_tasks: BackgroundTasks, data: bytes):\\n    # Process the incoming data here\"\n    },\n    {\n      \"language\": \"yaml\",\n      \"code\": \"kafka:\\n  brokers: ['localhost:9092']\\n  topics: [\\n     - source\\n     - processed\\n  ]\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for this tutorial.\",\n    \"Uvicorn >= 0.15.0 is recommended for deploying the FastAPI application.\"\n  ],\n  \"caveats\": [\n    \"Ensure that you have Docker or a compatible local development environment set up.\",\n    \"This guide assumes familiarity with basic concepts such as Kafka topics, FastAPI routes, and Python async functions.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Stream Processing Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to set up and deploy a real-time data stream processing application using FastAPI, Uvicorn, and Kafka in Python 3.12+.",
+    "key_points": [
+      "Understand the basics of FastAPI for building APIs",
+      "Set up and configure a Kafka broker",
+      "Create FastAPI routes to handle incoming data streams",
+      "Implement consumer logic using FastAPI background tasks",
+      "Deploy the application using Uvicorn"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, BackgroundTasks\napp = FastAPI()\n\n@app.post('/stream/')\nasynchronous def stream(background_tasks: BackgroundTasks, data: bytes):\n    # Process the incoming data here"
+      },
+      {
+        "language": "yaml",
+        "code": "kafka:\n  brokers: ['localhost:9092']\n  topics: [\n     - source\n     - processed\n  ]"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this tutorial.",
+      "Uvicorn >= 0.15.0 is recommended for deploying the FastAPI application."
+    ],
+    "caveats": [
+      "Ensure that you have Docker or a compatible local development environment set up.",
+      "This guide assumes familiarity with basic concepts such as Kafka topics, FastAPI routes, and Python async functions."
+    ]
+  }
+}
