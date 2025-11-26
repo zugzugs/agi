@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-11-26T19:46:51Z",
+  "model": "mistral",
+  "topic_index": 1706,
+  "topic": "How to profile ML training loops using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile ML training loops using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Machine Learning Training Loops Using FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer will guide you through profiling machine learning training loops by integrating FastAPI, the high-performance web framework for building APIs, into your Python 3.12+ projects.\",\n  \"key_points\": [\n    \"Leverage FastAPI's built-in ProfilingMiddleware to analyze the performance of ML training loops\",\n    \"Integrate profiling data visualization using tools like Dash or Plotly\",\n    \"Profile individual functions within the training loop for more granular insights\",\n    \"Understand and minimize the impact of overhead introduced by FastAPI when profiling\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\nfrom fastapi.middleware.profiling import ProfilingMiddleware\\n\\napp.add_middleware(ProfilingMiddleware)\\n\\n@app.get('/profile/ml_training_loop')\\ndef ml_training_loop():\\n    # Your ML training loop goes here\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\nimport uvicorn\\n\\napp = FastAPI()\\napp.add_middleware(ProfilingMiddleware)\\n\\nif __name__ == '__main__':\\n    uvicorn.run(app, host='127.0.0.1', port=8000)\"\n    }\n  ],\n  \"version_notes\": [\n    \"This technique requires FastAPI version 0.70.0 or higher to utilize the built-in ProfilingMiddleware\",\n    \"Python 3.12+ is recommended for compatibility and improved performance\"\n  ],\n  \"caveats\": [\n    \"ProfilingMiddleware introduces some overhead, so it's best to profile during development and not in production environments.\",\n    \"For more advanced profiling requirements or visualization, consider integrating third-party tools like Dash, Plotly, or cProfile\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Machine Learning Training Loops Using FastAPI in Python 3.12+",
+    "summary": "This explainer will guide you through profiling machine learning training loops by integrating FastAPI, the high-performance web framework for building APIs, into your Python 3.12+ projects.",
+    "key_points": [
+      "Leverage FastAPI's built-in ProfilingMiddleware to analyze the performance of ML training loops",
+      "Integrate profiling data visualization using tools like Dash or Plotly",
+      "Profile individual functions within the training loop for more granular insights",
+      "Understand and minimize the impact of overhead introduced by FastAPI when profiling"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\nfrom fastapi.middleware.profiling import ProfilingMiddleware\n\napp.add_middleware(ProfilingMiddleware)\n\n@app.get('/profile/ml_training_loop')\ndef ml_training_loop():\n    # Your ML training loop goes here"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\nimport uvicorn\n\napp = FastAPI()\napp.add_middleware(ProfilingMiddleware)\n\nif __name__ == '__main__':\n    uvicorn.run(app, host='127.0.0.1', port=8000)"
+      }
+    ],
+    "version_notes": [
+      "This technique requires FastAPI version 0.70.0 or higher to utilize the built-in ProfilingMiddleware",
+      "Python 3.12+ is recommended for compatibility and improved performance"
+    ],
+    "caveats": [
+      "ProfilingMiddleware introduces some overhead, so it's best to profile during development and not in production environments.",
+      "For more advanced profiling requirements or visualization, consider integrating third-party tools like Dash, Plotly, or cProfile"
+    ]
+  }
+}
