@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-11-27T11:32:56Z",
+  "model": "mistral",
+  "topic_index": 1720,
+  "topic": "How to deploy ML training loops using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy ML training loops using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Machine Learning Training Loops using FastAPI in Python 3.12+\",\n  \"summary\": \"This guide will walk you through the process of deploying machine learning (ML) training loops using FastAPI, a modern web framework for building APIs with Python 3.12+.\",\n\n  \"key_points\": [\n    \"FastAPI is highly performant and easy to use, making it an ideal choice for building API endpoints to manage ML training workflows.\",\n    \"Python 3.12+ provides new features like pattern matching and async context managers that can be leveraged in this setup.\",\n    \"In this example, we'll use a simple linear regression model as the machine learning algorithm.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI\\napp = FastAPI()\\n\\n# Define your ML training function\\ndef train_model():\\n    # Your machine learning training code goes here\\n\\n@app.post('/train/')\\ndef train():\\n    # Call the training function and return the result\\n    model = train_model()\\n    return {'model': model}\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom pydantic import BaseModel\\nclass ModelResponse(BaseModel):\\n    model: object\\n\\n# Example response from the training endpoint\\nresponse = {'model': some_trained_model}\\nresponse_schema = ModelResponse.parse_obj(response)\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for pattern matching, async context managers, and other new features.\",\n    \"FastAPI version 0.76.0 or higher is recommended.\"\n  ],\n\n  \"caveats\": [\n    \"This guide assumes that you have basic knowledge of FastAPI, Python, and machine learning concepts.\",\n    \"The code examples provided in this explainer are simplified for demonstration purposes only.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Machine Learning Training Loops using FastAPI in Python 3.12+",
+    "summary": "This guide will walk you through the process of deploying machine learning (ML) training loops using FastAPI, a modern web framework for building APIs with Python 3.12+.",
+    "key_points": [
+      "FastAPI is highly performant and easy to use, making it an ideal choice for building API endpoints to manage ML training workflows.",
+      "Python 3.12+ provides new features like pattern matching and async context managers that can be leveraged in this setup.",
+      "In this example, we'll use a simple linear regression model as the machine learning algorithm."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI\napp = FastAPI()\n\n# Define your ML training function\ndef train_model():\n    # Your machine learning training code goes here\n\n@app.post('/train/')\ndef train():\n    # Call the training function and return the result\n    model = train_model()\n    return {'model': model}\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\nfrom pydantic import BaseModel\nclass ModelResponse(BaseModel):\n    model: object\n\n# Example response from the training endpoint\nresponse = {'model': some_trained_model}\nresponse_schema = ModelResponse.parse_obj(response)\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for pattern matching, async context managers, and other new features.",
+      "FastAPI version 0.76.0 or higher is recommended."
+    ],
+    "caveats": [
+      "This guide assumes that you have basic knowledge of FastAPI, Python, and machine learning concepts.",
+      "The code examples provided in this explainer are simplified for demonstration purposes only."
+    ]
+  }
+}
