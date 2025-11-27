@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-11-27T16:26:41Z",
+  "model": "mistral",
+  "topic_index": 1726,
+  "topic": "How to observe ML training loops using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to observe ML training loops using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Observing Machine Learning Training Loops with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to monitor the progress of a machine learning (ML) training loop using FastAPI, a modern web framework for building APIs in Python 3.12+.\",\n\n  \"key_points\": [\n    \"Create an API endpoint for monitoring the ML training loop\",\n    \"Implement live updates by periodically sending status updates from within the training loop\",\n    \"Use FastAPI's built-in functionality to handle concurrent connections efficiently\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, WebSocket\\napp = FastAPI()\\nsticky_connection = app.websocket('/train')\\n@sticky_connection\\ndef train(websocket):  # ... training loop implementation goes here ...\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"async def broadcast(websocket, message):\\n    await websocket.send_text(message)\\n    for connection in connections:\\n        if connection != websocket:\\n            connection.send_text(message)  # ... updating all connected clients ...\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required due to FastAPI's support for asynchronous and concurrent connections.\",\n    \"Be sure to install the necessary dependencies, such as FastAPI and Uvicorn.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure your machine learning training loop can be paused periodically to send updates\",\n    \"Manage connections efficiently by using sticky sessions in case of long-running connections\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Observing Machine Learning Training Loops with FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to monitor the progress of a machine learning (ML) training loop using FastAPI, a modern web framework for building APIs in Python 3.12+.",
+    "key_points": [
+      "Create an API endpoint for monitoring the ML training loop",
+      "Implement live updates by periodically sending status updates from within the training loop",
+      "Use FastAPI's built-in functionality to handle concurrent connections efficiently"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, WebSocket\napp = FastAPI()\nsticky_connection = app.websocket('/train')\n@sticky_connection\ndef train(websocket):  # ... training loop implementation goes here ..."
+      },
+      {
+        "language": "python",
+        "code": "async def broadcast(websocket, message):\n    await websocket.send_text(message)\n    for connection in connections:\n        if connection != websocket:\n            connection.send_text(message)  # ... updating all connected clients ..."
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required due to FastAPI's support for asynchronous and concurrent connections.",
+      "Be sure to install the necessary dependencies, such as FastAPI and Uvicorn."
+    ],
+    "caveats": [
+      "Ensure your machine learning training loop can be paused periodically to send updates",
+      "Manage connections efficiently by using sticky sessions in case of long-running connections"
+    ]
+  }
+}
