@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2025-11-29T01:16:46Z",
+  "model": "mistral",
+  "topic_index": 1750,
+  "topic": "How to containerize notebooks to production using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize notebooks to production using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing Notebooks for Production Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to convert Jupyter notebooks into a containerized application using FastAPI, serving the notebook content as APIs in Python 3.12+.\",\n  \"key_points\": [\n    \"Utilize `nbconvert` to transform Jupyter notebooks to Python scripts\",\n    \"Create a new FastAPI app and serve the generated scripts as endpoints\",\n    \"Package the application with Docker for easy deployment\",\n    \"Expose API endpoints that run notebook cells, handle input/output, and manage state\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"```\\n# nbconvert command to convert notebook to python script\\nnbconvert --to script my_notebook.ipynb -o my_notebook.py\\n```\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\nfrom fastapi import FastAPI, HTTPException\\napp = FastAPI()\\n@app.get('/run_notebook')\\ndef run_notebook():  # Your code here to execute notebook and return output\\n    ...\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"This guide is specifically for Python 3.12+, as it introduces new features for handling async functions more efficiently.\"\n  ],\n  \"caveats\": [\n    \"Keep in mind that when running notebook cells inside the FastAPI app, you'll need to handle input/output and manage state appropriately.\",\n    \"For production deployment, ensure your Dockerfile includes dependencies required by both Jupyter Notebook and FastAPI.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing Notebooks for Production Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to convert Jupyter notebooks into a containerized application using FastAPI, serving the notebook content as APIs in Python 3.12+.",
+    "key_points": [
+      "Utilize `nbconvert` to transform Jupyter notebooks to Python scripts",
+      "Create a new FastAPI app and serve the generated scripts as endpoints",
+      "Package the application with Docker for easy deployment",
+      "Expose API endpoints that run notebook cells, handle input/output, and manage state"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "```\n# nbconvert command to convert notebook to python script\nnbconvert --to script my_notebook.ipynb -o my_notebook.py\n```"
+      },
+      {
+        "language": "Python",
+        "code": "```python\nfrom fastapi import FastAPI, HTTPException\napp = FastAPI()\n@app.get('/run_notebook')\ndef run_notebook():  # Your code here to execute notebook and return output\n    ...\n```"
+      }
+    ],
+    "version_notes": [
+      "This guide is specifically for Python 3.12+, as it introduces new features for handling async functions more efficiently."
+    ],
+    "caveats": [
+      "Keep in mind that when running notebook cells inside the FastAPI app, you'll need to handle input/output and manage state appropriately.",
+      "For production deployment, ensure your Dockerfile includes dependencies required by both Jupyter Notebook and FastAPI."
+    ]
+  }
+}
