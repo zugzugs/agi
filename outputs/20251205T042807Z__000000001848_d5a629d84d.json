@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-12-05T04:28:07Z",
+  "model": "mistral",
+  "topic_index": 1848,
+  "topic": "How to deploy serverless handlers using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy serverless handlers using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Serverless Handlers Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide will walk you through the process of deploying serverless handlers using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.\",\n  \"key_points\": [\n    \"FastAPI is built on top of Starlette, ASGI, and Pydantic.\",\n    \"FastAPI supports multiple programming languages but this guide focuses on Python 3.12+.\",\n    \"Serverless deployment allows for scaling automatically based on traffic and eliminates the need to manage servers.\",\n    \"This guide demonstrates deploying FastAPI applications to AWS Lambda using the Serverless Framework.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef main():\\n    return {'Hello': 'World'}\"\n    },\n    {\n      \"language\": \"yaml\",\n      \"code\": \"service: my-fastapi-service\\nprovider:\\n  name: aws\\n  runtime: python3.8\\n  region: us-east-1\\nfunctions:\\n  main:\\n    handler: my_project.main:app\\n    events:\\n      - httpApi:\\n          path: /\\n          method: ANY\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python version: 3.12+\",\n    \"FastAPI version: latest\",\n    \"Serverless Framework version: >=26.0.0\"\n  ],\n  \"caveats\": [\n    \"Ensure you have the Serverless Framework installed and properly configured before proceeding.\",\n    \"The AWS Lambda runtime used in this example may not support all features of Python 3.12+\",\n    \"Make sure to test your deployed application thoroughly.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Serverless Handlers Using FastAPI with Python 3.12+",
+    "summary": "This guide will walk you through the process of deploying serverless handlers using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.",
+    "key_points": [
+      "FastAPI is built on top of Starlette, ASGI, and Pydantic.",
+      "FastAPI supports multiple programming languages but this guide focuses on Python 3.12+.",
+      "Serverless deployment allows for scaling automatically based on traffic and eliminates the need to manage servers.",
+      "This guide demonstrates deploying FastAPI applications to AWS Lambda using the Serverless Framework."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef main():\n    return {'Hello': 'World'}"
+      },
+      {
+        "language": "yaml",
+        "code": "service: my-fastapi-service\nprovider:\n  name: aws\n  runtime: python3.8\n  region: us-east-1\nfunctions:\n  main:\n    handler: my_project.main:app\n    events:\n      - httpApi:\n          path: /\n          method: ANY"
+      }
+    ],
+    "version_notes": [
+      "Python version: 3.12+",
+      "FastAPI version: latest",
+      "Serverless Framework version: >=26.0.0"
+    ],
+    "caveats": [
+      "Ensure you have the Serverless Framework installed and properly configured before proceeding.",
+      "The AWS Lambda runtime used in this example may not support all features of Python 3.12+",
+      "Make sure to test your deployed application thoroughly."
+    ]
+  }
+}
