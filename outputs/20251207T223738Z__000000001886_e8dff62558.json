@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2025-12-07T22:37:38Z",
+  "model": "mistral",
+  "topic_index": 1886,
+  "topic": "How to observe WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to observe WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Observing WASM Targets Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to set up and run WebAssembly (WASM) targets in a FastAPI application using Python 3.12+, enabling efficient and portable web development.\",\n\n  \"key_points\": [\n    \"Python 3.12+ is required for this tutorial due to its support for WebAssembly.\",\n    \"FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7.x or newer.\",\n    \"Emscripten is a toolchain that compiles C/C++/Rust code to asm.js and WebAssembly.\",\n    \"We will use Emscripten's Pyodide, a Python environment in the browser powered by Emscripten.\",\n    \"In this example, we create a simple FastAPI application that serves a WASM module compiled from C++ code.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\n# fastapi_main.py\\nfrom fastapi import FastAPI, UploadFile, File\\napp = FastAPI()\\n\\n@app.post('/wasm')\\ndef wasm_upload(file: UploadFile):\\n    with open('static/wasm_module.wasm', 'wb') as f:\\n        f.write(file.file.read())\\n```\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\n# main.cpp\\n// ... (Your C++ code here) \\n\\nint main() {\\n    // Initialize Emscripten and bind your C++ functions to JavaScript.\\n    emcc -O3 -bind -s WASM=1 -s MODULARIZE=1 -o wasm_module.js your_cpp_source.cpp\\n}\\n```\"\n    },\n    {\n      \"language\": \"HTML\",\n      \"code\": \"```html\\n<!-- index.html -->\\n<!DOCTYPE html>\\n<html lang=\\\"en\\\">\\n<head>\\n  <meta charset=\\\"UTF-8\\\" />\\n  <title>FastAPI WASM Demo</title>\\n</head>\\n<body>\\n  <!-- ... (Your HTML code here) -->\\n  <script src=\\\"wasm_module.js\\\"></script>\\n</body>\\n</html>\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Pyodide has been updated to work with Python 3.12+.\",\n    \"FastAPI is compatible with Python 3.7.x or newer.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure you have Emscripten installed and properly configured for your platform before running this example.\",\n    \"This example uses a simple WASM module, but in practice, you may want to compile larger projects using Emscripten.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Observing WASM Targets Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to set up and run WebAssembly (WASM) targets in a FastAPI application using Python 3.12+, enabling efficient and portable web development.",
+    "key_points": [
+      "Python 3.12+ is required for this tutorial due to its support for WebAssembly.",
+      "FastAPI is a modern, fast (high-performance), web framework for building APIs with Python 3.7.x or newer.",
+      "Emscripten is a toolchain that compiles C/C++/Rust code to asm.js and WebAssembly.",
+      "We will use Emscripten's Pyodide, a Python environment in the browser powered by Emscripten.",
+      "In this example, we create a simple FastAPI application that serves a WASM module compiled from C++ code."
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "```python\n# fastapi_main.py\nfrom fastapi import FastAPI, UploadFile, File\napp = FastAPI()\n\n@app.post('/wasm')\ndef wasm_upload(file: UploadFile):\n    with open('static/wasm_module.wasm', 'wb') as f:\n        f.write(file.file.read())\n```"
+      },
+      {
+        "language": "Python",
+        "code": "```python\n# main.cpp\n// ... (Your C++ code here) \n\nint main() {\n    // Initialize Emscripten and bind your C++ functions to JavaScript.\n    emcc -O3 -bind -s WASM=1 -s MODULARIZE=1 -o wasm_module.js your_cpp_source.cpp\n}\n```"
+      },
+      {
+        "language": "HTML",
+        "code": "```html\n<!-- index.html -->\n<!DOCTYPE html>\n<html lang=\"en\">\n<head>\n  <meta charset=\"UTF-8\" />\n  <title>FastAPI WASM Demo</title>\n</head>\n<body>\n  <!-- ... (Your HTML code here) -->\n  <script src=\"wasm_module.js\"></script>\n</body>\n</html>\n```"
+      }
+    ],
+    "version_notes": [
+      "Pyodide has been updated to work with Python 3.12+.",
+      "FastAPI is compatible with Python 3.7.x or newer."
+    ],
+    "caveats": [
+      "Ensure you have Emscripten installed and properly configured for your platform before running this example.",
+      "This example uses a simple WASM module, but in practice, you may want to compile larger projects using Emscripten."
+    ]
+  }
+}
