@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-12-09T14:22:06Z",
+  "model": "mistral",
+  "topic_index": 1910,
+  "topic": "How to containerize edge runtimes using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize edge runtimes using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing Edge Runtimes using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to containerize edge runtimes using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+. We will use Docker and Uvicorn as the ASGI server.\",\n\n  \"key_points\": [\n    \"Understanding FastAPI\",\n    \"Setting up the development environment\",\n    \"Creating a FastAPI application\",\n    \"Containerizing the application using Docker\",\n    \"Running and testing the containerized FastAPI app\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\nn = {'key': 'value'}\\n@app.get('/items/{item_id}')\\ndef read_item(item_id: int):\\n    return n[item_id]\"\n    },\n    {\n      \"language\": \"docker\",\n      \"code\": \"FROM tiangolo/uvicorn-fastapi:python3.10\\nWORKDIR /app\\nCOPY ./app /app\\nEXPOSE 8000\\nCMD [\\\"uvicorn\\\", \\\"main:app\\\", \\\"--host\\\", \\\"0.0.0.0\\\", \\\"--port\\\", \\\"8000\\\"]\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required.\",\n    \"Docker version 20.10.7 or later is suggested for running the Dockerfile.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure you have Docker installed and running before attempting this tutorial.\",\n    \"Uvicorn's ASGI server is used in this example, but other servers like Sanic ASGI Server can also be used for containerizing FastAPI applications.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing Edge Runtimes using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to containerize edge runtimes using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+. We will use Docker and Uvicorn as the ASGI server.",
+    "key_points": [
+      "Understanding FastAPI",
+      "Setting up the development environment",
+      "Creating a FastAPI application",
+      "Containerizing the application using Docker",
+      "Running and testing the containerized FastAPI app"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\nn = {'key': 'value'}\n@app.get('/items/{item_id}')\ndef read_item(item_id: int):\n    return n[item_id]"
+      },
+      {
+        "language": "docker",
+        "code": "FROM tiangolo/uvicorn-fastapi:python3.10\nWORKDIR /app\nCOPY ./app /app\nEXPOSE 8000\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required.",
+      "Docker version 20.10.7 or later is suggested for running the Dockerfile."
+    ],
+    "caveats": [
+      "Ensure you have Docker installed and running before attempting this tutorial.",
+      "Uvicorn's ASGI server is used in this example, but other servers like Sanic ASGI Server can also be used for containerizing FastAPI applications."
+    ]
+  }
+}
