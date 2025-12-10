@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2025-12-10T13:38:03Z",
+  "model": "mistral",
+  "topic_index": 1928,
+  "topic": "How to benchmark CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to benchmark CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Benchmarking CLI Tools Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide will walk you through the process of creating a benchmark for Command Line Interface (CLI) tools using FastAPI and Python 3.12+. The approach involves measuring the execution time of requests sent to the FastAPI application.\",\n\n  \"key_points\": [\n    \"Install required packages: FastAPI, Uvicorn, and aiohttp\",\n    \"Create a FastAPI application with CLI endpoint\",\n    \"Write a script to send multiple requests to the CLI endpoint using aiohttp\",\n    \"Measure and record execution time for each request\",\n    \"Calculate and display the average execution time for all requests\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```python\\n\\nfrom fastapi import FastAPI, Request\\nimport uvicorn\\nimport aiohttp\\n\\napp = FastAPI()\\n\\n@app.get('/cli', response_class=aiohttp.BytesResponse)\\nasync def cli():\\n    # Your CLI tool execution code here\\n\\nif __name__ == '__main__':\\n    uvicorn.run(app, host='127.0.0.1', port=8000)\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```python\\n\\nimport time\\nimport aiohttp\\n\\nasync def send_request(session):\\n    async with session.get('http://localhost:8000/cli') as response:\\n        start = time.monotonic()\\n        await response.text()\\n        end = time.monotonic()\\n        return end - start\\n\\nif __name__ == '__main__':\\n    async with aiohttp.ClientSession() as session:\\n        start_time = time.monotonic()\\n        results = await aioitertools.islice(aioitertools.repeat(send_request(session), 100),\\n                                              100)\\n        total_time = sum(results) / len(results)\\n        print(f'Average execution time: {total_time} seconds')\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this example.\",\n    \"Uvicorn version 0.17.6 or later is recommended for running FastAPI applications.\"\n  ],\n\n  \"caveats\": [\n    \"Make sure the CLI tool execution code in the FastAPI application does not block the event loop.\",\n    \"Adjust the number of requests sent according to your system resources and desired level of precision.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Benchmarking CLI Tools Using FastAPI with Python 3.12+",
+    "summary": "This guide will walk you through the process of creating a benchmark for Command Line Interface (CLI) tools using FastAPI and Python 3.12+. The approach involves measuring the execution time of requests sent to the FastAPI application.",
+    "key_points": [
+      "Install required packages: FastAPI, Uvicorn, and aiohttp",
+      "Create a FastAPI application with CLI endpoint",
+      "Write a script to send multiple requests to the CLI endpoint using aiohttp",
+      "Measure and record execution time for each request",
+      "Calculate and display the average execution time for all requests"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```python\n\nfrom fastapi import FastAPI, Request\nimport uvicorn\nimport aiohttp\n\napp = FastAPI()\n\n@app.get('/cli', response_class=aiohttp.BytesResponse)\nasync def cli():\n    # Your CLI tool execution code here\n\nif __name__ == '__main__':\n    uvicorn.run(app, host='127.0.0.1', port=8000)\n```"
+      },
+      {
+        "language": "python",
+        "code": "```python\n\nimport time\nimport aiohttp\n\nasync def send_request(session):\n    async with session.get('http://localhost:8000/cli') as response:\n        start = time.monotonic()\n        await response.text()\n        end = time.monotonic()\n        return end - start\n\nif __name__ == '__main__':\n    async with aiohttp.ClientSession() as session:\n        start_time = time.monotonic()\n        results = await aioitertools.islice(aioitertools.repeat(send_request(session), 100),\n                                              100)\n        total_time = sum(results) / len(results)\n        print(f'Average execution time: {total_time} seconds')\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this example.",
+      "Uvicorn version 0.17.6 or later is recommended for running FastAPI applications."
+    ],
+    "caveats": [
+      "Make sure the CLI tool execution code in the FastAPI application does not block the event loop.",
+      "Adjust the number of requests sent according to your system resources and desired level of precision."
+    ]
+  }
+}
