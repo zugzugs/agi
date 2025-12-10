@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-12-10T16:58:49Z",
+  "model": "mistral",
+  "topic_index": 1930,
+  "topic": "How to profile CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling CLI Tools Using FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides a guide on how to profile command-line interface (CLI) tools using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.\",\n  \"key_points\": [\n    \"FastAPI is not limited to HTTP APIs but can also be used to build CLI tools.\",\n    \"FastAPI's router provides a way to create and organize routes, including command-line interfaces.\",\n    \"Profiling CLI tools using FastAPI offers insights into the performance of your application, helping you optimize it.\",\n    \"Python 3.12+ features improvements that benefit profiling such as the new 'async for' statement.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI, FastAPIRequest\\napp = FastAPI()\\n@app.get('/my_command', response_class=Response)\\ndef my_command(request: FastAPIRequest):\\n    # Your command logic here\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nimport cProfile, io\\npr = cProfile.Profile()\\n# Execute your command using the request object.\\npr.runctx('your_command_logic', globals(), locals())\\npr.print_stats(sort=sorted)\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for FastAPI and the new 'async for' statement.\",\n    \"FastAPI version 0.71.0 or higher supports profiling command-line interfaces.\"\n  ],\n  \"caveats\": [\n    \"The provided code examples are simplified and may not include error handling, input validation, or other best practices for production applications.\",\n    \"Profiling CLI tools using FastAPI requires running Python's cProfile module within the request handler.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling CLI Tools Using FastAPI in Python 3.12+",
+    "summary": "This explainer provides a guide on how to profile command-line interface (CLI) tools using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.",
+    "key_points": [
+      "FastAPI is not limited to HTTP APIs but can also be used to build CLI tools.",
+      "FastAPI's router provides a way to create and organize routes, including command-line interfaces.",
+      "Profiling CLI tools using FastAPI offers insights into the performance of your application, helping you optimize it.",
+      "Python 3.12+ features improvements that benefit profiling such as the new 'async for' statement."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI, FastAPIRequest\napp = FastAPI()\n@app.get('/my_command', response_class=Response)\ndef my_command(request: FastAPIRequest):\n    # Your command logic here\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\nimport cProfile, io\npr = cProfile.Profile()\n# Execute your command using the request object.\npr.runctx('your_command_logic', globals(), locals())\npr.print_stats(sort=sorted)\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for FastAPI and the new 'async for' statement.",
+      "FastAPI version 0.71.0 or higher supports profiling command-line interfaces."
+    ],
+    "caveats": [
+      "The provided code examples are simplified and may not include error handling, input validation, or other best practices for production applications.",
+      "Profiling CLI tools using FastAPI requires running Python's cProfile module within the request handler."
+    ]
+  }
+}
