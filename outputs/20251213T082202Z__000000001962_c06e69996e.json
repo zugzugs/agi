@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-12-13T08:22:02Z",
+  "model": "mistral",
+  "topic_index": 1962,
+  "topic": "How to profile REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling REST APIs using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to profile the performance of your REST APIs built with FastAPI using Python 3.12+. By profiling, we mean understanding and optimizing the execution time and resource usage of each API endpoint.\",\n\n  \"key_points\": [\n    \"Install required packages: `uvicorn`, `pydantic` and `fastapi-profiling`\",\n    \"Create a FastAPI application with your desired endpoints\",\n    \"Enable profiling for specific or all endpoints using the ProfiledFastAPI class from fastapi-profiling\",\n    \"Run your FastAPI app using Uvicorn with the `--reload`, `--profile` and `--host` flags\",\n    \"Access profiles data via API response or in a dedicated Profiles endpoint\",\n    \"Analyze and optimize performance based on the generated profiling data\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI\\nfrom fastapi_profiling import ProfiledFastAPI\\napp = ProfiledFastAPI(FastAPI())\\n\\n@app.get('/items/{item_id}')\\ndef get_item(item_id: int):\\n    return {'item': item_id}\\n```\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"```\\nuvicorn app:app --reload --profile --host 0.0.0.0\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this implementation\",\n    \"FastAPI >= 0.75.0, uvicorn >= 0.18.0 and fastapi-profiling >= 0.6.0 are recommended\"\n  ],\n\n  \"caveats\": [\n    \"Profiling can impact the performance of your API due to the additional overhead introduced by the profiler\",\n    \"It's essential to analyze the generated data and make informed decisions to optimize your application without negatively impacting user experience\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling REST APIs using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to profile the performance of your REST APIs built with FastAPI using Python 3.12+. By profiling, we mean understanding and optimizing the execution time and resource usage of each API endpoint.",
+    "key_points": [
+      "Install required packages: `uvicorn`, `pydantic` and `fastapi-profiling`",
+      "Create a FastAPI application with your desired endpoints",
+      "Enable profiling for specific or all endpoints using the ProfiledFastAPI class from fastapi-profiling",
+      "Run your FastAPI app using Uvicorn with the `--reload`, `--profile` and `--host` flags",
+      "Access profiles data via API response or in a dedicated Profiles endpoint",
+      "Analyze and optimize performance based on the generated profiling data"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI\nfrom fastapi_profiling import ProfiledFastAPI\napp = ProfiledFastAPI(FastAPI())\n\n@app.get('/items/{item_id}')\ndef get_item(item_id: int):\n    return {'item': item_id}\n```"
+      },
+      {
+        "language": "bash",
+        "code": "```\nuvicorn app:app --reload --profile --host 0.0.0.0\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this implementation",
+      "FastAPI >= 0.75.0, uvicorn >= 0.18.0 and fastapi-profiling >= 0.6.0 are recommended"
+    ],
+    "caveats": [
+      "Profiling can impact the performance of your API due to the additional overhead introduced by the profiler",
+      "It's essential to analyze the generated data and make informed decisions to optimize your application without negatively impacting user experience"
+    ]
+  }
+}
