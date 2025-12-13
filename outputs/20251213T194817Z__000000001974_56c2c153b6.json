@@ -1,0 +1,46 @@
+{
+  "timestamp_utc": "2025-12-13T19:48:17Z",
+  "model": "mistral",
+  "topic_index": 1974,
+  "topic": "How to containerize REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing REST APIs with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide explains how to create and containerize a REST API using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+. This tutorial demonstrates the use of Docker Compose for orchestration.\",\n  \"key_points\": [\n    \"Prerequisites: Python 3.12+, FastAPI, Uvicorn ASGI server (FastAPI's recommended ASGI server), and Docker with Docker Compose\",\n    \"Install the required dependencies using pip\",\n    \"Create a FastAPI application\",\n    \"Dockerize your FastAPI app by creating a Dockerfile\",\n    \"Build the Docker image\",\n    \"Define services, volumes, and networks in a docker-compose.yml file for the app and Uvicorn ASGI server\",\n    \"Start both containers with a single command using `docker-compose up`\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"pip install fastapi uvicorn\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\ndef get_root():\\n    return {'Hello': 'World'}\\napp.get('/')(get_root)\"\n    },\n    {\n      \"language\": \"Dockerfile\",\n      \"code\": \"FROM python:3.12-slim\\nWORKDIR /app\\nCOPY . .\\nRUN pip install --no-cache-dir -r requirements.txt\\nCMD [\\\"uvicorn\\\", \\\"main:app\\\", \\\"--host\\\", \\\"0.0.0.0\\\", \\\"--port\\\", \\\"8000\\\"]\"\n    },\n    {\n      \"language\": \"yaml\",\n      \"code\": \"\\nversion: '3'\\nservices:\\n  app:\\n    build:\\n      context: .\\n    ports:\\n      - '8000:8000'\\n    command: uvicorn main:app --host 0.0.0.0 --port 8000\"\n    }\n  ],\n  \"version_notes\": [\n    \"This guide is tailored for Python 3.12+ and FastAPI version 0.74.0.\"\n  ],\n  \"caveats\": [\n    \"Always ensure you have the latest versions of Docker and Docker Compose installed.\",\n    \"Adjust your application's ports as needed in both the Dockerfile and docker-compose.yml file.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing REST APIs with FastAPI in Python 3.12+",
+    "summary": "This guide explains how to create and containerize a REST API using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+. This tutorial demonstrates the use of Docker Compose for orchestration.",
+    "key_points": [
+      "Prerequisites: Python 3.12+, FastAPI, Uvicorn ASGI server (FastAPI's recommended ASGI server), and Docker with Docker Compose",
+      "Install the required dependencies using pip",
+      "Create a FastAPI application",
+      "Dockerize your FastAPI app by creating a Dockerfile",
+      "Build the Docker image",
+      "Define services, volumes, and networks in a docker-compose.yml file for the app and Uvicorn ASGI server",
+      "Start both containers with a single command using `docker-compose up`"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "pip install fastapi uvicorn"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\ndef get_root():\n    return {'Hello': 'World'}\napp.get('/')(get_root)"
+      },
+      {
+        "language": "Dockerfile",
+        "code": "FROM python:3.12-slim\nWORKDIR /app\nCOPY . .\nRUN pip install --no-cache-dir -r requirements.txt\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]"
+      },
+      {
+        "language": "yaml",
+        "code": "\nversion: '3'\nservices:\n  app:\n    build:\n      context: .\n    ports:\n      - '8000:8000'\n    command: uvicorn main:app --host 0.0.0.0 --port 8000"
+      }
+    ],
+    "version_notes": [
+      "This guide is tailored for Python 3.12+ and FastAPI version 0.74.0."
+    ],
+    "caveats": [
+      "Always ensure you have the latest versions of Docker and Docker Compose installed.",
+      "Adjust your application's ports as needed in both the Dockerfile and docker-compose.yml file."
+    ]
+  }
+}
