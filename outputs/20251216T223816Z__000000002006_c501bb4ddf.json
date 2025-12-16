@@ -1,0 +1,42 @@
+{
+  "timestamp_utc": "2025-12-16T22:38:16Z",
+  "model": "mistral",
+  "topic_index": 2006,
+  "topic": "How to containerize web backends using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize web backends using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing Web Backends using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide will demonstrate how to containerize a web backend application using FastAPI in Python 3.12+. We'll discuss the key steps and best practices for creating a Dockerfile, building and running the container, and setting up environment variables.\",\n\n  \"key_points\": [\n    \"Install necessary dependencies\",\n    \"Write your FastAPI application\",\n    \"Create a Dockerfile\",\n    \"Build the Docker image\",\n    \"Run the container\",\n    \"Set environment variables\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"pip install fastapi uvicorn[standard] requests\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef read_root():\\n    return {'Hello, World!'}\\nif __name__ == '__main__':\\n    uvicorn.run(app, host='0.0.0.0', port=8000)\"\n    },\n    {\n      \"language\": \"Dockerfile\",\n      \"code\": \"FROM python:3.12\\nWORKDIR /app\\nCOPY . .\\nRUN pip install --no-cache-dir -r requirements.txt\\nEXPOSE 8000\\nCMD [\\\"uvicorn\\\", \\\"main:app\\\", \\\"--host\\\", \\\"0.0.0.0\\\", \\\"--port\\\", \\\"8000\\\"]\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this tutorial.\",\n    \"FastAPI version 0.72.0 or higher is recommended.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure Docker and Docker Compose are installed on your system.\",\n    \"Make sure to replace the FastAPI application code with your own project's implementation.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing Web Backends using FastAPI with Python 3.12+",
+    "summary": "This guide will demonstrate how to containerize a web backend application using FastAPI in Python 3.12+. We'll discuss the key steps and best practices for creating a Dockerfile, building and running the container, and setting up environment variables.",
+    "key_points": [
+      "Install necessary dependencies",
+      "Write your FastAPI application",
+      "Create a Dockerfile",
+      "Build the Docker image",
+      "Run the container",
+      "Set environment variables"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "pip install fastapi uvicorn[standard] requests"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef read_root():\n    return {'Hello, World!'}\nif __name__ == '__main__':\n    uvicorn.run(app, host='0.0.0.0', port=8000)"
+      },
+      {
+        "language": "Dockerfile",
+        "code": "FROM python:3.12\nWORKDIR /app\nCOPY . .\nRUN pip install --no-cache-dir -r requirements.txt\nEXPOSE 8000\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\"]"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this tutorial.",
+      "FastAPI version 0.72.0 or higher is recommended."
+    ],
+    "caveats": [
+      "Ensure Docker and Docker Compose are installed on your system.",
+      "Make sure to replace the FastAPI application code with your own project's implementation."
+    ]
+  }
+}
