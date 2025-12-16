@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-12-16T05:02:57Z",
+  "model": "mistral",
+  "topic_index": 1994,
+  "topic": "How to profile web backends using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile web backends using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Web Backends Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to leverage FastAPI and Python 3.12+'s built-in profiling tools to analyze the performance of your web backends.\",\n\n  \"key_points\": [\n    \"FastAPI integration with Python's built-in cProfile and line_profiler for efficient performance analysis\",\n    \"Setting up FastAPI application for profiling using uvicorn (or ASGI server of your choice)\",\n    \"Capturing and visualizing profiling data via the `cProfile` module or the `line_profiler` library\",\n    \"Taking advantage of Python 3.12+'s faster profiler start-up time and enhanced output readability\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\nimport cProfile, io\\napp = FastAPI()\\nprofiler = cProfile.Profile()\\n\\n@app.get('/profile')\\ndef profile():\\n  with profiler:\\n    result = some_complex_function()\\n\\nprofiler.print_stats(sort=2)\\n\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from line_profiler import LineProfiler\\napp = FastAPI()\\n@app.get('/profile')\\ndef profile():\\n  lp = LineProfiler(some_complex_function, name='Profile')\\n  lp.runcall(lp.wrap(profile))\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+'s built-in cProfile and line_profiler are used for profiling.\",\n    \"FastAPI version 0.65 or later is required to run the examples.\"\n  ],\n\n  \"caveats\": [\n    \"Using cProfile may affect the performance of your application, but it's suitable for most development needs\",\n    \"LineProfiler might require some additional setup and configuration depending on the complexity of your codebase\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Web Backends Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to leverage FastAPI and Python 3.12+'s built-in profiling tools to analyze the performance of your web backends.",
+    "key_points": [
+      "FastAPI integration with Python's built-in cProfile and line_profiler for efficient performance analysis",
+      "Setting up FastAPI application for profiling using uvicorn (or ASGI server of your choice)",
+      "Capturing and visualizing profiling data via the `cProfile` module or the `line_profiler` library",
+      "Taking advantage of Python 3.12+'s faster profiler start-up time and enhanced output readability"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\nimport cProfile, io\napp = FastAPI()\nprofiler = cProfile.Profile()\n\n@app.get('/profile')\ndef profile():\n  with profiler:\n    result = some_complex_function()\n\nprofiler.print_stats(sort=2)\n"
+      },
+      {
+        "language": "Python",
+        "code": "from line_profiler import LineProfiler\napp = FastAPI()\n@app.get('/profile')\ndef profile():\n  lp = LineProfiler(some_complex_function, name='Profile')\n  lp.runcall(lp.wrap(profile))"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+'s built-in cProfile and line_profiler are used for profiling.",
+      "FastAPI version 0.65 or later is required to run the examples."
+    ],
+    "caveats": [
+      "Using cProfile may affect the performance of your application, but it's suitable for most development needs",
+      "LineProfiler might require some additional setup and configuration depending on the complexity of your codebase"
+    ]
+  }
+}
