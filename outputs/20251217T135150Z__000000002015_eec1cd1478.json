@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2025-12-17T13:51:50Z",
+  "model": "mistral",
+  "topic_index": 2015,
+  "topic": "Testing strategies for cProfile code with pytest (Python 3.12+)",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Testing strategies for cProfile code with pytest (Python 3.12+)",
+  "response_raw": "{\n  \"title\": \"Testing Strategies for cProfile Code with pytest in Python 3.12+\",\n  \"summary\": \"This explainer details the methods to integrate cProfile with pytest for profiling Python 3.12+ code, ensuring efficient testing of performance-critical applications.\",\n\n  \"key_points\": [\n    \"Understand the need for profiling in optimizing Python code\",\n    \"Familiarize yourself with cProfile and its capabilities\",\n    \"Learn how to use pytest fixtures for executing cProfile\",\n    \"Explore options for displaying and analyzing the collected data\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"def test_profiled_function(profile):\\n    def test():\\n        # Your function to profile here\\n    profile(test)\\n\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile\\nimport pstats\\ndef test_profiled_data(capsule):\\n    pr = cProfile.run(\\\"test()\\\", sort='cumulative')\\np = pstats.Stats(pr)\\n    capsule.add(p.sort_stats('cumulative').dumpstats())\\n\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Pytest version 7.2.0 and above is required for using fixtures\",\n    \"Python 3.12.x is the minimum supported version for this demonstration\"\n  ],\n\n  \"caveats\": [\n    \"Be aware that profiling can have performance overhead, so avoid running it on actual tests\",\n    \"The examples provided serve as a starting point; adjust them according to your specific needs\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Testing Strategies for cProfile Code with pytest in Python 3.12+",
+    "summary": "This explainer details the methods to integrate cProfile with pytest for profiling Python 3.12+ code, ensuring efficient testing of performance-critical applications.",
+    "key_points": [
+      "Understand the need for profiling in optimizing Python code",
+      "Familiarize yourself with cProfile and its capabilities",
+      "Learn how to use pytest fixtures for executing cProfile",
+      "Explore options for displaying and analyzing the collected data"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "def test_profiled_function(profile):\n    def test():\n        # Your function to profile here\n    profile(test)\n"
+      },
+      {
+        "language": "python",
+        "code": "import cProfile\nimport pstats\ndef test_profiled_data(capsule):\n    pr = cProfile.run(\"test()\", sort='cumulative')\np = pstats.Stats(pr)\n    capsule.add(p.sort_stats('cumulative').dumpstats())\n"
+      }
+    ],
+    "version_notes": [
+      "Pytest version 7.2.0 and above is required for using fixtures",
+      "Python 3.12.x is the minimum supported version for this demonstration"
+    ],
+    "caveats": [
+      "Be aware that profiling can have performance overhead, so avoid running it on actual tests",
+      "The examples provided serve as a starting point; adjust them according to your specific needs"
+    ]
+  }
+}
