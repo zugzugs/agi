@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2025-12-23T05:44:02Z",
+  "model": "mistral",
+  "topic_index": 2090,
+  "topic": "How to profile stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Stream Processing with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide explains how to profile and optimize the performance of stream processing using FastAPI, a modern web framework for building APIs, with Python 3.12+.\",\n\n  \"key_points\": [\n    \"Understand the concept of stream processing in the context of FastAPI\",\n    \"Leverage profiling tools to analyze the execution time and memory usage of your stream processing functions\",\n    \"Explore various strategies for optimizing performance in stream processing\",\n    \"Apply these principles to a sample project demonstrating stream processing with FastAPI\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\n@app.on_event('startup')\\ndef startup():\\n    global running_processes\\n    running_processes = set()\\n\\n@app.websocket('/stream')\\ndef websocket_stream(websocket: WebSocket):\\n    running_processes.add(websocket)\\n    while True:\\n        # Perform stream processing logic here\\n        time.sleep(1)\\n        data = process_data()\\n        if websocket.active and 'data_channel' in websocket.channels:\\n            await websocket.send_text(json.dumps(data))\\n    running_processes.remove(websocket)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile, io\\nprofile = cProfile.Profile()\\n\\ndef process_data():\\n    # Your stream processing logic here\\nprofile.enable()\\nresult = process_data()\\nprofile.disable()\\n\\nprofile.print_stats(sort=sorted)\\n\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"FastAPI version: 0.71.0\",\n    \"Python version: 3.12+\",\n    \"This example assumes you have the 'fastapi', 'uvicorn', and 'aiofiles' packages installed.\"\n  ],\n\n  \"caveats\": [\n    \"Profiling can provide insights into bottlenecks, but it may not always indicate the root cause of performance issues\",\n    \"Optimizing stream processing can be challenging due to factors like concurrency and network latency\",\n    \"Always consider trade-offs between performance and readability when optimizing code\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Stream Processing with FastAPI in Python 3.12+",
+    "summary": "This guide explains how to profile and optimize the performance of stream processing using FastAPI, a modern web framework for building APIs, with Python 3.12+.",
+    "key_points": [
+      "Understand the concept of stream processing in the context of FastAPI",
+      "Leverage profiling tools to analyze the execution time and memory usage of your stream processing functions",
+      "Explore various strategies for optimizing performance in stream processing",
+      "Apply these principles to a sample project demonstrating stream processing with FastAPI"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\n@app.on_event('startup')\ndef startup():\n    global running_processes\n    running_processes = set()\n\n@app.websocket('/stream')\ndef websocket_stream(websocket: WebSocket):\n    running_processes.add(websocket)\n    while True:\n        # Perform stream processing logic here\n        time.sleep(1)\n        data = process_data()\n        if websocket.active and 'data_channel' in websocket.channels:\n            await websocket.send_text(json.dumps(data))\n    running_processes.remove(websocket)"
+      },
+      {
+        "language": "python",
+        "code": "import cProfile, io\nprofile = cProfile.Profile()\n\ndef process_data():\n    # Your stream processing logic here\nprofile.enable()\nresult = process_data()\nprofile.disable()\n\nprofile.print_stats(sort=sorted)\n"
+      }
+    ],
+    "version_notes": [
+      "FastAPI version: 0.71.0",
+      "Python version: 3.12+",
+      "This example assumes you have the 'fastapi', 'uvicorn', and 'aiofiles' packages installed."
+    ],
+    "caveats": [
+      "Profiling can provide insights into bottlenecks, but it may not always indicate the root cause of performance issues",
+      "Optimizing stream processing can be challenging due to factors like concurrency and network latency",
+      "Always consider trade-offs between performance and readability when optimizing code"
+    ]
+  }
+}
