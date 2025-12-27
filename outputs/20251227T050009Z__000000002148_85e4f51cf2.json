@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2025-12-27T05:00:09Z",
+  "model": "mistral",
+  "topic_index": 2148,
+  "topic": "How to refactor batch jobs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to refactor batch jobs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Refactoring Batch Jobs Using FastAPI with Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to refactor batch jobs using the FastAPI framework in Python 3.12+, emphasizing its capabilities for asynchronous processing and efficient handling of long-running tasks.\",\n  \"key_points\": [\n    \"Utilize FastAPI's built-in support for async processing\",\n    \"Implement background tasks using third-party libraries like FastAPI-Starlette-BackgroundTasks\",\n    \"Leverage Pydantic models for input validation and data serialization\",\n    \"Use Python 3.12+ features such as async context managers, aisyncio.Queue, and aisyncio.Semaphore\",\n    \"Monitor task progress and handle exceptions gracefully\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI, Depends\\nfrom fastapi.starlette.background import BackgroundTasks\\napp = FastAPI()\\n\\nasync def my_batch_job(queue: aisyncio.Queue):\\n    # Long-running task implementation\\n\\n@app.post('/start_job/')\\nasync def start_job(bg_tasks: BackgroundTasks = Depends(bg_tasks)):\\n    bg_tasks.add_task(my_batch_job, aisyncio.Queue())\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for access to new async context managers and other features.\",\n    \"FastAPI >=0.68.0 and FastAPI-Starlette-BackgroundTasks are needed for the background tasks implementation.\"\n  ],\n  \"caveats\": [\n    \"Ensure to handle exceptions appropriately when working with long-running tasks.\",\n    \"Optimize resource usage by limiting the number of concurrent tasks using aisyncio.Semaphore.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Refactoring Batch Jobs Using FastAPI with Python 3.12+",
+    "summary": "This explainer demonstrates how to refactor batch jobs using the FastAPI framework in Python 3.12+, emphasizing its capabilities for asynchronous processing and efficient handling of long-running tasks.",
+    "key_points": [
+      "Utilize FastAPI's built-in support for async processing",
+      "Implement background tasks using third-party libraries like FastAPI-Starlette-BackgroundTasks",
+      "Leverage Pydantic models for input validation and data serialization",
+      "Use Python 3.12+ features such as async context managers, aisyncio.Queue, and aisyncio.Semaphore",
+      "Monitor task progress and handle exceptions gracefully"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI, Depends\nfrom fastapi.starlette.background import BackgroundTasks\napp = FastAPI()\n\nasync def my_batch_job(queue: aisyncio.Queue):\n    # Long-running task implementation\n\n@app.post('/start_job/')\nasync def start_job(bg_tasks: BackgroundTasks = Depends(bg_tasks)):\n    bg_tasks.add_task(my_batch_job, aisyncio.Queue())\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for access to new async context managers and other features.",
+      "FastAPI >=0.68.0 and FastAPI-Starlette-BackgroundTasks are needed for the background tasks implementation."
+    ],
+    "caveats": [
+      "Ensure to handle exceptions appropriately when working with long-running tasks.",
+      "Optimize resource usage by limiting the number of concurrent tasks using aisyncio.Semaphore."
+    ]
+  }
+}
