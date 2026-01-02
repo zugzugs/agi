@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2026-01-02T21:43:21Z",
+  "model": "mistral",
+  "topic_index": 2232,
+  "topic": "How to deploy notebooks to production using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy notebooks to production using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Jupyter Notebooks to Production Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to transform Jupyter Notebooks into production-ready APIs using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.\",\n  \"key_points\": [\n    \"Notebooks transformed into FastAPI applications\",\n    \"Enhanced performance with Python 3.12+\",\n    \"RESTful API design for better scalability\",\n    \"Leveraging FastAPI's built-in features like type hints, automatic documentation and openapi generation\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef main():\\n    return {'message': 'Hello World!'}\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import pandas as pd\\nfrom io import BytesIO\\nnotebook = open('your_notebook.ipynb')\\nbuffer = BytesIO()\\nnbwrite(notebook, buffer)\\ndf = pd.read_csv(buffer)\\ndata = df.to_dict('records')\"\n    }\n  ],\n  \"version_notes\": [\n    \"This tutorial is specifically tailored for Python 3.12+\",\n    \"FastAPI v0.73.0 or higher required for generating OpenAPI documentation\"\n  ],\n  \"caveats\": [\n    \"Manual conversion of notebooks may be required depending on the complexity and dependencies\",\n    \"Ensure you have necessary environment setup and packages installed before converting\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Jupyter Notebooks to Production Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to transform Jupyter Notebooks into production-ready APIs using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.",
+    "key_points": [
+      "Notebooks transformed into FastAPI applications",
+      "Enhanced performance with Python 3.12+",
+      "RESTful API design for better scalability",
+      "Leveraging FastAPI's built-in features like type hints, automatic documentation and openapi generation"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef main():\n    return {'message': 'Hello World!'}"
+      },
+      {
+        "language": "python",
+        "code": "import pandas as pd\nfrom io import BytesIO\nnotebook = open('your_notebook.ipynb')\nbuffer = BytesIO()\nnbwrite(notebook, buffer)\ndf = pd.read_csv(buffer)\ndata = df.to_dict('records')"
+      }
+    ],
+    "version_notes": [
+      "This tutorial is specifically tailored for Python 3.12+",
+      "FastAPI v0.73.0 or higher required for generating OpenAPI documentation"
+    ],
+    "caveats": [
+      "Manual conversion of notebooks may be required depending on the complexity and dependencies",
+      "Ensure you have necessary environment setup and packages installed before converting"
+    ]
+  }
+}
