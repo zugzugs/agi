@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2026-01-02T19:39:16Z",
+  "model": "mistral",
+  "topic_index": 2230,
+  "topic": "How to containerize notebooks to production using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize notebooks to production using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing Notebooks for Production with FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer demonstrates the process of containerizing Jupyter notebooks and deploying them as a production-ready API using FastAPI in Python 3.12+. It outlines key steps, code examples, version notes, and potential caveats.\",\n\n  \"key_points\": [\n    \"Setup development environment\",\n    \"Convert Jupyter notebooks to scripts\",\n    \"Create a Dockerfile for the application\",\n    \"Implement FastAPI for API creation\",\n    \"Containerize and deploy the application\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\ndef my_function():\\n    # Your code here\\n\\napp.include_router(router)\\napp.run()\"\n    },\n    {\n      \"language\": \"Dockerfile\",\n      \"code\": \"FROM python:3.12\\nWORKDIR /app\\nCOPY . .\\nRUN pip install fastapi uvicorn\\nCMD [\\\"uvicorn\\\", \\\"main:app\\\", \\\"--host\\\", \\\"0.0.0.0\\\", \\\"--port\\\", \\\"80\\\"]\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12 is required for this tutorial.\",\n    \"Make sure to use the latest versions of FastAPI and uvicorn.\",\n    \"Upgrade your Docker version to support Python 3.12.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure notebooks are properly converted to scripts to avoid runtime issues.\",\n    \"Docker container memory requirements may vary depending on the size and complexity of the notebooks.\",\n    \"Consider using environment variables for sensitive configurations.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing Notebooks for Production with FastAPI in Python 3.12+",
+    "summary": "This explainer demonstrates the process of containerizing Jupyter notebooks and deploying them as a production-ready API using FastAPI in Python 3.12+. It outlines key steps, code examples, version notes, and potential caveats.",
+    "key_points": [
+      "Setup development environment",
+      "Convert Jupyter notebooks to scripts",
+      "Create a Dockerfile for the application",
+      "Implement FastAPI for API creation",
+      "Containerize and deploy the application"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\ndef my_function():\n    # Your code here\n\napp.include_router(router)\napp.run()"
+      },
+      {
+        "language": "Dockerfile",
+        "code": "FROM python:3.12\nWORKDIR /app\nCOPY . .\nRUN pip install fastapi uvicorn\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"80\"]"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12 is required for this tutorial.",
+      "Make sure to use the latest versions of FastAPI and uvicorn.",
+      "Upgrade your Docker version to support Python 3.12."
+    ],
+    "caveats": [
+      "Ensure notebooks are properly converted to scripts to avoid runtime issues.",
+      "Docker container memory requirements may vary depending on the size and complexity of the notebooks.",
+      "Consider using environment variables for sensitive configurations."
+    ]
+  }
+}
