@@ -1,0 +1,46 @@
+{
+  "timestamp_utc": "2026-01-05T21:38:34Z",
+  "model": "mistral",
+  "topic_index": 2272,
+  "topic": "How to design cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to design cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Designing Cron-Driven Tasks using FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to create and schedule cron-like tasks utilizing FastAPI, a modern web framework for building APIs, in Python 3.12+.\",\n\n  \"key_points\": [\n    \"Explores the use of FastAPI's built-in dependency injection system to handle scheduled tasks\",\n    \"Utilizes the `aio sched` library to create and manage timed events\",\n    \"Shows how to integrate tasks with a FastAPI application to be started, stopped, or updated as needed\",\n    \"Provides examples of creating various types of cron-like tasks such as one-off jobs, repeating tasks at fixed intervals, and flexible cron-style scheduling\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI\\nimport aioschedule as schedule\\napp = FastAPI()\\nscheduled_tasks = {}\\ndef task(task_id):\\n    # Task implementation here\\n\\n@app.on_event('startup')\\ndef startup():\\n    schedule.every().day.at('09:00').do(scheduled_tasks[task_id])\\n\\nschedule.run_pending()\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n# Example of scheduling a one-off task\\nschedule.every().once(seconds=60*5).do(scheduled_tasks['one_off']) # Schedules the 'one_off' task to run in 5 minutes\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n# Example of scheduling a repeating task every hour on the hour\\nschedule.every().hour.at(':00').do(scheduled_tasks['repeating']) # Schedules the 'repeating' task to run at the start of each hour\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n# Example of scheduling a cron-style task (e.g., every Monday at 9:00 AM)\\nschedule.every().monday.at('09:00').do(scheduled_tasks['cron_task']) # Schedules the 'cron_task' task to run every Monday at 9:00 AM\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python version: 3.12+\",\n    \"FastAPI version: >=0.65.0\",\n    \"aio sched library: >=20.1.0\"\n  ],\n\n  \"caveats\": [\n    \"Remember to handle any errors or exceptions that may occur within the tasks\",\n    \"For more complex scheduling requirements, consider using a dedicated task scheduler such as Celery\",\n    \"Ensure proper shutdown procedures are implemented when stopping the application\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Designing Cron-Driven Tasks using FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to create and schedule cron-like tasks utilizing FastAPI, a modern web framework for building APIs, in Python 3.12+.",
+    "key_points": [
+      "Explores the use of FastAPI's built-in dependency injection system to handle scheduled tasks",
+      "Utilizes the `aio sched` library to create and manage timed events",
+      "Shows how to integrate tasks with a FastAPI application to be started, stopped, or updated as needed",
+      "Provides examples of creating various types of cron-like tasks such as one-off jobs, repeating tasks at fixed intervals, and flexible cron-style scheduling"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI\nimport aioschedule as schedule\napp = FastAPI()\nscheduled_tasks = {}\ndef task(task_id):\n    # Task implementation here\n\n@app.on_event('startup')\ndef startup():\n    schedule.every().day.at('09:00').do(scheduled_tasks[task_id])\n\nschedule.run_pending()\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\n# Example of scheduling a one-off task\nschedule.every().once(seconds=60*5).do(scheduled_tasks['one_off']) # Schedules the 'one_off' task to run in 5 minutes\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\n# Example of scheduling a repeating task every hour on the hour\nschedule.every().hour.at(':00').do(scheduled_tasks['repeating']) # Schedules the 'repeating' task to run at the start of each hour\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\n# Example of scheduling a cron-style task (e.g., every Monday at 9:00 AM)\nschedule.every().monday.at('09:00').do(scheduled_tasks['cron_task']) # Schedules the 'cron_task' task to run every Monday at 9:00 AM\n```"
+      }
+    ],
+    "version_notes": [
+      "Python version: 3.12+",
+      "FastAPI version: >=0.65.0",
+      "aio sched library: >=20.1.0"
+    ],
+    "caveats": [
+      "Remember to handle any errors or exceptions that may occur within the tasks",
+      "For more complex scheduling requirements, consider using a dedicated task scheduler such as Celery",
+      "Ensure proper shutdown procedures are implemented when stopping the application"
+    ]
+  }
+}
