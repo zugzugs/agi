@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2026-01-05T22:56:54Z",
+  "model": "mistral",
+  "topic_index": 2274,
+  "topic": "How to implement cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to implement cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Implementing Cron-Driven Tasks Using FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to create and schedule cron-like tasks using the FastAPI web framework along with Python 3.12+'s improved async support.\",\n\n  \"key_points\": [\n    \"FastAPI provides an ideal platform for building scalable, efficient APIs in Python.\",\n    \"In this example, we'll leverage FastAPI to schedule and execute cron-like tasks asynchronously.\",\n    \"Python 3.12+'s improved async support is crucial for managing multiple tasks concurrently.\",\n    \"We'll create a simple API with an endpoint that triggers a scheduled task when called.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI, BackgroundTasks\\napp = FastAPI()\\n\\n@app.post('/schedule-task/')\\ndef schedule_task(background_tasks: BackgroundTasks):\\n    background_tasks.add_task(some_long_running_function)\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nasync def some_long_running_function():\\n    # Your long-running task goes here\\n    await asyncio.sleep(60) # Simulate a 1-minute long task\\n    print('Task completed')\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"This example is specifically designed for Python 3.12+ to utilize its improved async support.\",\n    \"Ensure you have FastAPI installed: `pip install fastapi[all]`\"\n  ],\n\n  \"caveats\": [\n    \"It's important to note that this solution isn't a true cron replacement, but it provides an efficient method for scheduling tasks within your application.\",\n    \"Consider using external libraries like APScheduler if you need more advanced cron-like functionality.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Implementing Cron-Driven Tasks Using FastAPI in Python 3.12+",
+    "summary": "This explainer demonstrates how to create and schedule cron-like tasks using the FastAPI web framework along with Python 3.12+'s improved async support.",
+    "key_points": [
+      "FastAPI provides an ideal platform for building scalable, efficient APIs in Python.",
+      "In this example, we'll leverage FastAPI to schedule and execute cron-like tasks asynchronously.",
+      "Python 3.12+'s improved async support is crucial for managing multiple tasks concurrently.",
+      "We'll create a simple API with an endpoint that triggers a scheduled task when called."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI, BackgroundTasks\napp = FastAPI()\n\n@app.post('/schedule-task/')\ndef schedule_task(background_tasks: BackgroundTasks):\n    background_tasks.add_task(some_long_running_function)\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\nasync def some_long_running_function():\n    # Your long-running task goes here\n    await asyncio.sleep(60) # Simulate a 1-minute long task\n    print('Task completed')\n```"
+      }
+    ],
+    "version_notes": [
+      "This example is specifically designed for Python 3.12+ to utilize its improved async support.",
+      "Ensure you have FastAPI installed: `pip install fastapi[all]`"
+    ],
+    "caveats": [
+      "It's important to note that this solution isn't a true cron replacement, but it provides an efficient method for scheduling tasks within your application.",
+      "Consider using external libraries like APScheduler if you need more advanced cron-like functionality."
+    ]
+  }
+}
