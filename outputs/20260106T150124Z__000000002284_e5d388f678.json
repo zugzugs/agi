@@ -1,0 +1,39 @@
+{
+  "timestamp_utc": "2026-01-06T15:01:24Z",
+  "model": "mistral",
+  "topic_index": 2284,
+  "topic": "How to unit test cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing Cron-Driven Tasks with FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides a focused and accurate guide on how to unit test cron-driven tasks using FastAPI in Python 3.12+. It covers setting up the project structure, writing tests, and running tests for your scheduled tasks.\",\n\n  \"key_points\": [\n    \"Create a FastAPI application with cron-driven tasks\",\n    \"Set up a test suite for the scheduled tasks\",\n    \"Mocking dependencies during testing\",\n    \"Writing test cases for individual task functions\",\n    \"Running tests using pytest\",\n    \"Handling asynchronous tasks in tests\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI\\napp = FastAPI()\\nfrom aiocron import CronType, cron\\n\\ncron_task = cron(CronType.DAILY, task=my_task)\\nasync def my_task():  # your task code here\\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom unittest.mock import patch\\n\\n@patch('your_module.some_dependency')\\ndef test_my_task():  # your test code here\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for using aioasyncio, which enables asynchronous tasks with FastAPI.\",\n    \"FastAPI version should be compatible with Python 3.12+.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure to test edge cases and potential errors in your scheduled tasks\",\n    \"Mocking dependencies may require careful consideration to ensure tests cover all scenarios\",\n    \"Asynchronous tests can be more complex, so it's important to understand the basics of testing asynchronous code.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing Cron-Driven Tasks with FastAPI in Python 3.12+",
+    "summary": "This explainer provides a focused and accurate guide on how to unit test cron-driven tasks using FastAPI in Python 3.12+. It covers setting up the project structure, writing tests, and running tests for your scheduled tasks.",
+    "key_points": [
+      "Create a FastAPI application with cron-driven tasks",
+      "Set up a test suite for the scheduled tasks",
+      "Mocking dependencies during testing",
+      "Writing test cases for individual task functions",
+      "Running tests using pytest",
+      "Handling asynchronous tasks in tests"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI\napp = FastAPI()\nfrom aiocron import CronType, cron\n\ncron_task = cron(CronType.DAILY, task=my_task)\nasync def my_task():  # your task code here\n```"
+      },
+      {
+        "language": "python",
+        "code": "```\nfrom unittest.mock import patch\n\n@patch('your_module.some_dependency')\ndef test_my_task():  # your test code here\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for using aioasyncio, which enables asynchronous tasks with FastAPI.",
+      "FastAPI version should be compatible with Python 3.12+."
+    ],
+    "caveats": [
+      "Ensure to test edge cases and potential errors in your scheduled tasks",
+      "Mocking dependencies may require careful consideration to ensure tests cover all scenarios",
+      "Asynchronous tests can be more complex, so it's important to understand the basics of testing asynchronous code."
+    ]
+  }
+}
