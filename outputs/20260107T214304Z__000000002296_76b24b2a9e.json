@@ -1,0 +1,34 @@
+{
+  "timestamp_utc": "2026-01-07T21:43:04Z",
+  "model": "mistral",
+  "topic_index": 2296,
+  "topic": "How to deploy cron-driven tasks using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to deploy cron-driven tasks using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deploying Cron-Driven Tasks Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide explains how to create and schedule cron-like jobs for recurring tasks within a FastAPI application using the `aiohttp_cron` package in Python 3.12+.\",\n\n  \"key_points\": [\n    \"Install the required packages: FastAPI, Uvicorn, and aiohttp_cron\",\n    \"Create a new FastAPI application\",\n    \"Define an asynchronous function for the recurring task\",\n    \"Set up cron-like scheduling using `aiohttp_cron`\",\n    \"Start the application with Uvicorn and register the scheduled task\",\n    \"Monitor and manage the scheduled tasks\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\n# Install required packages:\\n\\npiпип install fastapi uvicorn aiohttp-cron\\n\\nimport asyncio\\nfrom fastapi import FastAPI, BackgroundTasks\\nfrom aiohttp_cron import CronManager\\n\\napp = FastAPI()\\nmanager = CronManager()\\n\\n# Define an asynchronous function for the recurring task\\nasynchronous def scheduled_task():\\n    # Your recurring task code here\\n\\n@app.on_event('startup')\\ndef startup():\\n    # Register the scheduled task with aiohttp_cron\\n    background_tasks = BackgroundTasks(app)\\n    manager.cron_jobs().add(name='scheduled_task', task=scheduled_task, time='*/5 * * * *', UTC=True)\\n\\nif __name__ == '__main__':\\n    uvicorn.run(app, host='0.0.0.0', port=8000, log_level='info')\\n```\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"This tutorial is tailored for Python 3.12+ and uses FastAPI v0.70.0 and aiohttp_cron v22.1.0.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure your system has the necessary packages installed.\",\n    \"Adjust the time format in the `time` argument of `cron_jobs().add()` according to the cron syntax.\",\n    \"Monitor and manage your scheduled tasks as needed.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deploying Cron-Driven Tasks Using FastAPI with Python 3.12+",
+    "summary": "This guide explains how to create and schedule cron-like jobs for recurring tasks within a FastAPI application using the `aiohttp_cron` package in Python 3.12+.",
+    "key_points": [
+      "Install the required packages: FastAPI, Uvicorn, and aiohttp_cron",
+      "Create a new FastAPI application",
+      "Define an asynchronous function for the recurring task",
+      "Set up cron-like scheduling using `aiohttp_cron`",
+      "Start the application with Uvicorn and register the scheduled task",
+      "Monitor and manage the scheduled tasks"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\n\n# Install required packages:\n\npiпип install fastapi uvicorn aiohttp-cron\n\nimport asyncio\nfrom fastapi import FastAPI, BackgroundTasks\nfrom aiohttp_cron import CronManager\n\napp = FastAPI()\nmanager = CronManager()\n\n# Define an asynchronous function for the recurring task\nasynchronous def scheduled_task():\n    # Your recurring task code here\n\n@app.on_event('startup')\ndef startup():\n    # Register the scheduled task with aiohttp_cron\n    background_tasks = BackgroundTasks(app)\n    manager.cron_jobs().add(name='scheduled_task', task=scheduled_task, time='*/5 * * * *', UTC=True)\n\nif __name__ == '__main__':\n    uvicorn.run(app, host='0.0.0.0', port=8000, log_level='info')\n```"
+      }
+    ],
+    "version_notes": [
+      "This tutorial is tailored for Python 3.12+ and uses FastAPI v0.70.0 and aiohttp_cron v22.1.0."
+    ],
+    "caveats": [
+      "Ensure your system has the necessary packages installed.",
+      "Adjust the time format in the `time` argument of `cron_jobs().add()` according to the cron syntax.",
+      "Monitor and manage your scheduled tasks as needed."
+    ]
+  }
+}
