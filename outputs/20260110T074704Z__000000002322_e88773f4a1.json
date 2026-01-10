@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2026-01-10T07:47:04Z",
+  "model": "mistral",
+  "topic_index": 2322,
+  "topic": "How to document serverless handlers using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to document serverless handlers using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Documenting Serverless Handlers with FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides a guide on how to document serverless functions using the FastAPI framework when programming in Python 3.12+.\",\n  \"key_points\": [\n    \"FastAPI supports automatic documentation generation for APIs in Python.\",\n    \"To document serverless handlers, you'll need the `fastapi-serverless` library in addition to `fastapi` and `uvicorn`.\",\n    \"The `@pydantic_model` decorator can be applied to your handler classes for enhanced documentation.\",\n    \"Use `@APIRouter` from FastAPI instead of `FastAPI` as the base class for serverless handlers.\",\n    \"Set up AWS Lambda or other serverless platform configurations following their specific guides.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\nfrom fastapi.router import APIRouter\\nfrom pydantic import BaseModel\\n\\nclass Item(BaseModel):\\n    name: str\\n    description: str\\n    price: float\\n\\nrouter = APIRouter()\\n@router.get('/items/{item_id}')\\ndef get_item(item_id: int, item: Item = None):\\n    ...\\napp = FastAPI()\\napp.include_router(router)\\n\"\n    },\n    {\n      \"language\": \"yaml\",\n      \"code\": \"handler: main\\nruntime: python3.12\\nenvironment:\\n  paths:\\n    - /path/to/your/project\\n    - /usr/local/lib/\\n    - /var/task\\n  variables:\\n    APPLICATION_ID: my-application\\n    AWS_REGION: us-west-2\\ndependencies:\\n  - requirements.txt\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12 is required to run the examples.\",\n    \"Ensure you have the latest versions of `fastapi`, `uvicorn`, and `fastapi-serverless` installed.\"\n  ],\n  \"caveats\": [\n    \"The example provided does not include actual AWS Lambda or other serverless platform configurations.\",\n    \"Remember to replace the example paths with your own project's directories.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Documenting Serverless Handlers with FastAPI in Python 3.12+",
+    "summary": "This explainer provides a guide on how to document serverless functions using the FastAPI framework when programming in Python 3.12+.",
+    "key_points": [
+      "FastAPI supports automatic documentation generation for APIs in Python.",
+      "To document serverless handlers, you'll need the `fastapi-serverless` library in addition to `fastapi` and `uvicorn`.",
+      "The `@pydantic_model` decorator can be applied to your handler classes for enhanced documentation.",
+      "Use `@APIRouter` from FastAPI instead of `FastAPI` as the base class for serverless handlers.",
+      "Set up AWS Lambda or other serverless platform configurations following their specific guides."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\nfrom fastapi.router import APIRouter\nfrom pydantic import BaseModel\n\nclass Item(BaseModel):\n    name: str\n    description: str\n    price: float\n\nrouter = APIRouter()\n@router.get('/items/{item_id}')\ndef get_item(item_id: int, item: Item = None):\n    ...\napp = FastAPI()\napp.include_router(router)\n"
+      },
+      {
+        "language": "yaml",
+        "code": "handler: main\nruntime: python3.12\nenvironment:\n  paths:\n    - /path/to/your/project\n    - /usr/local/lib/\n    - /var/task\n  variables:\n    APPLICATION_ID: my-application\n    AWS_REGION: us-west-2\ndependencies:\n  - requirements.txt"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12 is required to run the examples.",
+      "Ensure you have the latest versions of `fastapi`, `uvicorn`, and `fastapi-serverless` installed."
+    ],
+    "caveats": [
+      "The example provided does not include actual AWS Lambda or other serverless platform configurations.",
+      "Remember to replace the example paths with your own project's directories."
+    ]
+  }
+}
