@@ -1,0 +1,43 @@
+{
+  "timestamp_utc": "2026-01-11T14:59:55Z",
+  "model": "mistral",
+  "topic_index": 2348,
+  "topic": "How to unit test WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing WebAssembly (WASM) Targets with FastAPI using Python 3.12+\",\n  \"summary\": \"This explainer outlines the steps to set up and run unit tests for FastAPI applications that target WebAssembly using Python 3.12+. We will discuss key components, code examples, version notes, and potential caveats.\",\n\n  \"key_points\": [\n    \"Install necessary dependencies\",\n    \"Configure FastAPI application for WASM\",\n    \"Create unit tests for the WASM module\",\n    \"Integrate testing with pytest\",\n    \"Run the test suite\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"pip install fastapi[all] uvicorn pytest pytest-runner websockets\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef hello(): return {'message': 'Hello, World!'}\\n\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"def test_hello():\\n    assert app.get('/').json() == {\\\"message\\\": \\\"Hello, World!\\\"}\\n\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this setup.\",\n    \"FastAPI version 0.74.0 or later is recommended.\",\n    \"WebAssembly support is available in FastAPI since version 0.72.0.\"\n  ],\n\n  \"caveats\": [\n    \"The WebAssembly support in FastAPI is still experimental and may encounter bugs or limitations.\",\n    \"You may need to adjust your test cases to account for the differences between running on Python vs WASM.\",\n    \"Ensure you have a compatible WebAssembly target and system configuration.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing WebAssembly (WASM) Targets with FastAPI using Python 3.12+",
+    "summary": "This explainer outlines the steps to set up and run unit tests for FastAPI applications that target WebAssembly using Python 3.12+. We will discuss key components, code examples, version notes, and potential caveats.",
+    "key_points": [
+      "Install necessary dependencies",
+      "Configure FastAPI application for WASM",
+      "Create unit tests for the WASM module",
+      "Integrate testing with pytest",
+      "Run the test suite"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "pip install fastapi[all] uvicorn pytest pytest-runner websockets"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef hello(): return {'message': 'Hello, World!'}\n"
+      },
+      {
+        "language": "python",
+        "code": "def test_hello():\n    assert app.get('/').json() == {\"message\": \"Hello, World!\"}\n"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this setup.",
+      "FastAPI version 0.74.0 or later is recommended.",
+      "WebAssembly support is available in FastAPI since version 0.72.0."
+    ],
+    "caveats": [
+      "The WebAssembly support in FastAPI is still experimental and may encounter bugs or limitations.",
+      "You may need to adjust your test cases to account for the differences between running on Python vs WASM.",
+      "Ensure you have a compatible WebAssembly target and system configuration."
+    ]
+  }
+}
