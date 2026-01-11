@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-01-11T13:17:29Z",
+  "model": "mistral",
+  "topic_index": 2346,
+  "topic": "How to profile WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling WebAssembly (WASM) Targets Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide provides a step-by-step process to profile WASM targets using FastAPI and Python 3.12+, which allows for efficient and accurate performance analysis of your web applications.\",\n\n  \"key_points\": [\n    \"Install necessary dependencies: pyodide, FastAPI, Uvicorn, Websockets\",\n    \"Create a new FastAPI application\",\n    \"Set up a WebSocket endpoint to communicate with the browser and collect profiling data\",\n    \"Implement WASM modules in C++ or Rust using Emscripten\",\n    \"Integrate the compiled WASM modules into your FastAPI application\",\n    \"Profile WASM targets by sending custom events or using built-in performance APIs\",\n    \"Visualize and analyze the collected profiling data\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\nfrom fastapi import FastAPI, WebSocket\\napp = FastAPI()\\nws = app.websocket('/ws/profile')\\nnodes = ws.on_connected(lambda ws: ws)\\nnodes.send({'event': 'init'})\\n``\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"```python\\nfrom fastapi import FastAPI, WebSocket, ReqBody\\nclass ProfilerWS(WebSocket): ...\\napp = FastAPI()\\napp.websocket('/ws/profile')(ProfilerWS)\\n``\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this tutorial\",\n    \"FastAPI v0.75.0 or later is recommended\",\n    \"Uvicorn v0.17.6 or later should be used as the ASGI server\"\n  ],\n\n  \"caveats\": [\n    \"Ensure your development environment includes a compiler for C++ or Rust (Emscripten)\",\n    \"Profiling WASM targets can impact performance, so use it judiciously\",\n    \"Be aware that profiling data visualization may require additional tools\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling WebAssembly (WASM) Targets Using FastAPI with Python 3.12+",
+    "summary": "This guide provides a step-by-step process to profile WASM targets using FastAPI and Python 3.12+, which allows for efficient and accurate performance analysis of your web applications.",
+    "key_points": [
+      "Install necessary dependencies: pyodide, FastAPI, Uvicorn, Websockets",
+      "Create a new FastAPI application",
+      "Set up a WebSocket endpoint to communicate with the browser and collect profiling data",
+      "Implement WASM modules in C++ or Rust using Emscripten",
+      "Integrate the compiled WASM modules into your FastAPI application",
+      "Profile WASM targets by sending custom events or using built-in performance APIs",
+      "Visualize and analyze the collected profiling data"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "```python\nfrom fastapi import FastAPI, WebSocket\napp = FastAPI()\nws = app.websocket('/ws/profile')\nnodes = ws.on_connected(lambda ws: ws)\nnodes.send({'event': 'init'})\n``"
+      },
+      {
+        "language": "Python",
+        "code": "```python\nfrom fastapi import FastAPI, WebSocket, ReqBody\nclass ProfilerWS(WebSocket): ...\napp = FastAPI()\napp.websocket('/ws/profile')(ProfilerWS)\n``"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this tutorial",
+      "FastAPI v0.75.0 or later is recommended",
+      "Uvicorn v0.17.6 or later should be used as the ASGI server"
+    ],
+    "caveats": [
+      "Ensure your development environment includes a compiler for C++ or Rust (Emscripten)",
+      "Profiling WASM targets can impact performance, so use it judiciously",
+      "Be aware that profiling data visualization may require additional tools"
+    ]
+  }
+}
