@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2026-01-12T10:41:03Z",
+  "model": "mistral",
+  "topic_index": 2358,
+  "topic": "How to containerize WASM targets using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize WASM targets using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing WebAssembly (WASM) Targets using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to containerize WebAssembly (WASM) targets utilizing FastAPI in a Python 3.12+ environment.\",\n\n  \"key_points\": [\n    \"Understanding the basics of WebAssembly, FastAPI, and containerization.\",\n    \"Setting up a Python 3.12+ development environment.\",\n    \"Creating a simple WASM module using Rust or another supported language.\",\n    \"Integrating the WASM module with FastAPI using the `pydna` package.\",\n    \"Building and deploying the containerized application utilizing Docker.\",\n    \"Testing the functionality of the containerized FastAPI app with the integrated WASM module.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\ndef get():\\n   return {'message': 'Hello from FastAPI!'}\\n\\n@app.get('/wasm')\\ndef wasm_endpoint():\\n   return {'result': some_wasm_module.some_function()}\"\n    },\n    {\n      \"language\": \"Dockerfile\",\n      \"code\": \"FROM python:3.12\\nWORKDIR /app\\nCOPY . /app\\nRUN pip install fastapi pydna\\nCMD [\\\"python\\\", \\\"main.py\\\"]\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required for this tutorial.\",\n    \"It's recommended to use the latest versions of FastAPI and pydna packages.\"\n  ],\n\n  \"caveats\": [\n    \"Ensure you have Rust or another supported WASM language set up for building WASM modules.\",\n    \"Pay attention to Docker version and system requirements when deploying your containerized application.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing WebAssembly (WASM) Targets using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to containerize WebAssembly (WASM) targets utilizing FastAPI in a Python 3.12+ environment.",
+    "key_points": [
+      "Understanding the basics of WebAssembly, FastAPI, and containerization.",
+      "Setting up a Python 3.12+ development environment.",
+      "Creating a simple WASM module using Rust or another supported language.",
+      "Integrating the WASM module with FastAPI using the `pydna` package.",
+      "Building and deploying the containerized application utilizing Docker.",
+      "Testing the functionality of the containerized FastAPI app with the integrated WASM module."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\ndef get():\n   return {'message': 'Hello from FastAPI!'}\n\n@app.get('/wasm')\ndef wasm_endpoint():\n   return {'result': some_wasm_module.some_function()}"
+      },
+      {
+        "language": "Dockerfile",
+        "code": "FROM python:3.12\nWORKDIR /app\nCOPY . /app\nRUN pip install fastapi pydna\nCMD [\"python\", \"main.py\"]"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this tutorial.",
+      "It's recommended to use the latest versions of FastAPI and pydna packages."
+    ],
+    "caveats": [
+      "Ensure you have Rust or another supported WASM language set up for building WASM modules.",
+      "Pay attention to Docker version and system requirements when deploying your containerized application."
+    ]
+  }
+}
