@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2026-01-13T23:35:12Z",
+  "model": "mistral",
+  "topic_index": 2378,
+  "topic": "How to profile edge runtimes using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile edge runtimes using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Edge Runtime with FastAPI in Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to use the Python 3.12+'s built-in profiling tools along with FastAPI to analyze and optimize edge runtime performance.\",\n  \"key_points\": [\n    \"Install necessary libraries: `fastapi`, `uvicorn`, and `cprofile`\",\n    \"Create a simple FastAPI application\",\n    \"Wrap the main function in a profile decorator\",\n    \"Run the profiled app using uvicorn with profiling enabled\",\n    \"Analyze the generated profiling data\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\n\\nfrom fastapi import FastAPI\\nimport cprofile, pstats\\n\\napp = FastAPI()\\n\\n@app.get('/')\\ndef profile():\\n    with cprofile.Profile() as pr: \\n        # Your main application logic goes here \\n    return {'status': 'Profiling data collected'}\\n\\nif __name__ == '__main__':\\n    pr = cProfile.run('app.profile()', filename='profiler_results')\\n    s = pstats.Stats(pr)\\n    s.strip_dirs().sort_stats('cumulative').print_stats(30)\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for this example due to built-in profiling tool enhancements.\"\n  ],\n  \"caveats\": [\n    \"Profiling can affect the application's performance due to the added overhead.\",\n    \"This guide focuses on edge runtime (server-side) performance, not client-side or network-level optimization.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Edge Runtime with FastAPI in Python 3.12+",
+    "summary": "This guide demonstrates how to use the Python 3.12+'s built-in profiling tools along with FastAPI to analyze and optimize edge runtime performance.",
+    "key_points": [
+      "Install necessary libraries: `fastapi`, `uvicorn`, and `cprofile`",
+      "Create a simple FastAPI application",
+      "Wrap the main function in a profile decorator",
+      "Run the profiled app using uvicorn with profiling enabled",
+      "Analyze the generated profiling data"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\n\n\nfrom fastapi import FastAPI\nimport cprofile, pstats\n\napp = FastAPI()\n\n@app.get('/')\ndef profile():\n    with cprofile.Profile() as pr: \n        # Your main application logic goes here \n    return {'status': 'Profiling data collected'}\n\nif __name__ == '__main__':\n    pr = cProfile.run('app.profile()', filename='profiler_results')\n    s = pstats.Stats(pr)\n    s.strip_dirs().sort_stats('cumulative').print_stats(30)\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this example due to built-in profiling tool enhancements."
+    ],
+    "caveats": [
+      "Profiling can affect the application's performance due to the added overhead.",
+      "This guide focuses on edge runtime (server-side) performance, not client-side or network-level optimization."
+    ]
+  }
+}
