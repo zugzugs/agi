@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-01-16T16:25:21Z",
+  "model": "mistral",
+  "topic_index": 2422,
+  "topic": "How to containerize CLI tools using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to containerize CLI tools using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Containerizing CLI Tools Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to containerize command-line interface (CLI) tools using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.\",\n  \"key_points\": [\n    \"FastAPI allows you to create both REST and graphQL APIs easily and efficiently.\",\n    \"We will be utilizing FastAPI's 'Command Line Interface' (CLI) router for our CLI tool containerization.\",\n    \"Docker will be used as the containerization platform for the demo.\",\n    \"FastAPI supports Python 3.7+, but this example is specifically written for Python 3.12+.\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\nfrom fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef root():\\n return {'message': 'Welcome to the CLI Tool API'} \\n```\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n# In your main.py file\\nimport os\\nimport subprocess\\nfrom fastapi import FastAPI\\nfrom fastapi.responses import HTMLResponse\\n\\napp = FastAPI()\\n\\n@app.get('/run_cli', response_class=HTMLResponse)\\ndef run_cli():\\n cmd = ['./path/to/your/cli-tool', 'arguments']\\n subprocess.check_call(cmd, shell=True) \\n return f'Executed command: {cmd}'\\n```\"\n    },\n    {\n      \"language\": \"Dockerfile\",\n      \"code\": \"```\\nFROM tiangolo/uvicorn-debian:python3.12\\nWORKDIR /app\\nCOPY ./requirements.txt ./\\nRUN pip install -r requirements.txt\\nCOPY . ./\\nCMD [\\\"uvicorn\\\", \\\"main:app\\\", \\\"--host\\\", \\\"0.0.0.0\\\", \\\"--port\\\", \\\"80\\\" ]\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"This example is tested with FastAPI version 0.72.0 and Python 3.12.0.\",\n    \"Docker version 20.10.5 was used for containerization.\"\n  ],\n  \"caveats\": [\n    \"Ensure that your CLI tool's dependencies are installed before building the Docker image.\",\n    \"Replace './path/to/your/cli-tool' with the actual path to your CLI tool in the Dockerfile and main.py code example.\",\n    \"Make sure you have docker installed and running on your system.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Containerizing CLI Tools Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to containerize command-line interface (CLI) tools using FastAPI, a modern, fast (high-performance), web framework for building APIs with Python 3.12+.",
+    "key_points": [
+      "FastAPI allows you to create both REST and graphQL APIs easily and efficiently.",
+      "We will be utilizing FastAPI's 'Command Line Interface' (CLI) router for our CLI tool containerization.",
+      "Docker will be used as the containerization platform for the demo.",
+      "FastAPI supports Python 3.7+, but this example is specifically written for Python 3.12+."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\nfrom fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef root():\n return {'message': 'Welcome to the CLI Tool API'} \n```"
+      },
+      {
+        "language": "python",
+        "code": "```\n# In your main.py file\nimport os\nimport subprocess\nfrom fastapi import FastAPI\nfrom fastapi.responses import HTMLResponse\n\napp = FastAPI()\n\n@app.get('/run_cli', response_class=HTMLResponse)\ndef run_cli():\n cmd = ['./path/to/your/cli-tool', 'arguments']\n subprocess.check_call(cmd, shell=True) \n return f'Executed command: {cmd}'\n```"
+      },
+      {
+        "language": "Dockerfile",
+        "code": "```\nFROM tiangolo/uvicorn-debian:python3.12\nWORKDIR /app\nCOPY ./requirements.txt ./\nRUN pip install -r requirements.txt\nCOPY . ./\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"80\" ]\n```"
+      }
+    ],
+    "version_notes": [
+      "This example is tested with FastAPI version 0.72.0 and Python 3.12.0.",
+      "Docker version 20.10.5 was used for containerization."
+    ],
+    "caveats": [
+      "Ensure that your CLI tool's dependencies are installed before building the Docker image.",
+      "Replace './path/to/your/cli-tool' with the actual path to your CLI tool in the Dockerfile and main.py code example.",
+      "Make sure you have docker installed and running on your system."
+    ]
+  }
+}
