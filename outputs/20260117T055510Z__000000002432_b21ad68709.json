@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2026-01-17T05:55:10Z",
+  "model": "mistral",
+  "topic_index": 2432,
+  "topic": "How to design REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to design REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Designing REST APIs using FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides an overview of creating REST APIs using the FastAPI framework, a modern, fast (high-performance), web framework for building APIs with Python 3.12 and above.\",\n\n  \"key_points\": [\n    \"FastAPI is based on standard Python type hints to provide automatic documentation generation\",\n    \"It offers automatic support for path parameters, query parameters, headers, cookies, files, and more\",\n    \"Supports OpenAPI 3.0 specification for API description\",\n    \"Includes advanced features such as middleware, custom Request and Response classes, and more.\",\n    \"FastAPI also provides a built-in asynchronous support to improve performance\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef read_root():\\n    return {'Hello': 'World'}\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI, File, UploadFile\\napp = FastAPI()\\n@app.post('/upload-file/')\\ndef upload_file(file: UploadFile):\\n    return {'file': file}\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"Python 3.12+ is required to use FastAPI\",\n    \"FastAPI version 0.64.0 and later supports Python 3.12\"\n  ],\n\n  \"caveats\": [\n    \"Make sure you have your development environment set up with the required packages (e.g., FastAPI, Uvicorn, etc.) installed.\",\n    \"FastAPI APIs run on an ASGI server by default (Uvicorn or Hypercorn). It is recommended to use Uvicorn for production.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Designing REST APIs using FastAPI in Python 3.12+",
+    "summary": "This explainer provides an overview of creating REST APIs using the FastAPI framework, a modern, fast (high-performance), web framework for building APIs with Python 3.12 and above.",
+    "key_points": [
+      "FastAPI is based on standard Python type hints to provide automatic documentation generation",
+      "It offers automatic support for path parameters, query parameters, headers, cookies, files, and more",
+      "Supports OpenAPI 3.0 specification for API description",
+      "Includes advanced features such as middleware, custom Request and Response classes, and more.",
+      "FastAPI also provides a built-in asynchronous support to improve performance"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef read_root():\n    return {'Hello': 'World'}"
+      },
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI, File, UploadFile\napp = FastAPI()\n@app.post('/upload-file/')\ndef upload_file(file: UploadFile):\n    return {'file': file}"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to use FastAPI",
+      "FastAPI version 0.64.0 and later supports Python 3.12"
+    ],
+    "caveats": [
+      "Make sure you have your development environment set up with the required packages (e.g., FastAPI, Uvicorn, etc.) installed.",
+      "FastAPI APIs run on an ASGI server by default (Uvicorn or Hypercorn). It is recommended to use Uvicorn for production."
+    ]
+  }
+}
