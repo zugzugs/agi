@@ -1,0 +1,45 @@
+{
+  "timestamp_utc": "2026-01-17T17:15:55Z",
+  "model": "mistral",
+  "topic_index": 2440,
+  "topic": "How to benchmark REST APIs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to benchmark REST APIs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"FastAPI Benchmarking with Python 3.12+\",\n  \"summary\": \"This guide explains how to use FastAPI and Python 3.12+'s built-in tools for benchmarking REST APIs.\",\n  \"key_points\": [\n    \"Install the required dependencies, including FastAPI, Uvicorn, and aiohttp's benchmarking library\",\n    \"Create a simple FastAPI application to test\",\n    \"Use the `uvicorn` command with the `--profile` flag to run the app in profiling mode\",\n    \"Analyze the results using aiohttp's benchmarking functions\",\n    \"Save the benchmarking data for further analysis\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"bash\",\n      \"code\": \"pip install fastapi uvicorn aiohttp\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n@app.get('/')\\ndef main(): return {'message': 'Welcome to FastAPI!'}\"\n    },\n    {\n      \"language\": \"bash\",\n      \"code\": \"uvicorn app:app --profile\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import aiohttp\\nasync with aiohttp.ClientSession() as session:\\n    resp = await session.get('http://localhost:8000')\\n    print(resp.elapsed.total_seconds())\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required for this example.\",\n    \"FastAPI version 0.75.0 or later is recommended.\"\n  ],\n  \"caveats\": [\n    \"The `uvicorn` command with the `--profile` flag generates a JSON file containing profiling information.\",\n    \"You may need to adjust the FastAPI application and request accordingly to suit your specific use case.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "FastAPI Benchmarking with Python 3.12+",
+    "summary": "This guide explains how to use FastAPI and Python 3.12+'s built-in tools for benchmarking REST APIs.",
+    "key_points": [
+      "Install the required dependencies, including FastAPI, Uvicorn, and aiohttp's benchmarking library",
+      "Create a simple FastAPI application to test",
+      "Use the `uvicorn` command with the `--profile` flag to run the app in profiling mode",
+      "Analyze the results using aiohttp's benchmarking functions",
+      "Save the benchmarking data for further analysis"
+    ],
+    "code_examples": [
+      {
+        "language": "bash",
+        "code": "pip install fastapi uvicorn aiohttp"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n@app.get('/')\ndef main(): return {'message': 'Welcome to FastAPI!'}"
+      },
+      {
+        "language": "bash",
+        "code": "uvicorn app:app --profile"
+      },
+      {
+        "language": "python",
+        "code": "import aiohttp\nasync with aiohttp.ClientSession() as session:\n    resp = await session.get('http://localhost:8000')\n    print(resp.elapsed.total_seconds())"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required for this example.",
+      "FastAPI version 0.75.0 or later is recommended."
+    ],
+    "caveats": [
+      "The `uvicorn` command with the `--profile` flag generates a JSON file containing profiling information.",
+      "You may need to adjust the FastAPI application and request accordingly to suit your specific use case."
+    ]
+  }
+}
