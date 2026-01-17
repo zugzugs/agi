@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2026-01-17T10:44:35Z",
+  "model": "mistral",
+  "topic_index": 2435,
+  "topic": "Deep dive: _codecs_kr standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: _codecs_kr standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deep Dive: _codecs_kr Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer delves into the _codecs_kr module, a part of Python's standard library introduced in version 3.12, which offers Korean codec support for handling various types of encoded text.\",\n\n  \"key_points\": [\n    \"Understands and encodes/decodes common Korean encodings such as EUC-KR, UTF-8, and ASCII\",\n    \"Incorporates advanced functionality like automatic detection of encoding for a given data stream\",\n    \"Supports IANA charset names for easier cross-platform compatibility\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"with open('sample.txt', 'r', encoding='utf-8', errors='replace') as f:\\n    print(_codecs.lookup('utf-8').decode(f.read()))\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"encoded_data = b'encoded_korean_text'\\ndecoded_data = _codecs.encode(encoded_data, 'euc-kr', 'replace')\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"First introduced in Python 3.12\",\n    \"Improvements and additions may be included in future versions of the standard library\"\n  ],\n\n  \"caveats\": [\n    \"Some encodings may not support all possible characters, resulting in data loss or replacement of unsupported characters\",\n    \"When working with user-supplied data, ensure proper validation and handling to prevent security vulnerabilities\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deep Dive: _codecs_kr Standard Library Module in Python 3.12+",
+    "summary": "This explainer delves into the _codecs_kr module, a part of Python's standard library introduced in version 3.12, which offers Korean codec support for handling various types of encoded text.",
+    "key_points": [
+      "Understands and encodes/decodes common Korean encodings such as EUC-KR, UTF-8, and ASCII",
+      "Incorporates advanced functionality like automatic detection of encoding for a given data stream",
+      "Supports IANA charset names for easier cross-platform compatibility"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "with open('sample.txt', 'r', encoding='utf-8', errors='replace') as f:\n    print(_codecs.lookup('utf-8').decode(f.read()))"
+      },
+      {
+        "language": "Python",
+        "code": "encoded_data = b'encoded_korean_text'\ndecoded_data = _codecs.encode(encoded_data, 'euc-kr', 'replace')"
+      }
+    ],
+    "version_notes": [
+      "First introduced in Python 3.12",
+      "Improvements and additions may be included in future versions of the standard library"
+    ],
+    "caveats": [
+      "Some encodings may not support all possible characters, resulting in data loss or replacement of unsupported characters",
+      "When working with user-supplied data, ensure proper validation and handling to prevent security vulnerabilities"
+    ]
+  }
+}
