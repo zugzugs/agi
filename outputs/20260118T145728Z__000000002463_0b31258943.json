@@ -1,0 +1,35 @@
+{
+  "timestamp_utc": "2026-01-18T14:57:28Z",
+  "model": "mistral",
+  "topic_index": 2463,
+  "topic": "Deep dive: _decimal standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: _decimal standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deep Dive: decimal Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer provides an overview of the enhanced features and improvements to the decimal standard library module in Python 3.12+, focusing on its increased precision, new context manager, and support for arbitrary-precision arithmetic.\",\n\n  \"key_points\": [\n    \"Increased precision: The decimal module now supports up to approximately 80 digits of precision out-of-the-box in Python 3.12+\",\n    \"New context manager: With the addition of the `with Decimal as...` syntax, users can more easily work with decimal numbers within a specific context and have their variables cleaned up automatically after leaving the block.\",\n    \"Support for arbitrary-precision arithmetic: Developers can now create decimal objects with an arbitrary number of digits by using the `context()` function.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"with Decimal('3.14159265358979323846') as π:\\n    print(π ** 2)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"ctx = context(prec=100)\\n d = Decimal('1.000000000000000000001')\\n d_in_ctx = Decimal.from_float(d, ctx=ctx)\\n print(d_in_ctx)\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"The decimal standard library module was introduced in Python 3.4 and has seen improvements in each subsequent release.\",\n    \"In Python 3.12+, the increased precision, new context manager, and support for arbitrary-precision arithmetic are the primary enhancements to this module.\"\n  ],\n\n  \"caveats\": [\n    \"While the decimal module provides enhanced precision, it can be slower than working with floating-point numbers due to its internal implementation.\",\n    \"When using the new context manager, make sure to close all opened decimal objects (either explicitly or by leaving the block) to avoid memory leaks.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deep Dive: decimal Standard Library Module in Python 3.12+",
+    "summary": "This explainer provides an overview of the enhanced features and improvements to the decimal standard library module in Python 3.12+, focusing on its increased precision, new context manager, and support for arbitrary-precision arithmetic.",
+    "key_points": [
+      "Increased precision: The decimal module now supports up to approximately 80 digits of precision out-of-the-box in Python 3.12+",
+      "New context manager: With the addition of the `with Decimal as...` syntax, users can more easily work with decimal numbers within a specific context and have their variables cleaned up automatically after leaving the block.",
+      "Support for arbitrary-precision arithmetic: Developers can now create decimal objects with an arbitrary number of digits by using the `context()` function."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "with Decimal('3.14159265358979323846') as π:\n    print(π ** 2)"
+      },
+      {
+        "language": "python",
+        "code": "ctx = context(prec=100)\n d = Decimal('1.000000000000000000001')\n d_in_ctx = Decimal.from_float(d, ctx=ctx)\n print(d_in_ctx)"
+      }
+    ],
+    "version_notes": [
+      "The decimal standard library module was introduced in Python 3.4 and has seen improvements in each subsequent release.",
+      "In Python 3.12+, the increased precision, new context manager, and support for arbitrary-precision arithmetic are the primary enhancements to this module."
+    ],
+    "caveats": [
+      "While the decimal module provides enhanced precision, it can be slower than working with floating-point numbers due to its internal implementation.",
+      "When using the new context manager, make sure to close all opened decimal objects (either explicitly or by leaving the block) to avoid memory leaks."
+    ]
+  }
+}
