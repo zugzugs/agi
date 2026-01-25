@@ -1,0 +1,33 @@
+{
+  "timestamp_utc": "2026-01-25T23:36:26Z",
+  "model": "mistral",
+  "topic_index": 2572,
+  "topic": "How to unit test stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to unit test stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Unit Testing Stream Processing in FastAPI using Python 3.12+\",\n  \"summary\": \"This explainer demonstrates how to write unit tests for stream processing within a FastAPI application, utilizing the features of Python 3.12+. It covers testing asynchronous functions and handling streaming data in FastAPI tests.\",\n  \"key_points\": [\n    \"Understanding FastAPI's built-in test client for asynchronous requests\",\n    \"Utilizing FastAPI's testutil module for streaming requests\",\n    \"Using async context manager to handle streaming responses\",\n    \"Testing asynchronous stream processing functions\",\n    \"Handling exceptions and edge cases in the unit tests\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"```\\n\\nfrom fastapi.testclient import TestClient\\nfrom fastapi.testutil.aiohttp import AIOHTTPTestCase as FastAPITestCase\\n\\nclass TestStreamProcessing(FastAPITestCase):\\n    async def test_streaming(self):\\n        response = await self.test_client.get('/stream')\\n        assert response.status_code == 200\\n        # Handle streaming response here...\\n```\"\n    }\n  ],\n  \"version_notes\": [\n    \"Python 3.12+ is required to utilize async/await syntax and other modern features.\",\n    \"FastAPI version >= 0.74.0 is recommended, as it includes support for testing streaming responses.\"\n  ],\n  \"caveats\": [\n    \"Testing streaming requests can be complex due to their inherent asynchronous nature. Be sure to handle streaming responses appropriately within your tests.\",\n    \"Pytest-aiohttp might be needed if you're already using pytest for testing and want a more comprehensive solution.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Unit Testing Stream Processing in FastAPI using Python 3.12+",
+    "summary": "This explainer demonstrates how to write unit tests for stream processing within a FastAPI application, utilizing the features of Python 3.12+. It covers testing asynchronous functions and handling streaming data in FastAPI tests.",
+    "key_points": [
+      "Understanding FastAPI's built-in test client for asynchronous requests",
+      "Utilizing FastAPI's testutil module for streaming requests",
+      "Using async context manager to handle streaming responses",
+      "Testing asynchronous stream processing functions",
+      "Handling exceptions and edge cases in the unit tests"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "```\n\nfrom fastapi.testclient import TestClient\nfrom fastapi.testutil.aiohttp import AIOHTTPTestCase as FastAPITestCase\n\nclass TestStreamProcessing(FastAPITestCase):\n    async def test_streaming(self):\n        response = await self.test_client.get('/stream')\n        assert response.status_code == 200\n        # Handle streaming response here...\n```"
+      }
+    ],
+    "version_notes": [
+      "Python 3.12+ is required to utilize async/await syntax and other modern features.",
+      "FastAPI version >= 0.74.0 is recommended, as it includes support for testing streaming responses."
+    ],
+    "caveats": [
+      "Testing streaming requests can be complex due to their inherent asynchronous nature. Be sure to handle streaming responses appropriately within your tests.",
+      "Pytest-aiohttp might be needed if you're already using pytest for testing and want a more comprehensive solution."
+    ]
+  }
+}
