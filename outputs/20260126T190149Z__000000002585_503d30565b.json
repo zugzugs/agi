@@ -1,0 +1,38 @@
+{
+  "timestamp_utc": "2026-01-26T19:01:49Z",
+  "model": "mistral",
+  "topic_index": 2585,
+  "topic": "Deep dive: _zoneinfo standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: _zoneinfo standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deep Dive: _zoneinfo Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer delves into the _zoneinfo standard library module, a significant addition to Python 3.12+ that provides built-in support for time zones and daylight saving time.\",\n  \"key_points\": [\n    \"_zoneinfo is part of the standard library in Python 3.12+\",\n    \"It offers built-in support for handling time zones and daylight saving time\",\n    \"Supports IANA Time Zone Database (TZDB)\",\n    \"Allows for consistent handling of dates across different time zones\",\n    \"Improves compatibility with other programming languages and platforms\"\n  ],\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from _datetime import datetime, timezone\\n\\n# Create a time object in Pacific Time Zone\\npt = datetime(2023, 5, 15, tzinfo=timezone.utc - timedelta(hours=7))\\nprint(pt)\"\n    },\n    {\n      \"language\": \"Python\",\n      \"code\": \"from pytz import timezone\\n# Create a time object in New York Time Zone (Eastern Standard Time)\\nny = timezone('America/New_York')\\ndt = datetime(2023, 5, 15, tzinfo=ny)\\nprint(dt)\"\n    }\n  ],\n  \"version_notes\": [\n    \"_zoneinfo was added in Python 3.12+\",\n    \"Improves upon the older pytz library's timezone handling\"\n  ],\n  \"caveats\": [\n    \"Not all operating systems may include _zoneinfo by default\",\n    \"Ensure your system has the latest version of Python (3.12+) for full functionality\",\n    \"Be aware that using _zoneinfo will break compatibility with older Python versions\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deep Dive: _zoneinfo Standard Library Module in Python 3.12+",
+    "summary": "This explainer delves into the _zoneinfo standard library module, a significant addition to Python 3.12+ that provides built-in support for time zones and daylight saving time.",
+    "key_points": [
+      "_zoneinfo is part of the standard library in Python 3.12+",
+      "It offers built-in support for handling time zones and daylight saving time",
+      "Supports IANA Time Zone Database (TZDB)",
+      "Allows for consistent handling of dates across different time zones",
+      "Improves compatibility with other programming languages and platforms"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from _datetime import datetime, timezone\n\n# Create a time object in Pacific Time Zone\npt = datetime(2023, 5, 15, tzinfo=timezone.utc - timedelta(hours=7))\nprint(pt)"
+      },
+      {
+        "language": "Python",
+        "code": "from pytz import timezone\n# Create a time object in New York Time Zone (Eastern Standard Time)\nny = timezone('America/New_York')\ndt = datetime(2023, 5, 15, tzinfo=ny)\nprint(dt)"
+      }
+    ],
+    "version_notes": [
+      "_zoneinfo was added in Python 3.12+",
+      "Improves upon the older pytz library's timezone handling"
+    ],
+    "caveats": [
+      "Not all operating systems may include _zoneinfo by default",
+      "Ensure your system has the latest version of Python (3.12+) for full functionality",
+      "Be aware that using _zoneinfo will break compatibility with older Python versions"
+    ]
+  }
+}
