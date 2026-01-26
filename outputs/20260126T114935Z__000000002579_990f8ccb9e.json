@@ -1,0 +1,37 @@
+{
+  "timestamp_utc": "2026-01-26T11:49:35Z",
+  "model": "mistral",
+  "topic_index": 2579,
+  "topic": "Deep dive: _weakrefset standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: _weakrefset standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"_weakrefset Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer provides a comprehensive overview of the _weakrefset standard library module introduced in Python 3.12, its purpose, key features, and examples.\",\n\n  \"key_points\": [\n    \"_weakrefset is a new module added to the Python Standard Library in version 3.12\",\n    \"_weakrefset provides a way to create weak references to sets, which can be useful for garbage collection optimization\",\n    \"_weakrefset maintains the order of elements in the original set and supports various set operations such as union, intersection, difference, symmetric_difference, issubset, issuperset, and membership testing\",\n    \"_weakrefset allows you to specify a finalizer function that will be called when the referenced object is about to be garbage collected\",\n    \"_weakrefset provides more efficient memory management compared to traditional weak references because it does not need to perform garbage collection cycles\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import _weakrefset\\n\\nmy_set = set([1, 2, 3])\\n\\nweak_set = _weakrefset.refset(my_set)\\n\\n# Adding an element to the original set\\nmy_set.add(4)\\n\\n# Verifying that weak_set does not contain the newly added element\\nprint(_weakrefset.proxy(weak_set) != 4)\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import _weakrefset\\n\\nmy_set = set([1, 2, 3])\\n\\nweak_set = _weakrefset.refset(my_set, finalizer=lambda obj: print(\\\"Finalizing {}!\\\".format(obj)))\\n\\n# Triggering the finalizer by removing my_set from its parent object\\nmy_object = {'set': my_set}\\ndel my_object['set']\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"_weakrefset was introduced in Python 3.12\",\n    \"_The finalizer function is called only when the referenced object becomes unreachable, i.e., when it's about to be garbage collected\"\n  ],\n\n  \"caveats\": [\n    \"_weakrefset does not support iterating over the weak set directly. Instead, you can convert it back to a strong reference using _weakrefset.proxy()\",\n    \"_The finalizer function will only be called once per object, even if multiple weak references point to the same object\"\n  ]\n}",
+  "response_parsed": {
+    "title": "_weakrefset Standard Library Module in Python 3.12+",
+    "summary": "This explainer provides a comprehensive overview of the _weakrefset standard library module introduced in Python 3.12, its purpose, key features, and examples.",
+    "key_points": [
+      "_weakrefset is a new module added to the Python Standard Library in version 3.12",
+      "_weakrefset provides a way to create weak references to sets, which can be useful for garbage collection optimization",
+      "_weakrefset maintains the order of elements in the original set and supports various set operations such as union, intersection, difference, symmetric_difference, issubset, issuperset, and membership testing",
+      "_weakrefset allows you to specify a finalizer function that will be called when the referenced object is about to be garbage collected",
+      "_weakrefset provides more efficient memory management compared to traditional weak references because it does not need to perform garbage collection cycles"
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import _weakrefset\n\nmy_set = set([1, 2, 3])\n\nweak_set = _weakrefset.refset(my_set)\n\n# Adding an element to the original set\nmy_set.add(4)\n\n# Verifying that weak_set does not contain the newly added element\nprint(_weakrefset.proxy(weak_set) != 4)"
+      },
+      {
+        "language": "python",
+        "code": "import _weakrefset\n\nmy_set = set([1, 2, 3])\n\nweak_set = _weakrefset.refset(my_set, finalizer=lambda obj: print(\"Finalizing {}!\".format(obj)))\n\n# Triggering the finalizer by removing my_set from its parent object\nmy_object = {'set': my_set}\ndel my_object['set']"
+      }
+    ],
+    "version_notes": [
+      "_weakrefset was introduced in Python 3.12",
+      "_The finalizer function is called only when the referenced object becomes unreachable, i.e., when it's about to be garbage collected"
+    ],
+    "caveats": [
+      "_weakrefset does not support iterating over the weak set directly. Instead, you can convert it back to a strong reference using _weakrefset.proxy()",
+      "_The finalizer function will only be called once per object, even if multiple weak references point to the same object"
+    ]
+  }
+}
