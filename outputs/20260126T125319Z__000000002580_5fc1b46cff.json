@@ -1,0 +1,32 @@
+{
+  "timestamp_utc": "2026-01-26T12:53:19Z",
+  "model": "mistral",
+  "topic_index": 2580,
+  "topic": "How to package stream processing using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to package stream processing using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Packaging Stream Processing with FastAPI in Python 3.12+\",\n  \"summary\": \"This explainer provides a guide on how to implement stream processing using FastAPI, a modern web framework for building APIs, with Python 3.12+. We'll cover key points, code examples, version notes, and caveats.\",\n\n  \"key_points\": [\n    \"Understanding FastAPI and its features\",\n    \"Stream-based processing using ASGI\",\n    \"Implementing a stream-processing API with FastAPI\",\n    \"Handling large data streams efficiently\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"Python\",\n      \"code\": \"from fastapi import FastAPI\\napp = FastAPI()\\n\\ndef process(data: bytes):\\n    # Stream processing logic here\\n\\n@app.websocket('/stream')\\ndef websocket_endpoint(websocket: WebSocket):\\n    await websocket.accept()\\n    async for data in websocket:\\n        await process(data)\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"FastAPI version 0.72.0 or later is required for ASGI support\",\n    \"Python 3.12+ provides improvements to the async/await syntax and performance.\"\n  ],\n\n  \"caveats\": [\n    \"Stream processing can be memory-intensive, so efficient handling of large data streams is crucial\",\n    \"Ensure your stream-processing functions are optimized for asynchronous execution\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Packaging Stream Processing with FastAPI in Python 3.12+",
+    "summary": "This explainer provides a guide on how to implement stream processing using FastAPI, a modern web framework for building APIs, with Python 3.12+. We'll cover key points, code examples, version notes, and caveats.",
+    "key_points": [
+      "Understanding FastAPI and its features",
+      "Stream-based processing using ASGI",
+      "Implementing a stream-processing API with FastAPI",
+      "Handling large data streams efficiently"
+    ],
+    "code_examples": [
+      {
+        "language": "Python",
+        "code": "from fastapi import FastAPI\napp = FastAPI()\n\ndef process(data: bytes):\n    # Stream processing logic here\n\n@app.websocket('/stream')\ndef websocket_endpoint(websocket: WebSocket):\n    await websocket.accept()\n    async for data in websocket:\n        await process(data)"
+      }
+    ],
+    "version_notes": [
+      "FastAPI version 0.72.0 or later is required for ASGI support",
+      "Python 3.12+ provides improvements to the async/await syntax and performance."
+    ],
+    "caveats": [
+      "Stream processing can be memory-intensive, so efficient handling of large data streams is crucial",
+      "Ensure your stream-processing functions are optimized for asynchronous execution"
+    ]
+  }
+}
