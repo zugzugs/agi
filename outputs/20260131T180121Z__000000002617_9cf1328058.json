@@ -1,0 +1,36 @@
+{
+  "timestamp_utc": "2026-01-31T18:01:21Z",
+  "model": "mistral",
+  "topic_index": 2617,
+  "topic": "Deep dive: cProfile standard library module in Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: Deep dive: cProfile standard library module in Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Deep Dive: cProfile Standard Library Module in Python 3.12+\",\n  \"summary\": \"This explainer provides an in-depth look at the cProfile module, a powerful profiling tool available in Python 3.12+ for measuring the performance of your code.\",\n\n  \"key_points\": [\n    \"cProfile offers both detailed and compact profile output formats for thorough analysis.\",\n    \"It can generate per-function and per-statement statistics to help identify bottlenecks.\",\n    \"The module uses a decorator or function wrapper for easy integration into your code.\",\n    \"Profiling results can be saved to a file or used interactively in the Python interpreter.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile\\n\\n@profile\\ndef example_function(n):\\n    total = 0\\n    for i in range(n):\\n        total += i\\n\\nif __name__ == '__main__':\\n    cProfile.run('example_function(10000)')\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"import cProfile, pstats\\n\\np = cProfile.Profile()\\n\\np.run('import sys; print(\\\"Hello World!\\\\n\\\", __name__, file=open(\\\"profiler_output.txt\\\", \\\"w\\\"))'\\n\\np.dump_stats(sort=pstats.SortKey.TIME)\\n\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"cProfile has been a part of Python since version 3.12.\",\n    \"In previous versions, it was known as the 'profile' module.\"\n  ],\n\n  \"caveats\": [\n    \"Using cProfile for profiling can affect the performance of your code slightly due to the overhead of the profiler itself.\",\n    \"For more advanced profiling needs, third-party tools like perftools or line_profiler may be required.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Deep Dive: cProfile Standard Library Module in Python 3.12+",
+    "summary": "This explainer provides an in-depth look at the cProfile module, a powerful profiling tool available in Python 3.12+ for measuring the performance of your code.",
+    "key_points": [
+      "cProfile offers both detailed and compact profile output formats for thorough analysis.",
+      "It can generate per-function and per-statement statistics to help identify bottlenecks.",
+      "The module uses a decorator or function wrapper for easy integration into your code.",
+      "Profiling results can be saved to a file or used interactively in the Python interpreter."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "import cProfile\n\n@profile\ndef example_function(n):\n    total = 0\n    for i in range(n):\n        total += i\n\nif __name__ == '__main__':\n    cProfile.run('example_function(10000)')"
+      },
+      {
+        "language": "python",
+        "code": "import cProfile, pstats\n\np = cProfile.Profile()\n\np.run('import sys; print(\"Hello World!\\n\", __name__, file=open(\"profiler_output.txt\", \"w\"))'\n\np.dump_stats(sort=pstats.SortKey.TIME)\n"
+      }
+    ],
+    "version_notes": [
+      "cProfile has been a part of Python since version 3.12.",
+      "In previous versions, it was known as the 'profile' module."
+    ],
+    "caveats": [
+      "Using cProfile for profiling can affect the performance of your code slightly due to the overhead of the profiler itself.",
+      "For more advanced profiling needs, third-party tools like perftools or line_profiler may be required."
+    ]
+  }
+}
