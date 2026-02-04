@@ -1,0 +1,41 @@
+{
+  "timestamp_utc": "2026-02-04T22:38:36Z",
+  "model": "mistral",
+  "topic_index": 2634,
+  "topic": "How to profile batch jobs using fastapi with Python 3.12+",
+  "prompt": "Write a Python 3.12+ focused, accurate explainer for: How to profile batch jobs using fastapi with Python 3.12+",
+  "response_raw": "{\n  \"title\": \"Profiling Batch Jobs Using FastAPI with Python 3.12+\",\n  \"summary\": \"This guide demonstrates how to profile the performance of batch jobs using FastAPI, a modern, high-performance web framework for building APIs, in conjunction with Python 3.12+.\",\n\n  \"key_points\": [\n    \"Implementing profiling allows for identifying and optimizing time-consuming tasks in your batch jobs to improve overall performance.\",\n    \"FastAPI provides built-in support for middleware that enables us to profile the execution time of each route, including batch jobs.\",\n    \"Profiling with FastAPI can be extended to capture additional information like memory usage and CPU usage if needed.\",\n    \"Python 3.12+ comes with performance improvements over previous versions, which benefits profiling and overall application speed.\"\n  ],\n\n  \"code_examples\": [\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, FastAPIWebTemplate, Depends\\napp = FastAPI()\\nprofile_middleware = FastAPIWebTemplate(dependency=lambda: {'request_duration': 0})\\n\\n@app.on_event('startup')\\ndef startup():\\n    app.add_middleware(profile_middleware)\\n\\n# Your batch job goes here\\n\"\n    },\n    {\n      \"language\": \"python\",\n      \"code\": \"from fastapi import FastAPI, Response\\n@app.get('/batch-job')\\ndef batch_job(response: Response):\\n    # Your time-consuming task\\n    response.content = b'Batch job completed!'\"\n    },\n    {\n      \"language\": \"json\",\n      \"code\": \"{\\\"endpoint\\\": \\\"/profiling\\\", \\\"response\\\": [{\\\"route\\\": \\\"/batch-job\\\", \\\"duration\\\": 23.45}]}\"\n    }\n  ],\n\n  \"version_notes\": [\n    \"FastAPI version: v0.78.0\",\n    \"Python version: 3.12.x\"\n  ],\n\n  \"caveats\": [\n    \"Ensure to install required dependencies before running the example, such as `fastapi`, `uvicorn` and `python-profiler-middleware`.\",\n    \"This example uses Python's built-in profiler middleware. You may need to adjust settings or use other profiling tools for more detailed insights.\",\n    \"Keep in mind that the focus here is on profiling batch jobs, so the actual implementation of a batch job might vary based on your specific use case.\"\n  ]\n}",
+  "response_parsed": {
+    "title": "Profiling Batch Jobs Using FastAPI with Python 3.12+",
+    "summary": "This guide demonstrates how to profile the performance of batch jobs using FastAPI, a modern, high-performance web framework for building APIs, in conjunction with Python 3.12+.",
+    "key_points": [
+      "Implementing profiling allows for identifying and optimizing time-consuming tasks in your batch jobs to improve overall performance.",
+      "FastAPI provides built-in support for middleware that enables us to profile the execution time of each route, including batch jobs.",
+      "Profiling with FastAPI can be extended to capture additional information like memory usage and CPU usage if needed.",
+      "Python 3.12+ comes with performance improvements over previous versions, which benefits profiling and overall application speed."
+    ],
+    "code_examples": [
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, FastAPIWebTemplate, Depends\napp = FastAPI()\nprofile_middleware = FastAPIWebTemplate(dependency=lambda: {'request_duration': 0})\n\n@app.on_event('startup')\ndef startup():\n    app.add_middleware(profile_middleware)\n\n# Your batch job goes here\n"
+      },
+      {
+        "language": "python",
+        "code": "from fastapi import FastAPI, Response\n@app.get('/batch-job')\ndef batch_job(response: Response):\n    # Your time-consuming task\n    response.content = b'Batch job completed!'"
+      },
+      {
+        "language": "json",
+        "code": "{\"endpoint\": \"/profiling\", \"response\": [{\"route\": \"/batch-job\", \"duration\": 23.45}]}"
+      }
+    ],
+    "version_notes": [
+      "FastAPI version: v0.78.0",
+      "Python version: 3.12.x"
+    ],
+    "caveats": [
+      "Ensure to install required dependencies before running the example, such as `fastapi`, `uvicorn` and `python-profiler-middleware`.",
+      "This example uses Python's built-in profiler middleware. You may need to adjust settings or use other profiling tools for more detailed insights.",
+      "Keep in mind that the focus here is on profiling batch jobs, so the actual implementation of a batch job might vary based on your specific use case."
+    ]
+  }
+}
